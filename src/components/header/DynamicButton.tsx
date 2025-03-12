@@ -1,0 +1,108 @@
+import React from "react";
+import { Button, ButtonProps } from "@mui/material";
+
+const baseStyles = {
+    height: "44px",
+    minWidth: "auto",
+    padding: "10px 24px",
+    borderRadius: "1000px",
+    fontFamily: "Inter, sans-serif",
+    fontWeight: 700,
+    fontSize: "14px",
+    lineHeight: "100%",
+    textTransform: "uppercase",
+    whiteSpace: "nowrap",
+    transition: "all 0.3s ease",
+    position: "relative",
+    overflow: "hidden",
+    outline: "none",
+
+    "&::before": {
+        content: '""',
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "0%",
+        height: "100%",
+        background: "#2F80ED",
+        transition: "width 0.4s ease-in-out",
+        zIndex: -1,
+    },
+
+    "&:hover": {
+        color: "black",
+    },
+
+    "&:hover::before": {
+        width: "100%",
+    },
+
+    "&:focus": {
+        outline: "none",
+        borderColor: "inherit",
+    },
+
+    "&:active": {
+        borderColor: "inherit",
+    },
+};
+
+const filledStyles = {
+    backgroundColor: "#2F80ED",
+    color: "black",
+    border: "none",
+    transition: "transform 0.1s ease-in-out",
+
+    "&:hover": {
+        backgroundColor: "#2C70D6",
+    },
+    "&:active": {
+        transform: "scale(0.95)",
+    },
+};
+
+const unfilledStyles = {
+    borderWidth: "1px",
+    borderColor: "#2F80ED",
+    color: "#2F80ED",
+    backgroundColor: "transparent",
+    transition: "color 0.3s ease, border-color 0.3s ease",
+
+    "&::before": {
+        content: '""',
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "0%",
+        height: "100%",
+        background: "#2F80ED",
+        transition: "width 0.4s ease-in-out",
+        zIndex: -1,
+    },
+
+    "&:hover": {
+        color: "black",
+    },
+    "&:hover::before": {
+        width: "100%",
+    },
+};
+
+interface DynamicButtonProps extends ButtonProps {
+    children: React.ReactNode;
+    filled?: boolean;
+}
+
+const DynamicButton: React.FC<DynamicButtonProps> = ({ children, filled = false, ...props }) => {
+    return (
+        <Button
+            variant={filled ? "contained" : "outlined"}
+            sx={{ ...baseStyles, ...(filled ? filledStyles : unfilledStyles) }}
+            {...props}
+        >
+            {children}
+        </Button>
+    );
+};
+
+export default DynamicButton;
