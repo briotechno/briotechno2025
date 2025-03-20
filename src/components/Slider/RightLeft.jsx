@@ -37,14 +37,14 @@ const RightLeft = () => {
         pauseOnHover: false,
         rtl: false, // Right to left
         responsive: [
-            { breakpoint: 1000, settings: { slidesToShow: 4 } }, // Large screens
-            { breakpoint: 924, settings: { slidesToShow: 3 } }, // Tablets
-            { breakpoint: 668, settings: { slidesToShow: 2 } }, // Small tablets
-            { breakpoint: 380, settings: { slidesToShow: 1 } }  // Mobile phones
+            { breakpoint: 1024,settings: { slidesToShow: 6 } }, // Large screens
+            { breakpoint: 768, settings: { slidesToShow: 4 } }, // Tablets
+            { breakpoint: 425, settings: { slidesToShow: 2.3 } }, // Small tablets
+            { breakpoint: 375, settings: { slidesToShow: 2 } }  // Mobile phones
         ]
     };
     return (
-        <>
+        <>  
             <Box sx={styles.slickrtl}>
                 {/* Right to Left Continuous Slider */}
                 <Slider {...settingsRTL}>
@@ -54,7 +54,15 @@ const RightLeft = () => {
                                 component="img"
                                 image={project.image}
                                 alt={`Image ${project.id}`}
-                                sx={{ height: "95%", width: "95%", borderRadius: "5px"}}
+                                sx={{
+                                    width: "85%",
+                                    padding:"8px",
+                                    height: "auto",
+                                    borderRadius: "10px",
+                                    border: "1px solid #ccc",
+                                    "&:hover": { borderColor: "#2568c5" },
+                                    "&:focus": { outline: "none" },
+                                }}
                             />
                         </Box>
                     ))}

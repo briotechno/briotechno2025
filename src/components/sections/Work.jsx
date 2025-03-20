@@ -59,11 +59,11 @@ const styles = {
         fontWeight: "300",
         color: "#000",
         display: "flex",
-        alignItems: "center",  // Corrected from "left"
+        alignItems: "center", 
         justifyContent: "center",
         "&:hover": {
-            backgroundColor: "#1E5DBE",  // Slight hover effect if needed
-            boxShadow: "none",  // Ensures no shadow appears on hover
+            backgroundColor: "#1E5DBE", 
+            boxShadow: "none",  
         },
         "&:focus": {
             outline: "none",

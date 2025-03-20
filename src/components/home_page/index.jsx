@@ -9,6 +9,7 @@ import PortfolioSection from "../sections/Work";
 import SectionTwo from "../Slider/SectionTwo";
 import SlideBar from "../sections/Slidebar";
 import Idea from "../sections/Idea";
+import Footer from "../sections/Footer"
 
 const styles = {
   pageContainer: {
@@ -36,6 +37,7 @@ const HomePage = () => {
         <PortfolioSection />
         <SlideBar />
         <Idea />
+        <Footer />
       </Box>
     </ThemeProvider>
   );

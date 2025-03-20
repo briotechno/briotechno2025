@@ -41,10 +41,10 @@ const LeftRight = () => {
         centerMode: true, // Helps keep even spacing
         centerPadding: "10px", // Adds spacing without affecting layout
         responsive: [
-            { breakpoint: 1200, settings: { slidesToShow: 4, centerPadding: "8px" } },
-            { breakpoint: 1024, settings: { slidesToShow: 3, centerPadding: "6px" } },
-            { breakpoint: 768, settings: { slidesToShow: 2, centerPadding: "4px" } },
-            { breakpoint: 480, settings: { slidesToShow: 1, centerPadding: "2px" } }
+            { breakpoint: 1024,settings: { slidesToShow: 6 } }, // Large screens
+            { breakpoint: 768, settings: { slidesToShow: 4 } }, // Tablets
+            { breakpoint: 425, settings: { slidesToShow: 2.3 } }, // Small tablets
+            { breakpoint: 375, settings: { slidesToShow: 2 } }  // Mobile phones
         ]
     };
 
@@ -52,12 +52,20 @@ const LeftRight = () => {
         <Box sx={styles.slickltr}>
             <Slider {...settingsLTR}>
                 {Data.map((project) => (
-                    <Box key={project.id} sx={{ margin: "0 10px" }}> {/* Ensures proper spacing */}
-                        <CardMedia
-                            component="img"
-                            image={project.image}
-                            alt={`Image ${project.id}`}
-                            sx={{ height: "100%", width: "95%", borderRadius: "5px" }}
+                    <Box key={project.id} sx={{ margin: "0 10px" }}> {/* Added padding here */}
+                    <CardMedia
+                        component="img"
+                        image={project.image}
+                        alt={`Slide ${project.id}`}
+                        sx={{
+                            width: "85%",
+                            padding:"8px",
+                            height: "auto",
+                            borderRadius: "10px",
+                            border: "1px solid #ccc",
+                            "&:hover": { borderColor: "#2568c5" },
+                            "&:focus": { outline: "none" },
+                        }}
                         />
                     </Box>
                 ))}
