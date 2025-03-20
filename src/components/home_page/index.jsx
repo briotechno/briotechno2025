@@ -3,7 +3,12 @@ import { Box } from "@mui/material";
 import darkTheme from "../../utils/theme";
 import Header from "../header/Header";
 import SectionOne from "../sections/SectionOne";
-import SectionTwo from "../sections/SectionTwo";
+import WeOffer from "../sections/WeOffer";
+import Choose from "../sections/Choose";
+import PortfolioSection from "../sections/Work";
+import SectionTwo from "../Slider/SectionTwo";
+import SlideBar from "../sections/Slidebar";
+import Idea from "../sections/Idea";
 
 const styles = {
   pageContainer: {
@@ -25,6 +30,12 @@ const HomePage = () => {
       <Box sx={styles.pageContainer}>
         <Header />
         <SectionOne />
+        <SectionTwo />
+        <WeOffer />
+        <Choose />
+        <PortfolioSection />
+        <SlideBar />
+        <Idea />
       </Box>
     </ThemeProvider>
   );

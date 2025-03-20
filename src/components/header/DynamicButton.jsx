@@ -26,7 +26,7 @@ const baseStyles = {
         height: "100%",
         background: "#2F80ED",
         transition: "width 0.4s ease-in-out",
-        zIndex: -1,
+        zIndex: -1, // Keep this behind the text
     },
 
     "&:hover": {
@@ -66,7 +66,10 @@ const unfilledStyles = {
     borderColor: "#2F80ED",
     color: "#2F80ED",
     backgroundColor: "transparent",
+    position: "relative",
+    overflow: "hidden",
     transition: "color 0.3s ease, border-color 0.3s ease",
+    zIndex: 1, // Ensure the button content stays above the ::before element
 
     "&::before": {
         content: '""',
@@ -77,14 +80,15 @@ const unfilledStyles = {
         height: "100%",
         background: "#2F80ED",
         transition: "width 0.4s ease-in-out",
-        zIndex: -1,
+        zIndex: -1, // Behind the text
     },
 
     "&:hover": {
-        color: "black",
+        color: "black", // Text turns black on hover
     },
+
     "&:hover::before": {
-        width: "100%",
+        width: "100%", // Background fills on hover
     },
 };
 
