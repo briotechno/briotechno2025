@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Box, Typography, Grid } from "@mui/material";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "@fontsource/quicksand";
 import "../../styles/fonts.css";
 import ChooseImg from "../../assets/images/Choose.png";
 import DynamicButton from "../header/DynamicButton";
+
+// Register ScrollTrigger with GSAP
+gsap.registerPlugin(ScrollTrigger);
 
 const styles = {
     content: {
@@ -32,10 +37,10 @@ const styles = {
     textContainer: {
         display: "flex",
         flexDirection: "column",
-        alignItems: "flex-start", // Always align left
-        textAlign: "left", // Ensure text is left-aligned
-        marginLeft: { xs: "20px", md: "0px" }, // Add margin for xs screens
-        marginRight: { xs: "20px", md: "0px" } // Optional for better spacing
+        alignItems: "flex-start",
+        textAlign: "left",
+        marginLeft: { xs: "20px", md: "0px" },
+        marginRight: { xs: "20px", md: "0px" }
     },
     title: {
         fontFamily: "Inter, sans-serif",
@@ -62,21 +67,92 @@ const styles = {
 };
 
 const Choose = () => {
+    const imgRef = useRef(null);
+    const textRef = useRef(null);
+    const sectionRef = useRef(null);
+
+    useEffect(() => {
+        // Image animation - moves from left to right
+        gsap.fromTo(
+            imgRef.current,
+            {
+                x: -100,
+                opacity: 0,
+            },
+            {
+                x: 0,
+                opacity: 1,
+                delay: 0.2,
+                duration: 2, // 4 seconds duration
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top 80%", // Start when top of section is 80% from top of viewport
+                    toggleActions: "play none none reverse", // Play on enter, reverse on leave
+                }
+            }
+        );
+
+        // Text container fade in animation
+        gsap.fromTo(
+            textRef.current,
+            {
+                opacity: 0,
+                y: 20,
+            },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 3, // 4 seconds duration
+                ease: "power2.out",
+                delay: 1.2, // 1 second delay after image starts
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top 80%",
+                    toggleActions: "play none none reverse",
+                }
+            }
+        );
+
+        // Cleanup
+        return () => {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        };
+    }, []);
+
     return (
-        <Box sx={styles.content}>
+        <Box ref={sectionRef} sx={styles.content}>
             <Grid
                 container
                 spacing={4}
                 alignItems="center"
                 justifyContent="center"
             >
-                <Grid item xs={12} md={6} order={{ xs: 2, md: 1 }} sx={{ display: "flex", justifyContent: { xs: "flex-start", md: "center" }, paddingLeft: { xs: "20px", md: "0px" } }}>
+                <Grid 
+                    item 
+                    xs={12} 
+                    md={6} 
+                    order={{ xs: 2, md: 1 }} 
+                    sx={{ 
+                        display: "flex", 
+                        justifyContent: { xs: "flex-start", md: "center" }, 
+                        paddingLeft: { xs: "20px", md: "0px" } 
+                    }}
+                >
                     <Box sx={styles.imgbox}>
-                        <img src={ChooseImg} alt="Choose" style={styles.img} />
+                        <img 
+                            ref={imgRef}
+                            src={ChooseImg} 
+                            alt="Choose" 
+                            style={styles.img} 
+                        />
                     </Box>
                 </Grid>
                 <Grid item xs={12} md={6} order={{ xs: 1, md: 2 }}>
-                    <Box sx={styles.textContainer}>
+                    <Box 
+                        ref={textRef}
+                        sx={styles.textContainer}
+                    >
                         <Typography variant="h1" sx={styles.title}>
                             Why choose us
                         </Typography>

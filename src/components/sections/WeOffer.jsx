@@ -130,7 +130,6 @@ const WeOffer = () => {
             {
                 opacity: 1,
                 y: 0,
-                delay: 0.1,
                 scrollTrigger: {
                     trigger: sectionRef.current,
                     start: "top bottom",

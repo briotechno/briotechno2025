@@ -25,10 +25,8 @@ const styles = {
     section: {
         backgroundColor: "#101318",
         color: "#fff",
-        padding: "100px",
-        justifyContent: "center",
+        padding: "60px",
         maxWidth: "1440px",
-        minHeight: "700px"
     },
     title: {
         fontFamily: "Quicksand, sans-serif",

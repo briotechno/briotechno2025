@@ -1,3 +1,4 @@
+/* src/index.css (or wherever this CSS lives) */
 #root {
   width: 100%;
   background-color: black;
@@ -37,4 +38,27 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* Custom Scrollbar Styles */
+body {
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #1976d2 black; /* Blue thumb, black track */
+}
+
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: black; /* Black background for the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1976d2; /* Blue color for the scroll thumb */
+  border-radius: 4px; /* Optional: rounded corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1565c0; /* Slightly darker blue on hover */
 }
