@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Typography, TextField, keyframes } from "@mui/material";
+import { Box, Typography, TextField, keyframes, useMediaQuery, useTheme } from "@mui/material";
 import BlueVector from "../../assets/images/BlueVector.png";
 import PurpleVector from "../../assets/images/PurpleVector.png";
 import gsap from "gsap";
@@ -15,6 +15,9 @@ const scalingEffect = keyframes`
 `;
 
 const SectionOne = () => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+    const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
     const [showExtraContent, setShowExtraContent] = useState(false);
 
     useEffect(() => {
@@ -54,7 +57,7 @@ const SectionOne = () => {
         content: {
             width: "100%",
             maxWidth: "1440px",
-            minHeight: "720px",
+            minHeight: { xs: "600px", sm: "720px" },
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -62,21 +65,20 @@ const SectionOne = () => {
             textAlign: "center",
             position: "relative",
             zIndex: 1,
-            paddingTop: "72px",
             overflow: "hidden",
             backgroundImage:
                 "linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px)",
             backgroundSize: "70px 70px",
             backgroundPosition: "center",
+            paddingX: { xs: "20px", sm: "0" },
         },
         heading: {
             fontFamily: "Quicksand, sans-serif",
             fontWeight: 400,
-            fontSize: "96px",
-            lineHeight: "111px",
+            fontSize: { xs: "40px", sm: "80px", md: "80px", lg: "96px" },
+            lineHeight: { xs: "56px", sm: "111px" },
             letterSpacing: "0px",
             color: "white",
-            textAlign: "left",
         },
         gradientText: {
             background: "linear-gradient(180deg, #9DE8EE 0%, #66B4EE 49%, #9F8CED 100%)",
@@ -87,13 +89,12 @@ const SectionOne = () => {
         subText: {
             fontFamily: "Quicksand, sans-serif",
             fontWeight: 400,
-            fontSize: "16px",
+            fontSize: { xs: "14px", sm: "16px", md: "18px", lg: "18px" },
             lineHeight: "24px",
             letterSpacing: "2%",
             color: "#8A96A6",
-            maxWidth: "600px",
             marginTop: "8px",
-            textAlign: "left",
+            textAlign: isMobile ? "center" : "left",
         },
         form: {
             display: "flex",
@@ -101,10 +102,11 @@ const SectionOne = () => {
             position: "relative",
             marginTop: "24px",
             width: "100%",
-            maxWidth: "700px",
+            maxWidth: isMobile ? "600px" : "700px",
+            // flexDirection: { xs: "column", sm: "row" },
         },
         inputField: {
-            width: "550px",
+            width: { xs: "100%", sm: "550px" },
             borderRadius: "30px",
             backgroundColor: "transparent",
             paddingRight: "16px",
@@ -133,7 +135,7 @@ const SectionOne = () => {
         },
         vectorImage: {
             position: "absolute",
-            width: "450px",
+            width: isMobile ? "300px" : isSmall ? "100px" : "450px",
             height: "auto",
             animation: `${scalingEffect} 3s infinite ease-in-out`,
         },
@@ -145,7 +147,7 @@ const SectionOne = () => {
                 <img src={BlueVector} alt="Blue Vector" className="image" style={{ ...styles.vectorImage, bottom: "0", left: "0" }} />
                 <img src={PurpleVector} alt="Purple Vector" className="image" style={{ ...styles.vectorImage, top: "0", right: "0" }} />
             </Box>
-            <Box sx={{ display: "flex", flexDirection: "column", alignItems: "flex-start", position: "relative", zIndex: 1 }}>
+            <Box sx={{ display: "flex", flexDirection: "column", position: "relative", zIndex: 1, paddingX: "10px", maxWidth: "700px" }}>
                 <Typography className="text-heading" sx={styles.heading}>
                     {"Building Digital".split("").map((char, index) => (
                         <span key={index} style={char === " " ? { marginRight: "8px" } : {}}>

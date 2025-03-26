@@ -12,7 +12,6 @@ import img6 from "../../assets/images/Slider_1/ltr6.png";
 
 const styles = {
     slickltr: {
-        maxWidth: "1440px",
         margin: "0 auto"
     },
 };

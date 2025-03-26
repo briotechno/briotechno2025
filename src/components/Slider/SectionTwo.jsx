@@ -12,13 +12,13 @@ const SectionTwo = () => {
     const styles = {
         box: {
             width: "100%",
+            maxWidth: "1440px",
             height: 544,
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
         },
         subContent: {
-            maxWidth: "1200px",
             minHeight: "112px",
             display: "flex",
             flexDirection: isLarge ? "column" : "row",

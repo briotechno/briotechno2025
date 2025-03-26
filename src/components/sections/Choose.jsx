@@ -9,7 +9,7 @@ const styles = {
     content: {
         width: "100%",
         maxWidth: "1440px",
-        minHeight: "344px",
+        minHeight: "596px",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -17,23 +17,25 @@ const styles = {
     },
     imgbox: {
         width: "100%",
-        maxWidth: "700px",
         height: "auto",
         display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        justifyContent: { xs: "flex-start", md: "center" },
+        marginLeft: { xs: "20px", md: "0px" },
+        marginRight: { xs: "20px", md: "0px" }
     },
     img: {
         width: "100%",
-        maxWidth: "700px",
+        maxWidth: "500px",
         height: "auto",
         objectFit: "contain",
     },
     textContainer: {
         display: "flex",
         flexDirection: "column",
-        alignItems: { xs: "center", md: "flex-start" }, // Center on small screens, left-align on large screens
-        textAlign: { xs: "center", md: "left" }, // Center text on small screens
+        alignItems: "flex-start", // Always align left
+        textAlign: "left", // Ensure text is left-aligned
+        marginLeft: { xs: "20px", md: "0px" }, // Add margin for xs screens
+        marginRight: { xs: "20px", md: "0px" } // Optional for better spacing
     },
     title: {
         fontFamily: "Inter, sans-serif",
@@ -54,7 +56,7 @@ const styles = {
     },
     buttonContainer: {
         display: "flex",
-        justifyContent: { xs: "center", md: "flex-start" }, // Center button on small screens
+        justifyContent: { xs: "center", md: "flex-start" },
         marginTop: "20px",
     }
 };
@@ -62,27 +64,24 @@ const styles = {
 const Choose = () => {
     return (
         <Box sx={styles.content}>
-            <Grid 
-                container 
-                spacing={4} 
+            <Grid
+                container
+                spacing={4}
                 alignItems="center"
                 justifyContent="center"
             >
-                {/* Image Container - Moves Below on Small Screens */}
-                <Grid item xs={12} md={6} order={{ xs: 2, md: 1 }}>
+                <Grid item xs={12} md={6} order={{ xs: 2, md: 1 }} sx={{ display: "flex", justifyContent: { xs: "flex-start", md: "center" }, paddingLeft: { xs: "20px", md: "0px" } }}>
                     <Box sx={styles.imgbox}>
                         <img src={ChooseImg} alt="Choose" style={styles.img} />
                     </Box>
                 </Grid>
-
-                {/* Text Container (Centered on Small Screens) */}
                 <Grid item xs={12} md={6} order={{ xs: 1, md: 2 }}>
                     <Box sx={styles.textContainer}>
                         <Typography variant="h1" sx={styles.title}>
                             Why choose us
                         </Typography>
                         <Typography variant="body1" sx={styles.subTextTwo}>
-                            Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. 
+                            Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at.
                             Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit.
                         </Typography>
                         <Box sx={styles.buttonContainer}>

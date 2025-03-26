@@ -1,94 +1,158 @@
-import React, { useState } from "react";
-import { AppBar, Toolbar, Box, Typography } from "@mui/material";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { AppBar, Toolbar, Box, Typography, IconButton, Drawer, useMediaQuery, Button } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 import DynamicButton from "./DynamicButton";
+import { useTheme } from "@mui/material/styles";
 
-const Header = () => {
-  const [selectedTab, setSelectedTab] = useState("Company");
+const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState("up");
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const styles = {
-    appBar: {
-      top: 0,
-      left: 0,
-      width: "100%",
-      maxWidth: "1440px",
-      minHeight: "72px",
-      margin: "0 auto", 
-      background: "linear-gradient(to right, black 80%, #0F0F0FCC 100%)",
-      backdropFilter: "blur(18px)",
-      opacity: 0.9,
-      boxShadow: "none",
-      zIndex: 1100,
-      paddingX: 4,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    toolbar: {
-      width: "100%",
-      padding: 0,
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-    },
-    navLinks: {
-      display: "flex",
-      alignItems: "center",
-      gap: 4,
-      paddingRight: 2,
-    },
-    tab: (isSelected) => ({
-      fontFamily: "Inter, sans-serif",
-      fontWeight: 400,
-      fontSize: "16px",
-      lineHeight: "20px",
-      letterSpacing: "2%",
-      color: isSelected ? "#2F80ED" : "#FFFFFF",
-      cursor: "pointer",
-      transition: "color 0.3s ease",
-      "&:hover": {
-        color: "#2F80ED",
-      },
-    }),
-    button: {
-      width: "114px",
-      height: "38px",
-      padding: "10px 24px",
-      borderWidth: "1px",
-      borderRadius: "1000px",
-      borderColor: "#2F80ED",
-      color: "#2F80ED",
-      backgroundColor: "transparent",
-      fontFamily: "Agrandir, sans-serif",
-      fontWeight: 700,
-      fontSize: "14px",
-      lineHeight: "100%",
-      textTransform: "uppercase",
-      marginLeft: 2,
-      "&:hover": {
-        backgroundColor: "rgba(47, 128, 237, 0.1)",
-      },
-    },
-  };
+  const theme = useTheme();
+  const isMediumScreen = useMediaQuery(theme.breakpoints.up("md"));
+  const isSmallScreen = useMediaQuery(theme.breakpoints.up("sm")); // Fixed Typo
+
+  const lastScrollY = useRef(0);
+  const isScrolledRef = useRef(false);
+
+  const handleScroll = useCallback(() => {
+    const currentScrollY = window.scrollY;
+    setScrollDirection(currentScrollY > lastScrollY.current ? "down" : "up");
+
+    const scrolled = currentScrollY > 0;
+    if (scrolled !== isScrolledRef.current) {
+      setIsScrolled(scrolled);
+      isScrolledRef.current = scrolled;
+    }
+
+    lastScrollY.current = currentScrollY;
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
 
   return (
-    <AppBar position="fixed" sx={styles.appBar}>
-      <Toolbar sx={styles.toolbar}>
-        <Box sx={{ flexGrow: 1 }} />
-        <Box sx={styles.navLinks}>
-          {["Company", "Services", "Resources"].map((tab) => (
-            <Typography
-              key={tab}
-              onClick={() => setSelectedTab(tab)}
-              sx={styles.tab(selectedTab === tab)}
-            >
-              {tab}
-            </Typography>
-          ))}
-        </Box>
-        <DynamicButton filled={false}>Contact</DynamicButton>
-      </Toolbar>
-    </AppBar>
+    <Box sx={styles.navContainer}>
+      <AppBar
+        sx={{
+          ...styles.appBar,
+          backgroundColor: isScrolled ? "#101318" : "transparent",
+          transform: scrollDirection === "down" ? "translateY(-100%)" : "translateY(0)",
+          transition: "transform 0.5s ease-in-out, background-color 0.5s ease-in-out",
+        }}
+      >
+        <Toolbar sx={styles.toolbar}>
+          {isMediumScreen ? (
+            <Box sx={styles.navItems}>
+              {["Company", "Services", "Resources"].map((item, index) => (
+                <Typography key={index} sx={styles.navText}>
+                  {item}
+                </Typography>
+              ))}
+              <DynamicButton filled={false}>Contact</DynamicButton>
+            </Box>
+          ) : (
+            <>
+              <IconButton size="large" onClick={() => setDrawerOpen(true)} sx={{ color: "#FFF" }}>
+                <MenuIcon />
+              </IconButton>
+              <Drawer
+                anchor="left"
+                open={drawerOpen}
+                onClose={() => setDrawerOpen(false)}
+                sx={{ "& .MuiDrawer-paper": { width: isSmallScreen ? "50%" : "100%" } }} // Fixed Hook Usage
+              >
+                <Box sx={styles.drawerContent}>
+                  <IconButton onClick={() => setDrawerOpen(false)} sx={styles.closeIcon}>
+                    <CloseIcon />
+                  </IconButton>
+                  {["Company", "Services", "Resources"].map((item, index) => (
+                    <Typography key={index} sx={styles.menuItem}>
+                      {item}
+                    </Typography>
+                  ))}
+                  <Button  sx={styles.menuItem}>
+                    <DynamicButton filled={false}>Contact</DynamicButton>
+                  </Button>
+                </Box>
+              </Drawer>
+            </>
+          )}
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
 };
 
-export default Header;
+const styles = {
+  appBar: {
+    boxShadow: "none",
+    padding: { xs: "10px 10px", sm: "10px 50px" },
+    position: "fixed",
+    maxWidth: "1920px",
+    margin: "0 auto",
+    top: 0,
+    left: 0,
+    width: "100%",
+    zIndex: 1000,
+  },
+  toolbar: {
+    gap: "20px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
+  },
+  navContainer: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  navItems: {
+    gap: "40px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  navText: {
+    fontFamily: "'ZapfHumnst BT', sans-serif",
+    textTransform: "capitalize",
+    fontSize: "18px",
+    fontWeight: 400,
+    lineHeight: "36px",
+    letterSpacing: "0.05em",
+    cursor: "pointer",
+    color: "#FFFFFF",
+    "&:hover": {
+      color: "#2F80ED",
+    },
+  },
+  drawerContent: {
+    display: "flex",
+    flexDirection: "column",
+    height: "100vh",
+    padding: "20px",
+  },
+  closeIcon: {
+    alignSelf: "flex-end",
+    color: "#FFF",
+  },
+  menuItem: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    fontSize: "18px",
+    fontWeight: "bold",
+    padding: "15px 0",
+    color: "#FFF",
+    "&:hover": {
+      color: "#2F80ED",
+    },
+  },
+};
+
+export default Navbar;

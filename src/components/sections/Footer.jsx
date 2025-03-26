@@ -68,8 +68,8 @@ const Footer = () => {
                 <Grid
                     container
                     spacing={{ xs: 4, sm: 8, md: 16, lg: 32 }}
-                    justifyContent="space-between"
-                    alignItems="flex-start"
+                    // justifyContent="space-between"
+                    // alignItems="flex-start"
                 >
                     {footerData.map((section, index) => (
                         <Grid item xs={12} sm={6} md={3} key={index} sx={{ flexGrow: 1 }}>

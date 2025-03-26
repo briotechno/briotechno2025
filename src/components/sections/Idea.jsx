@@ -7,7 +7,6 @@ const Idea = () => {
     const styles = {
         content: {
             width: "100%",
-            maxWidth: "1440px",
             height: "524px",
             backgroundColor: "#0D0F18",
             display: "flex",

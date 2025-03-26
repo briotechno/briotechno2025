@@ -12,7 +12,6 @@ import img6 from "../../assets/images/Slider_2/rtl6.png";
 
 const styles = {
     slickrtl: {
-        maxWidth: "1440px",
         margin: "0 auto"
     }
 };

@@ -14,7 +14,6 @@ import Footer from "../sections/Footer"
 const styles = {
   pageContainer: {
     width: "100%",
-    maxWidth: "1440px",
     margin: "0 auto",
     minHeight: "100vh",
     display: "flex",

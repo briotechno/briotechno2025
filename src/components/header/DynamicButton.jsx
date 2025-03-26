@@ -64,7 +64,7 @@ const filledStyles = {
 const unfilledStyles = {
     borderWidth: "1px",
     borderColor: "#2F80ED",
-    color: "#2F80ED",
+    color: "White",
     backgroundColor: "transparent",
     position: "relative",
     overflow: "hidden",
@@ -84,7 +84,7 @@ const unfilledStyles = {
     },
 
     "&:hover": {
-        color: "black", // Text turns black on hover
+        color: "White", // Text turns black on hover
     },
 
     "&:hover::before": {
