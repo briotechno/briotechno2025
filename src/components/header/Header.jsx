@@ -4,6 +4,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import DynamicButton from "./DynamicButton";
 import { useTheme } from "@mui/material/styles";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,6 +38,13 @@ const Navbar = () => {
     };
   }, [handleScroll]);
 
+  const navItems = [
+    { label: "Company", path: "/" },
+    { label: "Services", path: "/service" },
+    { label: "Resources", path: "/resources" },
+  ];
+
+
   return (
     <Box sx={styles.navContainer}>
       <AppBar
@@ -50,10 +58,18 @@ const Navbar = () => {
         <Toolbar sx={styles.toolbar}>
           {isMediumScreen ? (
             <Box sx={styles.navItems}>
-              {["Company", "Services", "Resources"].map((item, index) => (
-                <Typography key={index} sx={styles.navText}>
-                  {item}
-                </Typography>
+              {navItems.map(({ label, path }, index) => (
+                <NavLink
+                  key={index}
+                  to={path}
+                  style={({ isActive }) => ({
+                    ...styles.navText,
+                    fontWeight: isActive ? "bold" : 400,
+                    color: isActive ? "#2F80ED" : "#FFFFFF",
+                  })}
+                >
+                  {label}
+                </NavLink>
               ))}
               <DynamicButton filled={false}>Contact</DynamicButton>
             </Box>
@@ -72,12 +88,20 @@ const Navbar = () => {
                   <IconButton onClick={() => setDrawerOpen(false)} sx={styles.closeIcon}>
                     <CloseIcon />
                   </IconButton>
-                  {["Company", "Services", "Resources"].map((item, index) => (
-                    <Typography key={index} sx={styles.menuItem}>
-                      {item}
-                    </Typography>
+                  {navItems.map(({ label, path }, index) => (
+                    <NavLink
+                      key={index}
+                      to={path}
+                      style={({ isActive }) => ({
+                        ...styles.navText,
+                        fontWeight: isActive ? "bold" : 400,
+                        color: isActive ? "#2F80ED" : "#FFFFFF",
+                      })}
+                    >
+                      {label}
+                    </NavLink>
                   ))}
-                  <Button  sx={styles.menuItem}>
+                  <Button sx={styles.menuItem}>
                     <DynamicButton filled={false}>Contact</DynamicButton>
                   </Button>
                 </Box>

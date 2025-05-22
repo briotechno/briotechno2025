@@ -7,7 +7,6 @@ import DynamicButton from "../header/DynamicButton";
 import "@fontsource/quicksand";
 import "../../styles/fonts.css";
 
-
 // Scaling animation (shrinks to 50% then back to original)
 const scalingEffect = keyframes`
   0% { transform: scale(1); }
@@ -15,7 +14,7 @@ const scalingEffect = keyframes`
   100% { transform: scale(1); }
 `;
 
-const SectionOne = () => {
+const ServiceOne = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
@@ -62,8 +61,8 @@ const SectionOne = () => {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            alignItems: "center",
-            textAlign: "center",
+            alignItems: "flex-start", // changed from center
+            textAlign: "left", // changed from center
             position: "relative",
             zIndex: 1,
             overflow: "hidden",
@@ -73,13 +72,23 @@ const SectionOne = () => {
             backgroundPosition: "center",
             paddingX: { xs: "20px", sm: "0" },
         },
+        Title: {
+            fontFamily: "Quicksand, sans-serif",
+            fontWeight: '700',
+            fontSize: { xs: "20px", sm: "40px", md: "60px", lg: "24px" },
+            lineHeight: { xs: "56px", sm: "111px" },
+            letterSpacing: "0px",
+            color: "#2F80ED",
+            paddingX: { lg: "45px", sm: "0" },
+        },
         heading: {
             fontFamily: "Quicksand, sans-serif",
-            fontWeight: 400,
-            fontSize: { xs: "40px", sm: "80px", md: "80px", lg: "96px" },
+            fontWeight: 700,
+            fontSize: { xs: "20px", sm: "40px", md: "60px", lg: "64px" },
             lineHeight: { xs: "56px", sm: "111px" },
             letterSpacing: "0px",
             color: "white",
+            paddingX: { lg: "45px", sm: "0" },
         },
         gradientText: {
             background: "linear-gradient(180deg, #9DE8EE 0%, #66B4EE 49%, #9F8CED 100%)",
@@ -89,12 +98,11 @@ const SectionOne = () => {
         },
         subText: {
             fontFamily: "Quicksand, sans-serif",
-            fontWeight: 400,
-            fontSize: { xs: "14px", sm: "16px", md: "18px", lg: "18px" },
+            fontWeight: 500,
+            fontSize: { xs: "14px", sm: "16px", md: "18px", lg: "16px" },
             lineHeight: "24px",
             letterSpacing: "2%",
-            color: "#8A96A6",
-            marginTop: "8px",
+            color: "#FFFFFF99",
             textAlign: isMobile ? "center" : "left",
         },
         form: {
@@ -149,37 +157,25 @@ const SectionOne = () => {
                 <img src={PurpleVector} alt="Purple Vector" className="image" style={{ ...styles.vectorImage, top: "0", right: "0" }} />
             </Box>
             <Box sx={{ display: "flex", flexDirection: "column", position: "relative", zIndex: 1, paddingX: "10px", maxWidth: "700px" }}>
-                <Typography className="text-heading" sx={styles.heading}>
-                    {"Building Digital".split("").map((char, index) => (
-                        <span key={index} style={char === " " ? { marginRight: "8px" } : {}}>
-                            {char}
-                        </span>
-                    ))}
-                    <br />
-                    {"Solutions For a".split("").map((char, index) => (
-                        <span key={index + 100} style={index < 9 ? styles.gradientText : {}}>
-                            {char}
-                        </span>
-                    ))}
-                    <br />
-                    {"Smarter Future.".split("").map((char, index) => (
-                        <span key={index + 200} style={char === " " ? { marginRight: "8px" } : {}}>
-                            {char}
-                        </span>
-                    ))}
-                </Typography>
-                {showExtraContent && (
-                    <Box className="extra-content">
-                        <Typography sx={styles.subText}>Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros</Typography>
-                        <Box sx={styles.form}>
-                            <TextField placeholder="Email" variant="outlined" fullWidth sx={styles.inputField} />
-                            <DynamicButton filled={true}>ATTRACT</DynamicButton>
+                <Box>
+                    <Typography sx={styles.Title}>
+                        Services
+                    </Typography>
+                    <Typography className="text-heading" sx={styles.heading}>
+                        {"Lorem Ipsum".split("").map((char, index) => (
+                            <span key={index} style={char === " " ? { marginRight: "8px" } : {}}>
+                                {char}
+                            </span>
+                        ))}
+                        <Box className="extra-content">
+                            <Typography sx={styles.subText}>Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros </Typography>
                         </Box>
-                    </Box>
-                )}
+                        <DynamicButton filled={true}>Build my brand</DynamicButton>
+                    </Typography>
+                </Box>
             </Box>
         </Box>
     );
 };
 
-export default SectionOne;
+export default ServiceOne;
