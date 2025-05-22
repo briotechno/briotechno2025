@@ -31,12 +31,13 @@ const ServicesOffer = () => {
 
         },
         heading: {
-            fontFamily: "Inter, sans-serif",
-            fontWeight: 400,
-            fontSize: "40px",
+            fontFamily: "Quicksand, sans-serif",
+            color: "#fff",
+            fontWeight: 700,
+            fontSize: { xs: "30px", sm: "25px", md: "30px", lg: "40px" },
+            marginBottom: "20px",
             lineHeight: "56px",
             textAlign: "left", // changed from "center"
-            color: "#D7E4F5",
             opacity: 0,
             alignSelf: "flex-start", // aligns it to left in flex container
             paddingLeft: "5%", // optional: adds spacing from left edge
@@ -54,14 +55,13 @@ const ServicesOffer = () => {
             opacity: 0,
         },
         gridContainer: {
-            width: "90%",
-            maxWidth:"1440px",
-            marginTop: "40px",
+            width: "92%",
+            maxWidth: "1440px",
         },
         box: {
             width: "412px",
             height: "auto",
-            minHeight:"208px",
+            minHeight: "208px",
             border: "1px solid #A1AEBF",
             borderRadius: "4px",
             padding: "20px",

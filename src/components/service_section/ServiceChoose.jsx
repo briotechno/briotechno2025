@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { Box, Typography, Grid } from "@mui/material";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -19,7 +19,9 @@ const styles = {
     },
     section: {
         color: "#fff",
-        padding: "100px 50px",
+        
+        maxwidth:"1440px",
+        padding: {xs:"10px",lg:"50px"},
         minHeight: { xs: "600px", sm: "200px" },
     },
     textContainer: {
@@ -27,7 +29,7 @@ const styles = {
         flexDirection: "column",
         alignItems: "flex-start",
         textAlign: "left",
-        padding: "0 20px",
+        padding: "20px 10px",
         marginLeft: { xs: "20px", md: "0px" },
         marginRight: { xs: "20px", md: "0px" }
     },
@@ -35,7 +37,7 @@ const styles = {
         fontFamily: "Quicksand, sans-serif",
         color: "#fff",
         fontWeight: 700,
-        fontSize: "40px",
+        fontSize: { xs: "30px", sm: "25px", md: "30px", lg: "40px" },
         marginBottom: "20px",
     },
     subTextTwo: {
@@ -43,7 +45,7 @@ const styles = {
         textAlign: "justify",
         fontFamily: "Quicksand, sans-serif",
         paddingBottom: "10px",
-        fontSize: "18px",
+        fontSize: { xs: "14px", sm: "16px", md: "18px", lg: "18px" },
         color: "#8A96A6",
         fontWeight: 600,
         lineHeight: "24px",

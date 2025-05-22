@@ -18,33 +18,54 @@ const ServiceOne = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
+
+    const [showHeading, setShowHeading] = useState(false);
+    const [showTextAnimation, setShowTextAnimation] = useState(false);
     const [showExtraContent, setShowExtraContent] = useState(false);
 
     useEffect(() => {
         const tl = gsap.timeline({
-            onComplete: () => setShowExtraContent(true),
+            onComplete: () => setShowTextAnimation(true)
         });
+
+        // Step 1: Animate "Services" title
         tl.fromTo(
-            ".text-heading span",
-            { opacity: 0, y: 30 },
+            ".services-title",
+            { opacity: 0, x: 50 },
             {
                 opacity: 1,
-                y: 0,
-                delay: 0.5,
+                x: 0,
                 duration: 1,
                 ease: "power3.out",
-                stagger: 0.07,
+                onComplete: () => setShowHeading(true)
             }
-        );
-        gsap.fromTo(
-            ".image",
-            { opacity: 0, scale: 0.5 },
-            { opacity: 1, scale: 1, duration: 1.2, ease: "power3.out", delay: 0.2 }
         );
     }, []);
 
     useEffect(() => {
+        if (showTextAnimation) {
+            const tl = gsap.timeline({
+                onComplete: () => setShowExtraContent(true),
+            });
+
+            // Step 2: Animate each letter of "Lorem Ipsum"
+            tl.fromTo(
+                ".text-heading span",
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: "power3.out",
+                    stagger: 0.07,
+                }
+            );
+        }
+    }, [showTextAnimation]);
+
+    useEffect(() => {
         if (showExtraContent) {
+            // Step 3: Animate extra content (description + button)
             gsap.fromTo(
                 ".extra-content",
                 { opacity: 0, y: 20 },
@@ -53,6 +74,15 @@ const ServiceOne = () => {
         }
     }, [showExtraContent]);
 
+    useEffect(() => {
+        // Animate vector images
+        gsap.fromTo(
+            ".image",
+            { opacity: 0, scale: 0.5 },
+            { opacity: 1, scale: 1, duration: 1.2, ease: "power3.out", delay: 0.2 }
+        );
+    }, []);
+
     const styles = {
         content: {
             width: "100%",
@@ -60,8 +90,8 @@ const ServiceOne = () => {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            alignItems: "flex-start", // changed from center
-            textAlign: "left", // changed from center
+            alignItems: "flex-start",
+            textAlign: "left",
             position: "relative",
             zIndex: 1,
             overflow: "hidden",
@@ -102,7 +132,9 @@ const ServiceOne = () => {
             lineHeight: "24px",
             letterSpacing: "2%",
             color: "#FFFFFF99",
-            textAlign: isMobile ? "center" : "left",
+            textAlign: "justify",
+            paddingX: { lg: "45px", sm: "0" },
+            margin: "5px 0"
         },
         form: {
             display: "flex",
@@ -111,7 +143,6 @@ const ServiceOne = () => {
             marginTop: "24px",
             width: "100%",
             maxWidth: isMobile ? "600px" : "700px",
-            // flexDirection: { xs: "column", sm: "row" },
         },
         inputField: {
             width: { xs: "100%", sm: "550px" },
@@ -157,20 +188,30 @@ const ServiceOne = () => {
             </Box>
             <Box sx={{ display: "flex", flexDirection: "column", position: "relative", zIndex: 1, paddingX: "10px", maxWidth: "700px" }}>
                 <Box>
-                    <Typography sx={styles.Title}>
+                    <Typography className="services-title" sx={styles.Title}>
                         Services
                     </Typography>
-                    <Typography className="text-heading" sx={styles.heading}>
-                        {"Lorem Ipsum".split("").map((char, index) => (
-                            <span key={index} style={char === " " ? { marginRight: "8px" } : {}}>
-                                {char}
-                            </span>
-                        ))}
+
+                    {showHeading && (
+                        <Typography className="text-heading" sx={styles.heading}>
+                            {"Lorem Ipsum".split("").map((char, index) => (
+                                <span key={index} style={char === " " ? { marginRight: "8px" } : {}}>
+                                    {char}
+                                </span>
+                            ))}
+                        </Typography>
+                    )}
+
+                    {showExtraContent && (
                         <Box className="extra-content">
-                            <Typography sx={styles.subText}>Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros </Typography>
+                            <Typography sx={styles.subText}>
+                                Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros
+                            </Typography>
+                            <Box sx={{ paddingX: { lg: "45px", sm: "0" } , mt : 2}}>
+                                <DynamicButton filled={true}>Build my brand</DynamicButton>
+                            </Box>
                         </Box>
-                        <DynamicButton filled={true}>Build my brand</DynamicButton>
-                    </Typography>
+                    )}
                 </Box>
             </Box>
         </Box>

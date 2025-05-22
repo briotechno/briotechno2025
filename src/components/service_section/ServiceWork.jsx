@@ -19,14 +19,16 @@ const projects = [
 const styles = {
     section: {
         color: "#fff",
-        padding: "60px",
+        padding: {xs:"10px",lg:"50px"},
         minHeight: "500px",
+        width: "90%",
+
     },
     title: {
         fontFamily: "Quicksand, sans-serif",
         color: "#fff",
         fontWeight: 700,
-        fontSize: "40px",
+        fontSize: { xs: "30px", sm: "25px", md: "30px", lg: "40px" },
         marginBottom: "20px",
     },
     description: {
