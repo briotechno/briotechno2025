@@ -85,7 +85,7 @@ const ServiceOne = () => {
             fontFamily: "Quicksand, sans-serif",
             fontWeight: 700,
             fontSize: { xs: "20px", sm: "40px", md: "60px", lg: "64px" },
-            lineHeight: { xs: "56px", sm: "111px" },
+            lineHeight: { xs: "56px", sm: "112px" },
             letterSpacing: "0px",
             color: "white",
             paddingX: { lg: "45px", sm: "0" },
