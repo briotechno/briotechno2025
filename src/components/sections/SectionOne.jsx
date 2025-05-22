@@ -57,8 +57,7 @@ const SectionOne = () => {
     const styles = {
         content: {
             width: "100%",
-            maxWidth: "1440px",
-            minHeight: { xs: "600px", sm: "720px" },
+            minHeight: { xs: "600px", sm: "800px" },
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",

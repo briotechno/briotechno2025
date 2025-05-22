@@ -119,7 +119,6 @@ const styles = {
     boxShadow: "none",
     padding: { xs: "10px 10px", sm: "10px 50px" },
     position: "fixed",
-    maxWidth: "1920px",
     margin: "0 auto",
     top: 0,
     left: 0,

@@ -3,6 +3,10 @@ import { Box } from "@mui/material";
 import darkTheme from "../../utils/theme";
 import Header from "../header/Header";
 import ServiceOne from "../service_section/ServiceOne";
+import ServiceChoose from "../service_section/ServiceChoose";
+import ServiceWork from "../service_section/ServiceWork";
+import ServicesOffer from "../service_section/ServicesOffer";
+import Footer from "../sections/Footer"
 
 const styles = {
     pageContainer: {
@@ -23,6 +27,10 @@ const ServicePage = () => {
             <Box sx={styles.pageContainer}>
                 <Header />
                 <ServiceOne />
+                <ServiceChoose/>
+                <ServiceWork/>
+                <ServicesOffer/>
+                <Footer/>
             </Box>
         </ThemeProvider>
     );
