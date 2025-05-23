@@ -21,31 +21,18 @@ const styles = {
         color: "#fff",
         padding: {xs:"10px",lg:"50px"},
         minHeight: "500px",
-        width: "90%",
+        width: "100%",
+        maxWidth: "1440px",
 
     },
     title: {
         fontFamily: "Quicksand, sans-serif",
-        color: "#fff",
+        color: "#FFFFFF",
         fontWeight: 700,
         fontSize: { xs: "30px", sm: "25px", md: "30px", lg: "40px" },
         marginBottom: "20px",
     },
-    description: {
-        fontFamily: "Quicksand, sans-serif",
-        color: "#8A96A6",
-        marginTop: 2,
-        textAlign: "left",
-        fontSize: "18px",
-        opacity: 0,
-    },
-    buttonContainer: {
-        display: "flex",
-        flexDirection: "column",
-        gap: 2,
-        marginTop: 2,
-        width: "140px",
-    },
+   
     card: {
         padding: "10px",
         border: "1px solid #fff",
@@ -281,7 +268,7 @@ const PortfolioSection = () => {
                     </Grid>
                 </Grid>
             </Grid>
-        </Box >
+        </Box>
     );
 };
 

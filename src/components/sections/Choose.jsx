@@ -13,7 +13,8 @@ gsap.registerPlugin(ScrollTrigger);
 const styles = {
     content: {
         width: "100%",
-        minHeight: "596px",
+        maxWidth: "1440px",
+        minHeight: "600px",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -29,9 +30,7 @@ const styles = {
     },
     img: {
         width: "100%",
-        maxWidth: "700px",
-        height: "auto",
-        objectFit: "contain",
+        height: "100%",
     },
     textContainer: {
         display: "flex",
@@ -123,32 +122,32 @@ const Choose = () => {
         <Box ref={sectionRef} sx={styles.content}>
             <Grid
                 container
-                spacing={4}
+                spacing={6}
                 alignItems="center"
                 justifyContent="center"
             >
-                <Grid 
-                    item 
-                    xs={12} 
-                    md={6} 
-                    order={{ xs: 2, md: 1 }} 
-                    sx={{ 
-                        display: "flex", 
-                        justifyContent: { xs: "flex-start", md: "center" }, 
-                        paddingLeft: { xs: "20px", md: "0px" } 
+                <Grid
+                    item
+                    xs={12}
+                    md={6}
+                    order={{ xs: 2, md: 1 }}
+                    sx={{
+                        display: "flex",
+                        justifyContent: { xs: "flex-start", md: "center" },
+                        paddingLeft: { xs: "20px", md: "0px" }
                     }}
                 >
                     <Box sx={styles.imgbox}>
-                        <img 
+                        <img
                             ref={imgRef}
-                            src={ChooseImg} 
-                            alt="Choose" 
-                            style={styles.img} 
+                            src={ChooseImg}
+                            alt="Choose"
+                            style={styles.img}
                         />
                     </Box>
                 </Grid>
                 <Grid item xs={12} md={6} order={{ xs: 1, md: 2 }}>
-                    <Box 
+                    <Box
                         ref={textRef}
                         sx={styles.textContainer}
                     >

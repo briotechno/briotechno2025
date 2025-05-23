@@ -15,7 +15,7 @@ const Idea = () => {
         },
         subcontent: {
             width: "100%",
-            maxWidth: "1200px",
+            maxWidth: "1440px",
             height: "365px",
             backgroundImage: "linear-gradient(90deg, #9DE8EE 0%, #2F80ED 49%, #9F8CED 100%)",
             display: "flex",

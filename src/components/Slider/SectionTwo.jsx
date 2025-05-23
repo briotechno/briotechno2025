@@ -7,11 +7,12 @@ const SectionTwo = () => {
     const theme = useTheme();
     const isLarge = useMediaQuery(theme.breakpoints.down("lg"));
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-    const isSmall =useMediaQuery(theme.breakpoints.down("sm"));
+    const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
 
     const styles = {
         box: {
             width: "100%",
+            maxWidth: "1800px",
             height: 544,
             display: "flex",
             flexDirection: "column",
@@ -29,18 +30,18 @@ const SectionTwo = () => {
             margin: "0 auto",
         },
         subTextOne: {
-            fontSize:isMobile?"25px": "35px",
+            fontSize: isMobile ? "25px" : "35px",
             fontWeight: 400,
-            textAlign:isSmall?"center": "left",
+            textAlign: isSmall ? "center" : "left",
             color: "#D7E4F5",
         },
         subTextTwo: {
-            padding:isMobile? "0 15px" : "0 20px",
+            padding: isMobile ? "0 15px" : "0 20px",
             maxWidth: "635px",
             fontSize: "16px",
             fontWeight: 400,
             lineHeight: "24px",
-            textAlign:isSmall?"center": "left",
+            textAlign: isSmall ? "center" : "left",
             color: "#8A96A6",
         },
         sliderBox: {

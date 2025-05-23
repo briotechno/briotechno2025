@@ -44,7 +44,6 @@ const Navbar = () => {
     { label: "Resources", path: "/resources" },
   ];
 
-
   return (
     <Box sx={styles.navContainer}>
       <AppBar
