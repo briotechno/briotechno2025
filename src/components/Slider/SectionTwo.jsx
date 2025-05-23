@@ -12,7 +12,6 @@ const SectionTwo = () => {
     const styles = {
         box: {
             width: "100%",
-            maxWidth: "1440px",
             height: 544,
             display: "flex",
             flexDirection: "column",

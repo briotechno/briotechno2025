@@ -11,7 +11,7 @@ import WebDevelopment from "../../assets/images/WebDevelopment.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const WeOffer = () => {
+const ServicesOffer = () => {
     const sectionRef = useRef(null);
     const headingRef = useRef(null);
 
@@ -27,18 +27,22 @@ const WeOffer = () => {
             position: "relative",
             zIndex: 1,
             overflow: "hidden",
-            backgroundColor: "#101318",
-            padding: "50px 0",
+            paddingBottom: "150px",
+
         },
         heading: {
-            fontFamily: "Inter, sans-serif",
-            fontWeight: 400,
-            fontSize: "40px",
+            fontFamily: "Quicksand, sans-serif",
+            color: "#fff",
+            fontWeight: 700,
+            fontSize: { xs: "30px", sm: "25px", md: "30px", lg: "40px" },
+            marginBottom: "20px",
             lineHeight: "56px",
-            textAlign: "center",
-            color: "#D7E4F5",
+            textAlign: "left", // changed from "center"
             opacity: 0,
+            alignSelf: "flex-start", // aligns it to left in flex container
+            paddingLeft: "5%", // optional: adds spacing from left edge
         },
+
         subheading: {
             fontFamily: "Agrandir, sans-serif",
             fontWeight: 400,
@@ -51,13 +55,13 @@ const WeOffer = () => {
             opacity: 0,
         },
         gridContainer: {
-            width: "80%",
-            maxWidth:"1440px",
-            marginTop: "40px",
+            width: "92%",
+            maxWidth: "1440px",
         },
         box: {
-            width: "338px",
+            width: "412px",
             height: "auto",
+            minHeight: "208px",
             border: "1px solid #A1AEBF",
             borderRadius: "4px",
             padding: "20px",
@@ -171,24 +175,19 @@ const WeOffer = () => {
 
     return (
         <Box sx={styles.section} ref={sectionRef}>
-            <Typography sx={styles.heading} ref={headingRef}>We Offer</Typography>
-            <Typography sx={styles.subheading} className="subheading">
-                Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit.
-                Morbi rhoncus, tellus, eros consequat magna semper orci a tincidunt.
-            </Typography>
-
+            <Typography sx={styles.heading} ref={headingRef}>Services</Typography>
             <Grid container spacing={3} sx={styles.gridContainer} justifyContent="center">
                 {boxData.map((box, index) => (
-                    <Grid 
-                        item 
-                        key={index} 
-                        xs={12} 
-                        sm={6} 
-                        md={4} 
-                        display="flex" 
+                    <Grid
+                        item
+                        key={index}
+                        xs={12}
+                        sm={6}
+                        md={4}
+                        display="flex"
                         justifyContent="center"
                     >
-                        <Box 
+                        <Box
                             sx={styles.box}
                             className="offer-box"
                         >
@@ -203,4 +202,4 @@ const WeOffer = () => {
     );
 };
 
-export default WeOffer;
+export default ServicesOffer;

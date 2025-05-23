@@ -7,7 +7,6 @@ import DynamicButton from "../header/DynamicButton";
 import "@fontsource/quicksand";
 import "../../styles/fonts.css";
 
-
 // Scaling animation (shrinks to 50% then back to original)
 const scalingEffect = keyframes`
   0% { transform: scale(1); }
@@ -15,37 +14,58 @@ const scalingEffect = keyframes`
   100% { transform: scale(1); }
 `;
 
-const SectionOne = () => {
+const ServiceOne = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
+
+    const [showHeading, setShowHeading] = useState(false);
+    const [showTextAnimation, setShowTextAnimation] = useState(false);
     const [showExtraContent, setShowExtraContent] = useState(false);
 
     useEffect(() => {
         const tl = gsap.timeline({
-            onComplete: () => setShowExtraContent(true),
+            onComplete: () => setShowTextAnimation(true)
         });
+
+        // Step 1: Animate "Services" title
         tl.fromTo(
-            ".text-heading span",
-            { opacity: 0, y: 30 },
+            ".services-title",
+            { opacity: 0, x: 50 },
             {
                 opacity: 1,
-                y: 0,
-                delay: 0.5,
+                x: 0,
                 duration: 1,
                 ease: "power3.out",
-                stagger: 0.07,
+                onComplete: () => setShowHeading(true)
             }
-        );
-        gsap.fromTo(
-            ".image",
-            { opacity: 0, scale: 0.5 },
-            { opacity: 1, scale: 1, duration: 1.2, ease: "power3.out", delay: 0.2 }
         );
     }, []);
 
     useEffect(() => {
+        if (showTextAnimation) {
+            const tl = gsap.timeline({
+                onComplete: () => setShowExtraContent(true),
+            });
+
+            // Step 2: Animate each letter of "Lorem Ipsum"
+            tl.fromTo(
+                ".text-heading span",
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: "power3.out",
+                    stagger: 0.07,
+                }
+            );
+        }
+    }, [showTextAnimation]);
+
+    useEffect(() => {
         if (showExtraContent) {
+            // Step 3: Animate extra content (description + button)
             gsap.fromTo(
                 ".extra-content",
                 { opacity: 0, y: 20 },
@@ -54,15 +74,24 @@ const SectionOne = () => {
         }
     }, [showExtraContent]);
 
+    useEffect(() => {
+        // Animate vector images
+        gsap.fromTo(
+            ".image",
+            { opacity: 0, scale: 0.5 },
+            { opacity: 1, scale: 1, duration: 1.2, ease: "power3.out", delay: 0.2 }
+        );
+    }, []);
+
     const styles = {
         content: {
             width: "100%",
-            minHeight: { xs: "600px", sm: "800px" },
+            minHeight: { xs: "600px", sm: "820px" },
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            alignItems: "center",
-            textAlign: "center",
+            alignItems: "flex-start",
+            textAlign: "left",
             position: "relative",
             zIndex: 1,
             overflow: "hidden",
@@ -72,13 +101,23 @@ const SectionOne = () => {
             backgroundPosition: "center",
             paddingX: { xs: "20px", sm: "0" },
         },
-        heading: {
+        Title: {
             fontFamily: "Quicksand, sans-serif",
-            fontWeight: 400,
-            fontSize: { xs: "40px", sm: "80px", md: "80px", lg: "96px" },
+            fontWeight: '700',
+            fontSize: { xs: "20px", sm: "40px", md: "60px", lg: "24px" },
             lineHeight: { xs: "56px", sm: "111px" },
             letterSpacing: "0px",
+            color: "#2F80ED",
+            paddingX: { lg: "45px", sm: "0" },
+        },
+        heading: {
+            fontFamily: "Quicksand, sans-serif",
+            fontWeight: 700,
+            fontSize: { xs: "20px", sm: "40px", md: "60px", lg: "64px" },
+            lineHeight: { xs: "56px", sm: "112px" },
+            letterSpacing: "0px",
             color: "white",
+            paddingX: { lg: "45px", sm: "0" },
         },
         gradientText: {
             background: "linear-gradient(180deg, #9DE8EE 0%, #66B4EE 49%, #9F8CED 100%)",
@@ -88,13 +127,14 @@ const SectionOne = () => {
         },
         subText: {
             fontFamily: "Quicksand, sans-serif",
-            fontWeight: 400,
-            fontSize: { xs: "14px", sm: "16px", md: "18px", lg: "18px" },
+            fontWeight: 500,
+            fontSize: { xs: "14px", sm: "16px", md: "18px", lg: "16px" },
             lineHeight: "24px",
             letterSpacing: "2%",
-            color: "#8A96A6",
-            marginTop: "8px",
-            textAlign: isMobile ? "center" : "left",
+            color: "#FFFFFF99",
+            textAlign: "justify",
+            paddingX: { lg: "45px", sm: "0" },
+            margin: "5px 0"
         },
         form: {
             display: "flex",
@@ -103,7 +143,6 @@ const SectionOne = () => {
             marginTop: "24px",
             width: "100%",
             maxWidth: isMobile ? "600px" : "700px",
-            // flexDirection: { xs: "column", sm: "row" },
         },
         inputField: {
             width: { xs: "100%", sm: "550px" },
@@ -148,37 +187,35 @@ const SectionOne = () => {
                 <img src={PurpleVector} alt="Purple Vector" className="image" style={{ ...styles.vectorImage, top: "0", right: "0" }} />
             </Box>
             <Box sx={{ display: "flex", flexDirection: "column", position: "relative", zIndex: 1, paddingX: "10px", maxWidth: "700px" }}>
-                <Typography className="text-heading" sx={styles.heading}>
-                    {"Building Digital".split("").map((char, index) => (
-                        <span key={index} style={char === " " ? { marginRight: "8px" } : {}}>
-                            {char}
-                        </span>
-                    ))}
-                    <br />
-                    {"Solutions For a".split("").map((char, index) => (
-                        <span key={index + 100} style={index < 9 ? styles.gradientText : {}}>
-                            {char}
-                        </span>
-                    ))}
-                    <br />
-                    {"Smarter Future.".split("").map((char, index) => (
-                        <span key={index + 200} style={char === " " ? { marginRight: "8px" } : {}}>
-                            {char}
-                        </span>
-                    ))}
-                </Typography>
-                {showExtraContent && (
-                    <Box className="extra-content">
-                        <Typography sx={styles.subText}>Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros</Typography>
-                        <Box sx={styles.form}>
-                            <TextField placeholder="Email" variant="outlined" fullWidth sx={styles.inputField} />
-                            <DynamicButton filled={true}>ATTRACT</DynamicButton>
+                <Box>
+                    <Typography className="services-title" sx={styles.Title}>
+                        Services
+                    </Typography>
+
+                    {showHeading && (
+                        <Typography className="text-heading" sx={styles.heading}>
+                            {"Lorem Ipsum".split("").map((char, index) => (
+                                <span key={index} style={char === " " ? { marginRight: "8px" } : {}}>
+                                    {char}
+                                </span>
+                            ))}
+                        </Typography>
+                    )}
+
+                    {showExtraContent && (
+                        <Box className="extra-content">
+                            <Typography sx={styles.subText}>
+                                Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros
+                            </Typography>
+                            <Box sx={{ paddingX: { lg: "45px", sm: "0" } , mt : 2}}>
+                                <DynamicButton filled={true}>Build my brand</DynamicButton>
+                            </Box>
                         </Box>
-                    </Box>
-                )}
+                    )}
+                </Box>
             </Box>
         </Box>
     );
 };
 
-export default SectionOne;
+export default ServiceOne;

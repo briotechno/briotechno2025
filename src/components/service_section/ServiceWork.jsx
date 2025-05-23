@@ -11,28 +11,25 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
-    { title: "Creative landing page", category: "Website", image: frame, id: 1 },
-    { title: "Creative Branding", category: "Branding", image: "", id: 3 },
-    { title: "Automation. Advanced Level", category: "Development", image: "", id: 5 },
-];
-const projecttwo = [
-    { title: "Why We Collect User's Data", category: "Digital Marketing", image: "", id: 2 },
-    { title: "Creative landing page", category: "User Testing", image: frame, id: 4 },
-    { title: "How We Optimized Our SEO", category: "SEO", image: "", id: 6 },
+    { id: 1, title: "Creative landing page", image: frame, },
+    { id: 2, title: "Creative landing page", image: frame, },
+    { id: 3, title: "Creative landing page", image: frame, },
 ];
 
 const styles = {
     section: {
-        backgroundColor: "#101318",
         color: "#fff",
-        padding: "60px",
+        padding: {xs:"10px",lg:"50px"},
+        minHeight: "500px",
+        width: "90%",
+
     },
     title: {
         fontFamily: "Quicksand, sans-serif",
-        textAlign: "left",
-        fontSize: "40px",
-        fontWeight: "700",
-        opacity: 0, // Initial state for animation
+        color: "#fff",
+        fontWeight: 700,
+        fontSize: { xs: "30px", sm: "25px", md: "30px", lg: "40px" },
+        marginBottom: "20px",
     },
     description: {
         fontFamily: "Quicksand, sans-serif",
@@ -40,7 +37,7 @@ const styles = {
         marginTop: 2,
         textAlign: "left",
         fontSize: "18px",
-        opacity: 0, // Initial state for animation
+        opacity: 0,
     },
     buttonContainer: {
         display: "flex",
@@ -251,23 +248,15 @@ const PortfolioSection = () => {
     return (
         <Box sx={styles.section} ref={sectionRef}>
             <Grid container spacing={4}>
-                {/* Left Section */}
                 <Grid item xs={12} md={4}>
-                    <Typography sx={styles.title} ref={titleRef}>
-                        Some pieces of our work
+                    <Typography variant="h1" sx={styles.title} ref={titleRef}>
+                        Branding Works
                     </Typography>
-                    <Typography variant="body1" sx={styles.description} ref={descRef}>
-                        Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros consequat magna semper orci a tincidunt.
-                    </Typography>
-                    <Box sx={styles.buttonContainer}>
-                        <DynamicButton filled={false}>Show More</DynamicButton>
-                        <DynamicButton filled={true}>Show More</DynamicButton>
-                    </Box>
                 </Grid>
-                <Grid item xs={12} md={4}>
-                    <Grid container spacing={3}>
+                <Grid item xs={12} md={12}>
+                    <Grid container spacing={4}>
                         {projects.map((project, index) => (
-                            <Grid item xs={12} sm={12} key={project.id}>
+                            <Grid item xs={12} sm={4} key={project.id}>
                                 <Card sx={styles.card} className="portfolio-card">
                                     {project.image && (
                                         <CardMedia
@@ -278,41 +267,6 @@ const PortfolioSection = () => {
                                         />
                                     )}
                                     <CardContent sx={styles.cardContent}>
-                                        <Button variant="contained" sx={styles.categoryButton}>
-                                            {project.category}
-                                        </Button>
-                                        <Typography sx={styles.projectTitle}>{project.title}</Typography>
-                                        <Button
-                                            sx={styles.readMoreButton}
-                                            endIcon={<Box component="img" src={ReadMore} sx={styles.readMoreIcon} />}
-                                        >
-                                            Read more
-                                        </Button>
-                                    </CardContent>
-                                </Card>
-                            </Grid>
-                        ))}
-                    </Grid>
-                </Grid>
-
-                {/* Third part */}
-                <Grid item xs={12} md={4}>
-                    <Grid container spacing={3}>
-                        {projecttwo.map((project, index) => (
-                            <Grid item xs={12} sm={12} key={project.id}>
-                                <Card sx={styles.card} className="portfolio-card">
-                                    {project.image && (
-                                        <CardMedia
-                                            component="img"
-                                            image={project.image}
-                                            sx={styles.cardMedia}
-                                            ref={(el) => setImageRef(el, projects.length + index)}
-                                        />
-                                    )}
-                                    <CardContent sx={styles.cardContent}>
-                                        <Button variant="contained" sx={styles.categoryButton}>
-                                            {project.category}
-                                        </Button>
                                         <Typography sx={styles.projectTitle}>{project.title}</Typography>
                                         <Button
                                             sx={styles.readMoreButton}
@@ -327,7 +281,7 @@ const PortfolioSection = () => {
                     </Grid>
                 </Grid>
             </Grid>
-        </Box>
+        </Box >
     );
 };
 

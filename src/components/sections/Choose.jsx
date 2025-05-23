@@ -13,7 +13,6 @@ gsap.registerPlugin(ScrollTrigger);
 const styles = {
     content: {
         width: "100%",
-        maxWidth: "1440px",
         minHeight: "596px",
         display: "flex",
         justifyContent: "center",
@@ -30,7 +29,7 @@ const styles = {
     },
     img: {
         width: "100%",
-        maxWidth: "500px",
+        maxWidth: "700px",
         height: "auto",
         objectFit: "contain",
     },
@@ -51,7 +50,7 @@ const styles = {
     },
     subTextTwo: {
         width: "100%",
-        maxWidth: "600px",
+        maxWidth: "700px",
         fontFamily: "Inter, sans-serif",
         paddingBottom: "10px",
         fontSize: "16px",
