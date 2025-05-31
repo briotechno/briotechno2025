@@ -16,7 +16,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const SlideBar = () => {
+const AboutSlidebar = () => {
     const sliderRef = useRef(null);
     const containerRef = useRef(null);
     const headingRef = useRef(null);
@@ -219,4 +219,4 @@ const SlideBar = () => {
     );
 };
 
-export default SlideBar;
+export default AboutSlidebar;

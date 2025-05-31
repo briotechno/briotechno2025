@@ -18,7 +18,6 @@ const ServicesOffer = () => {
     const styles = {
         section: {
             width: "100%",
-            maxWidth: "1440px",
             minHeight: "720px",
             display: "flex",
             flexDirection: "column",
@@ -28,6 +27,8 @@ const ServicesOffer = () => {
             position: "relative",
             zIndex: 1,
             overflow: "hidden",
+            paddingBottom: "150px",
+
         },
         heading: {
             fontFamily: "Quicksand, sans-serif",
@@ -36,8 +37,10 @@ const ServicesOffer = () => {
             fontSize: { xs: "30px", sm: "25px", md: "30px", lg: "40px" },
             marginBottom: "20px",
             lineHeight: "56px",
+            textAlign: "left", // changed from "center"
             opacity: 0,
-            alignSelf: "flex-start",
+            alignSelf: "flex-start", // aligns it to left in flex container
+            paddingLeft: "5%", // optional: adds spacing from left edge
         },
 
         subheading: {
@@ -52,7 +55,7 @@ const ServicesOffer = () => {
             opacity: 0,
         },
         gridContainer: {
-            width: "100%",
+            width: "92%",
             maxWidth: "1440px",
         },
         box: {

@@ -18,11 +18,10 @@ const projects = [
 
 const styles = {
     section: {
-        maxWidth: "1440px",
         color: "#fff",
-        padding: { xs: "10px", lg: "50px" },
+        padding: {xs:"10px",lg:"50px"},
         minHeight: "500px",
-        width: "100%",
+        width: "90%",
 
     },
     title: {

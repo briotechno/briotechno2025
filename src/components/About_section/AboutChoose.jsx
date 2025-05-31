@@ -4,8 +4,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "@fontsource/quicksand";
 import "../../styles/fonts.css";
-import ChooseImg from "../../assets/images/Choose.png";
-import DynamicButton from "../header/DynamicButton";
 
 // Register ScrollTrigger with GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -19,11 +17,13 @@ const styles = {
     },
     section: {
         color: "#fff",
+
         maxwidth: "1440px",
         padding: { xs: "10px", lg: "50px" },
         minHeight: { xs: "600px", sm: "200px" },
     },
     textContainer: {
+        width:"100%",
         maxWidth: "1440px",
         display: "flex",
         flexDirection: "column",
@@ -52,7 +52,7 @@ const styles = {
     },
 };
 
-const ServiceChoose = () => {
+const AboutChoose = () => {
 
     return (
         <Box sx={styles.section}>
@@ -65,7 +65,7 @@ const ServiceChoose = () => {
                         sx={styles.textContainer}
                     >
                         <Typography variant="h1" sx={styles.title}>
-                            Process
+                            Company
                         </Typography>
                         <Typography variant="body1" sx={styles.subTextTwo}>
                             Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit.Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit. Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit. Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit.
@@ -77,4 +77,4 @@ const ServiceChoose = () => {
     );
 };
 
-export default ServiceChoose;
+export default AboutChoose;

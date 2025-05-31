@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Typography, Box, useMediaQuery, useTheme } from "@mui/material";
-import LeftRight from "./LeftRight";
-import RightLeft from "./RightLeft";
+import About_LeftRight from "./About_LeftRight";
+import About_RightLeft from "./About_RightLeft";
 
-const SectionTwo = () => {
+const About_SectionTwo = () => {
     const theme = useTheme();
     const isLarge = useMediaQuery(theme.breakpoints.down("lg"));
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -62,13 +62,13 @@ const SectionTwo = () => {
                 </Typography>
             </Box>
             <Box sx={styles.sliderBox}>
-                <LeftRight />
+                <About_LeftRight />
             </Box>
             <Box sx={styles.sliderBox}>
-                <RightLeft />
+                <About_RightLeft />
             </Box>
         </Box>
     );
 };
 
-export default SectionTwo;
+export default About_SectionTwo;

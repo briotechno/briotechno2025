@@ -52,7 +52,7 @@ const WeOffer = () => {
         },
         gridContainer: {
             width: "80%",
-            maxWidth:"1440px",
+            maxWidth: "1440px",
             marginTop: "40px",
         },
         box: {
@@ -179,16 +179,16 @@ const WeOffer = () => {
 
             <Grid container spacing={3} sx={styles.gridContainer} justifyContent="center">
                 {boxData.map((box, index) => (
-                    <Grid 
-                        item 
-                        key={index} 
-                        xs={12} 
-                        sm={6} 
-                        md={4} 
-                        display="flex" 
+                    <Grid
+                        item
+                        key={index}
+                        xs={12}
+                        sm={6}
+                        md={4}
+                        display="flex"
                         justifyContent="center"
                     >
-                        <Box 
+                        <Box
                             sx={styles.box}
                             className="offer-box"
                         >

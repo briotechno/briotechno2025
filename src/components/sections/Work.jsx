@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { Box, Button, Typography, Card, CardContent, CardMedia } from "@mui/material";
-import Grid from '@mui/material/Grid';
+import Grid from "@mui/material/Grid";
 import DynamicButton from "../header/DynamicButton";
 import "@fontsource/quicksand";
 import frame from "../../assets/images/Frame.png";
@@ -12,27 +12,37 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
     { title: "Creative landing page", category: "Website", image: frame, id: 1 },
-    { title: "Creative Branding", category: "Branding", image: "", id: 3 },
-    { title: "Automation. Advanced Level", category: "Development", image: "", id: 5 },
+    { title: "Creative Branding", category: "Branding", image: frame, id: 2 },
+    { title: "Automation. Advanced Level", category: "Development", image: frame, id: 3 },
 ];
 const projecttwo = [
-    { title: "Why We Collect User's Data", category: "Digital Marketing", image: "", id: 2 },
-    { title: "Creative landing page", category: "User Testing", image: frame, id: 4 },
-    { title: "How We Optimized Our SEO", category: "SEO", image: "", id: 6 },
+    { title: "Why We Collect User's Data", category: "Digital Marketing", image: frame, id: 4 },
+    { title: "Creative landing page", category: "User Testing", image: frame, id: 5 },
+    { title: "How We Optimized Our SEO", category: "SEO", image: frame, id: 6 },
 ];
 
 const styles = {
     section: {
+        width: "100%",
+        maxWidth: "1440px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
         backgroundColor: "#101318",
         color: "#fff",
         padding: "60px",
+    },
+    gridContainer: {
+        maxWidth: "1440px",
     },
     title: {
         fontFamily: "Quicksand, sans-serif",
         textAlign: "left",
         fontSize: "40px",
         fontWeight: "700",
-        opacity: 0, // Initial state for animation
+        opacity: 0,
     },
     description: {
         fontFamily: "Quicksand, sans-serif",
@@ -40,7 +50,7 @@ const styles = {
         marginTop: 2,
         textAlign: "left",
         fontSize: "18px",
-        opacity: 0, // Initial state for animation
+        opacity: 0,
     },
     buttonContainer: {
         display: "flex",
@@ -64,11 +74,15 @@ const styles = {
                 opacity: 1,
                 transform: "translateY(0)",
             },
-            "& $projectTitle": {
+            "& .project-title": {
                 transform: "scale(1.05)",
             },
-            "& $readMoreButton": {
+            "& .read-more-button": {
                 transform: "scale(1.05)",
+            },
+            "& .card-media": {
+                opacity: 1,
+                height: "auto",
             },
         },
         "&:before": {
@@ -88,6 +102,14 @@ const styles = {
     cardContent: {
         position: "relative",
         zIndex: 1,
+    },
+    cardMedia: {
+        position: "relative",
+        zIndex: 2,
+        transition: "all 0.3s ease-in-out",
+        opacity: 0,
+        height: 0,
+        overflow: "hidden",
     },
     categoryButton: {
         fontSize: "12px",
@@ -134,21 +156,14 @@ const styles = {
         height: "20px",
         transition: "transform 0.3s ease-in-out",
     },
-    cardMedia: {
-        position: "relative",
-        zIndex: 2,
-        transition: "all 0.3s ease-in-out",
-    },
 };
 
 const PortfolioSection = () => {
     const sectionRef = useRef(null);
     const titleRef = useRef(null);
     const descRef = useRef(null);
-    const imageRefs = useRef([]);
 
     useEffect(() => {
-        // Animation for title
         gsap.fromTo(
             titleRef.current,
             { opacity: 0, x: -50 },
@@ -165,7 +180,6 @@ const PortfolioSection = () => {
             }
         );
 
-        // Animation for description
         gsap.fromTo(
             descRef.current,
             { opacity: 0, x: -50 },
@@ -183,7 +197,6 @@ const PortfolioSection = () => {
             }
         );
 
-        // Animation for cards
         gsap.fromTo(
             ".portfolio-card",
             {
@@ -205,52 +218,11 @@ const PortfolioSection = () => {
                 ease: "back.out(1.7)",
             }
         );
-
-        // Existing image hover animation
-        imageRefs.current.forEach((image) => {
-            if (image) {
-                const handleMouseEnter = () => {
-                    gsap.to(image, {
-                        scale: 1.2,
-                        y: -20,
-                        z: 50,
-                        boxShadow: "0 10px 20px rgba(0,0,0,0.3)",
-                        duration: 0.4,
-                        ease: "power3.out",
-                        zIndex: 10,
-                    });
-                };
-
-                const handleMouseLeave = () => {
-                    gsap.to(image, {
-                        scale: 1,
-                        y: 0,
-                        z: 0,
-                        boxShadow: "none",
-                        duration: 0.4,
-                        ease: "power3.in",
-                        zIndex: 2,
-                    });
-                };
-
-                image.addEventListener("mouseenter", handleMouseEnter);
-                image.addEventListener("mouseleave", handleMouseLeave);
-
-                return () => {
-                    image.removeEventListener("mouseenter", handleMouseEnter);
-                    image.removeEventListener("mouseleave", handleMouseLeave);
-                };
-            }
-        });
     }, []);
-
-    const setImageRef = (el, index) => {
-        imageRefs.current[index] = el;
-    };
 
     return (
         <Box sx={styles.section} ref={sectionRef}>
-            <Grid container spacing={4}>
+            <Grid container spacing={4} sx={styles.gridContainer}>
                 {/* Left Section */}
                 <Grid item xs={12} md={4}>
                     <Typography sx={styles.title} ref={titleRef}>
@@ -264,26 +236,32 @@ const PortfolioSection = () => {
                         <DynamicButton filled={true}>Show More</DynamicButton>
                     </Box>
                 </Grid>
+
+                {/* Middle Section */}
                 <Grid item xs={12} md={4}>
                     <Grid container spacing={3}>
                         {projects.map((project, index) => (
                             <Grid item xs={12} sm={12} key={project.id}>
                                 <Card sx={styles.card} className="portfolio-card">
-                                    {project.image && (
-                                        <CardMedia
-                                            component="img"
-                                            image={project.image}
-                                            sx={styles.cardMedia}
-                                            ref={(el) => setImageRef(el, index)}
-                                        />
-                                    )}
+                                    <CardMedia
+                                        component="img"
+                                        image={project.image}
+                                        sx={{
+                                            ...styles.cardMedia,
+                                            ...(project.id === 1 && { opacity: 1, height: "auto" }),
+                                        }}
+                                        className="card-media"
+                                    />
                                     <CardContent sx={styles.cardContent}>
                                         <Button variant="contained" sx={styles.categoryButton}>
                                             {project.category}
                                         </Button>
-                                        <Typography sx={styles.projectTitle}>{project.title}</Typography>
+                                        <Typography sx={{ ...styles.projectTitle }} className="project-title">
+                                            {project.title}
+                                        </Typography>
                                         <Button
-                                            sx={styles.readMoreButton}
+                                            sx={{ ...styles.readMoreButton }}
+                                            className="read-more-button"
                                             endIcon={<Box component="img" src={ReadMore} sx={styles.readMoreIcon} />}
                                         >
                                             Read more
@@ -295,7 +273,7 @@ const PortfolioSection = () => {
                     </Grid>
                 </Grid>
 
-                {/* Third part */}
+                {/* Right Section */}
                 <Grid item xs={12} md={4}>
                     <Grid container spacing={3}>
                         {projecttwo.map((project, index) => (
@@ -306,16 +284,19 @@ const PortfolioSection = () => {
                                             component="img"
                                             image={project.image}
                                             sx={styles.cardMedia}
-                                            ref={(el) => setImageRef(el, projects.length + index)}
+                                            className="card-media"
                                         />
                                     )}
                                     <CardContent sx={styles.cardContent}>
                                         <Button variant="contained" sx={styles.categoryButton}>
                                             {project.category}
                                         </Button>
-                                        <Typography sx={styles.projectTitle}>{project.title}</Typography>
+                                        <Typography sx={{ ...styles.projectTitle }} className="project-title">
+                                            {project.title}
+                                        </Typography>
                                         <Button
-                                            sx={styles.readMoreButton}
+                                            sx={{ ...styles.readMoreButton }}
+                                            className="read-more-button"
                                             endIcon={<Box component="img" src={ReadMore} sx={styles.readMoreIcon} />}
                                         >
                                             Read more

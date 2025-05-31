@@ -13,6 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 const styles = {
     content: {
         width: "100%",
+        maxWidth: "1440px",
         minHeight: "596px",
         display: "flex",
         justifyContent: "center",
@@ -127,28 +128,28 @@ const Choose = () => {
                 alignItems="center"
                 justifyContent="center"
             >
-                <Grid 
-                    item 
-                    xs={12} 
-                    md={6} 
-                    order={{ xs: 2, md: 1 }} 
-                    sx={{ 
-                        display: "flex", 
-                        justifyContent: { xs: "flex-start", md: "center" }, 
-                        paddingLeft: { xs: "20px", md: "0px" } 
+                <Grid
+                    item
+                    xs={12}
+                    md={6}
+                    order={{ xs: 2, md: 1 }}
+                    sx={{
+                        display: "flex",
+                        justifyContent: { xs: "flex-start", md: "center" },
+                        paddingLeft: { xs: "20px", md: "0px" }
                     }}
                 >
                     <Box sx={styles.imgbox}>
-                        <img 
+                        <img
                             ref={imgRef}
-                            src={ChooseImg} 
-                            alt="Choose" 
-                            style={styles.img} 
+                            src={ChooseImg}
+                            alt="Choose"
+                            style={styles.img}
                         />
                     </Box>
                 </Grid>
                 <Grid item xs={12} md={6} order={{ xs: 1, md: 2 }}>
-                    <Box 
+                    <Box
                         ref={textRef}
                         sx={styles.textContainer}
                     >
