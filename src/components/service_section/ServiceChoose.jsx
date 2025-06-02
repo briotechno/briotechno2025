@@ -13,11 +13,14 @@ gsap.registerPlugin(ScrollTrigger);
 const styles = {
     content: {
         width: "100%",
+        maxwidth: "1440px",
         minHeight: { xs: "600px", sm: "300px" },
         justifyContent: "center",
         alignItems: "center",
     },
     section: {
+        width: "100%",
+        maxWidth: "1440px",
         color: "#fff",
         maxwidth: "1440px",
         padding: { xs: "10px", lg: "50px" },
@@ -28,7 +31,7 @@ const styles = {
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
-        textAlign: "left",
+        // textAlign: "left",
         padding: "20px 10px",
         marginLeft: { xs: "20px", md: "0px" },
         marginRight: { xs: "20px", md: "0px" }
@@ -55,22 +58,17 @@ const styles = {
 const ServiceChoose = () => {
 
     return (
-        <Box sx={styles.section}>
-            <Grid
-                container
-                spacing={4}
-            >
-                <Grid item xs={12} md={12} order={{ xs: 1, md: 2 }}>
-                    <Box
-                        sx={styles.textContainer}
-                    >
-                        <Typography variant="h1" sx={styles.title}>
-                            Process
-                        </Typography>
-                        <Typography variant="body1" sx={styles.subTextTwo}>
-                            Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit.Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit. Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit. Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit.
-                        </Typography>
-                    </Box>
+        <Box sx={styles.section} >
+            <Grid container spacing={4}>
+                <Grid item xs={12} md={4}>
+                    <Typography variant="h1" sx={styles.title}>
+                        Process
+                    </Typography>
+                </Grid>
+                <Grid item xs={12} md={12}>
+                    <Typography variant="body1" sx={styles.subTextTwo}>
+                        Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit.Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit. Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit. Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit.
+                    </Typography>
                 </Grid>
             </Grid>
         </Box>

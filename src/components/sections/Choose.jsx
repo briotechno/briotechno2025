@@ -14,7 +14,7 @@ const styles = {
     content: {
         width: "100%",
         maxWidth: "1440px",
-        minHeight: "596px",
+        minHeight: "600px",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -30,9 +30,7 @@ const styles = {
     },
     img: {
         width: "100%",
-        maxWidth: "700px",
-        height: "auto",
-        objectFit: "contain",
+        height: "100%",
     },
     textContainer: {
         display: "flex",
@@ -124,7 +122,7 @@ const Choose = () => {
         <Box ref={sectionRef} sx={styles.content}>
             <Grid
                 container
-                spacing={4}
+                spacing={6}
                 alignItems="center"
                 justifyContent="center"
             >

@@ -26,7 +26,7 @@ const SlideBar = () => {
     const styles = {
         container: {
             width: "100%",
-            maxWidth: "1440px",
+            maxWidth:"1440px",
             margin: "auto",
             padding: isMobile ? "0 10px" : "0 20px",
             minHeight: "596px",
