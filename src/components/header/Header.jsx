@@ -1,19 +1,32 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { AppBar, Toolbar, Box, Typography, IconButton, Drawer, useMediaQuery, Button } from "@mui/material";
+import {
+  AppBar,
+  Toolbar,
+  Box,
+  IconButton,
+  Drawer,
+  useMediaQuery,
+  Button,
+  Menu,
+  MenuItem,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import DynamicButton from "./DynamicButton";
 import { useTheme } from "@mui/material/styles";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollDirection, setScrollDirection] = useState("up");
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const theme = useTheme();
   const isMediumScreen = useMediaQuery(theme.breakpoints.up("md"));
-  const isSmallScreen = useMediaQuery(theme.breakpoints.up("sm")); // Fixed Typo
+  const isSmallScreen = useMediaQuery(theme.breakpoints.up("sm"));
+  const navigate = useNavigate();
 
   const lastScrollY = useRef(0);
   const isScrolledRef = useRef(false);
@@ -38,8 +51,18 @@ const Navbar = () => {
     };
   }, [handleScroll]);
 
+  const handleMenuOpen = (event) => setAnchorEl(event.currentTarget);
+  const handleMenuClose = () => setAnchorEl(null);
+
   const navItems = [
-    { label: "Company", path: "/" },
+    {
+      label: "Company",
+      submenu: [
+        { label: "About Us", path: "/About" },
+        { label: "Career", path: "/" },
+        { label: "Intership", path: "/" },
+      ],
+    },
     { label: "Services", path: "/service" },
     { label: "Resources", path: "/resources" },
   ];
@@ -50,14 +73,45 @@ const Navbar = () => {
         sx={{
           ...styles.appBar,
           backgroundColor: isScrolled ? "#101318" : "transparent",
-          transform: scrollDirection === "down" ? "translateY(-100%)" : "translateY(0)",
-          transition: "transform 0.5s ease-in-out, background-color 0.5s ease-in-out",
+          transform:
+            scrollDirection === "down" ? "translateY(-100%)" : "translateY(0)",
+          transition:
+            "transform 0.5s ease-in-out, background-color 0.5s ease-in-out",
         }}
       >
         <Toolbar sx={styles.toolbar}>
           {isMediumScreen ? (
             <Box sx={styles.navItems}>
-              {navItems.map(({ label, path }, index) => (
+              {/* Dropdown for Company */}
+              <Box>
+                <Button
+                  onClick={handleMenuOpen}
+                  sx={{ ...styles.navText, display: "flex", alignItems: "center" }}
+                  endIcon={<ArrowDropDownIcon />}
+                >
+                  Company
+                </Button>
+                <Menu
+                  anchorEl={anchorEl}
+                  open={Boolean(anchorEl)}
+                  onClose={handleMenuClose}
+                >
+                  {navItems[0].submenu.map(({ label, path }, i) => (
+                    <MenuItem
+                      key={i}
+                      onClick={() => {
+                        handleMenuClose();
+                        navigate(path);
+                      }}
+                    >
+                      {label}
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
+
+              {/* Other nav items */}
+              {navItems.slice(1).map(({ label, path }, index) => (
                 <NavLink
                   key={index}
                   to={path}
@@ -70,36 +124,70 @@ const Navbar = () => {
                   {label}
                 </NavLink>
               ))}
+
               <DynamicButton filled={false}>Contact</DynamicButton>
             </Box>
           ) : (
             <>
-              <IconButton size="large" onClick={() => setDrawerOpen(true)} sx={{ color: "#FFF" }}>
+              <IconButton
+                size="large"
+                onClick={() => setDrawerOpen(true)}
+                sx={{ color: "#FFF" }}
+              >
                 <MenuIcon />
               </IconButton>
               <Drawer
                 anchor="left"
                 open={drawerOpen}
                 onClose={() => setDrawerOpen(false)}
-                sx={{ "& .MuiDrawer-paper": { width: isSmallScreen ? "50%" : "100%" } }} // Fixed Hook Usage
+                sx={{
+                  "& .MuiDrawer-paper": {
+                    width: isSmallScreen ? "50%" : "100%",
+                  },
+                }}
               >
                 <Box sx={styles.drawerContent}>
-                  <IconButton onClick={() => setDrawerOpen(false)} sx={styles.closeIcon}>
+                  <IconButton
+                    onClick={() => setDrawerOpen(false)}
+                    sx={styles.closeIcon}
+                  >
                     <CloseIcon />
                   </IconButton>
-                  {navItems.map(({ label, path }, index) => (
-                    <NavLink
-                      key={index}
-                      to={path}
-                      style={({ isActive }) => ({
-                        ...styles.navText,
-                        fontWeight: isActive ? "bold" : 400,
-                        color: isActive ? "#2F80ED" : "#FFFFFF",
-                      })}
-                    >
-                      {label}
-                    </NavLink>
-                  ))}
+
+                  {/* Drawer nav items */}
+                  {navItems.map((item, index) => {
+                    if (item.submenu) {
+                      return item.submenu.map((subItem, subIndex) => (
+                        <NavLink
+                          key={`${index}-${subIndex}`}
+                          to={subItem.path}
+                          style={({ isActive }) => ({
+                            ...styles.navText,
+                            fontWeight: isActive ? "bold" : 400,
+                            color: isActive ? "#2F80ED" : "#FFFFFF",
+                          })}
+                          onClick={() => setDrawerOpen(false)}
+                        >
+                          {subItem.label}
+                        </NavLink>
+                      ));
+                    }
+                    return (
+                      <NavLink
+                        key={index}
+                        to={item.path}
+                        style={({ isActive }) => ({
+                          ...styles.navText,
+                          fontWeight: isActive ? "bold" : 400,
+                          color: isActive ? "#2F80ED" : "#FFFFFF",
+                        })}
+                        onClick={() => setDrawerOpen(false)}
+                      >
+                        {item.label}
+                      </NavLink>
+                    );
+                  })}
+
                   <Button sx={styles.menuItem}>
                     <DynamicButton filled={false}>Contact</DynamicButton>
                   </Button>

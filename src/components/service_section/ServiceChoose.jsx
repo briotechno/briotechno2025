@@ -22,10 +22,12 @@ const styles = {
         width: "100%",
         maxWidth: "1440px",
         color: "#fff",
+        maxwidth: "1440px",
         padding: { xs: "10px", lg: "50px" },
         minHeight: { xs: "600px", sm: "200px" },
     },
     textContainer: {
+        maxWidth: "1440px",
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
@@ -70,28 +72,6 @@ const ServiceChoose = () => {
                 </Grid>
             </Grid>
         </Box>
-
-
-
-        // <Box sx={styles.section}>
-        //     <Grid
-        //         container
-        //         spacing={4}
-        //     >
-        //         <Grid item xs={12} md={12} order={{ xs: 1, md: 2 }}>
-        //             <Box
-        //                 sx={styles.textContainer}
-        //             >
-        //                 <Typography variant="h1" sx={styles.title}>
-        //                     Process
-        //                 </Typography>
-        //                 <Typography variant="body1" sx={styles.subTextTwo}>
-        //                     Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit.Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit. Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit. Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit.
-        //                 </Typography>
-        //             </Box>
-        //         </Grid>
-        //     </Grid>
-        // </Box>
     );
 };
 

@@ -1,6 +1,7 @@
-import React, { useRef, useEffect } from "react";
+import React from 'react';
+import { useRef, useEffect } from "react";
 import { Box, Button, Typography, Card, CardContent, CardMedia } from "@mui/material";
-import Grid from '@mui/material/Grid';
+import Grid from "@mui/material/Grid";
 import DynamicButton from "../header/DynamicButton";
 import "@fontsource/quicksand";
 import frame from "../../assets/images/Frame.png";
@@ -34,6 +35,9 @@ const styles = {
         color: "#fff",
         padding: "60px",
         width: "100%",
+        maxWidth: "1440px",
+    },
+    gridContainer: {
         maxWidth: "1440px",
     },
     title: {
@@ -75,11 +79,15 @@ const styles = {
                 height: "200px",
                 maxHeight: "200px",
             },
-            "& $projectTitle": {
+            "& .project-title": {
                 transform: "scale(1.05)",
             },
-            "& $readMoreButton": {
+            "& .read-more-button": {
                 transform: "scale(1.05)",
+            },
+            "& .card-media": {
+                opacity: 1,
+                height: "auto",
             },
         },
     },
@@ -88,6 +96,14 @@ const styles = {
         maxwidth: "1440px",
         position: "relative",
         zIndex: 1,
+    },
+    cardMedia: {
+        position: "relative",
+        zIndex: 2,
+        transition: "all 0.3s ease-in-out",
+        opacity: 0,
+        height: 0,
+        overflow: "hidden",
     },
     categoryButton: {
         fontSize: "12px",
@@ -134,18 +150,18 @@ const styles = {
         height: "20px",
         transition: "transform 0.3s ease-in-out",
     },
-    cardMedia: {
-        position: "relative",
-        zIndex: 2,
-        width: "100%",
-        height: "0px", // Start hidden
-        maxHeight: "0px", // Collapse height
-        overflow: "hidden",
-        objectFit: "cover",
-        opacity: 0,
-        transform: "scale(1)",
-        transition: "all 0.4s ease-in-out",
-    },
+    // cardMedia: {
+    //     position: "relative",
+    //     zIndex: 2,
+    //     width: "100%",
+    //     height: "0px", // Start hidden
+    //     maxHeight: "0px", // Collapse height
+    //     overflow: "hidden",
+    //     objectFit: "cover",
+    //     opacity: 0,
+    //     transform: "scale(1)",
+    //     transition: "all 0.4s ease-in-out",
+    // },
 };
 
 const PortfolioSection = () => {
@@ -154,10 +170,13 @@ const PortfolioSection = () => {
     const descRef = useRef(null);
     const imageRefs = useRef([]);
 
+    const setImageRef = (el, index) => {
+        if (el) imageRefs.current[index] = el;
+    };
+
     const [activeCard, setActiveCard] = React.useState(1); // default card id
 
     useEffect(() => {
-        // Animation for title
         gsap.fromTo(
             titleRef.current,
             { opacity: 0, x: -50 },
@@ -174,7 +193,6 @@ const PortfolioSection = () => {
             }
         );
 
-        // Animation for description
         gsap.fromTo(
             descRef.current,
             { opacity: 0, x: -50 },
@@ -192,7 +210,6 @@ const PortfolioSection = () => {
             }
         );
 
-        // Animation for cards
         gsap.fromTo(
             ".portfolio-card",
             {
@@ -214,157 +231,118 @@ const PortfolioSection = () => {
                 ease: "back.out(1.7)",
             }
         );
-
-        // Existing image hover animation
-        imageRefs.current.forEach((image) => {
-            if (image) {
-                const handleMouseEnter = () => {
-                    gsap.to(image, {
-                        scale: 1.2,
-                        y: -20,
-                        z: 50,
-                        boxShadow: "0 10px 20px rgba(0,0,0,0.3)",
-                        duration: 0.4,
-                        ease: "power3.out",
-                        zIndex: 10,
-                    });
-                };
-
-                const handleMouseLeave = () => {
-                    gsap.to(image, {
-                        scale: 1,
-                        y: 0,
-                        z: 0,
-                        boxShadow: "none",
-                        duration: 0.4,
-                        ease: "power3.in",
-                        zIndex: 2,
-                    });
-                };
-
-                image.addEventListener("mouseenter", handleMouseEnter);
-                image.addEventListener("mouseleave", handleMouseLeave);
-
-                return () => {
-                    image.removeEventListener("mouseenter", handleMouseEnter);
-                    image.removeEventListener("mouseleave", handleMouseLeave);
-                };
-            }
-        });
     }, []);
 
-    const setImageRef = (el, index) => {
-        imageRefs.current[index] = el;
-    };
-
     return (
-        <Box sx={styles.content}>
-            <Box sx={styles.section} ref={sectionRef}>
-                <Grid container spacing={4}>
-                    {/* Left Section */}
-                    <Grid item xs={12} md={4}>
-                        <Typography sx={styles.title} ref={titleRef}>
-                            Some pieces of our work
-                        </Typography>
-                        <Typography variant="body1" sx={styles.description} ref={descRef}>
-                            Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros consequat magna semper orci a tincidunt.
-                        </Typography>
-                        <Box sx={styles.buttonContainer}>
-                            <DynamicButton filled={false}>Show More</DynamicButton>
-                            <DynamicButton filled={true}>Show More</DynamicButton>
-                        </Box>
-                    </Grid>
-                    <Grid item xs={12} md={4}>
-                        <Grid container spacing={3}>
-                            {projects.map((project, index) => (
-                                <Grid item xs={12} sm={12} key={project.id}>
-                                    <Card
-                                        sx={styles.card}
-                                        className="portfolio-card"
-                                        onMouseEnter={() => setActiveCard(project.id)}
-                                        onMouseLeave={() => setActiveCard(1)} // default image ID
-                                    >
-                                        {project.image && (
-                                            <CardMedia
-                                            component="img"
-                                            image={project.image || frame}
-                                            className="fade-image"
-                                            sx={{
-                                                ...styles.cardMedia,
-                                                ...(activeCard === project.id && {
-                                                    height: "200px",
-                                                    maxHeight: "200px",
-                                                    opacity: 1,
-                                                }),
-                                            }}
-                                            ref={(el) => setImageRef(el, index)}
-                                        />
-                                        )}
-                                        <CardContent sx={styles.cardContent}>
-                                            <Button variant="contained" sx={styles.categoryButton}>
-                                                {project.category}
-                                            </Button>
-                                            <Typography sx={styles.projectTitle}>{project.title}</Typography>
-                                            <Button
-                                                sx={styles.readMoreButton}
-                                                endIcon={<Box component="img" src={ReadMore} sx={styles.readMoreIcon} />}
-                                            >
-                                                Read more
-                                            </Button>
-                                        </CardContent>
-                                    </Card>
-                                </Grid>
-                            ))}
+        <>
+            <Box sx={styles.content}>
+                <Box sx={styles.section} ref={sectionRef}>
+                    <Grid container spacing={4}>
+                        {/* Left Section */}
+                        <Grid item xs={12} md={4}>
+                            <Typography sx={styles.title} ref={titleRef}>
+                                Some pieces of our work
+                            </Typography>
+                            <Typography variant="body1" sx={styles.description} ref={descRef}>
+                                Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros consequat magna semper orci a tincidunt.
+                            </Typography>
+                            <Box sx={styles.buttonContainer}>
+                                <DynamicButton filled={false}>Show More</DynamicButton>
+                                <DynamicButton filled={true}>Show More</DynamicButton>
+                            </Box>
                         </Grid>
-                    </Grid>
+                        <Grid item xs={12} md={4}>
+                            <Grid container spacing={3}>
+                                {projects.map((project, index) => (
+                                    <Grid item xs={12} sm={12} key={project.id}>
+                                        <Card
+                                            sx={styles.card}
+                                            className="portfolio-card"
+                                            onMouseEnter={() => setActiveCard(project.id)}
+                                            onMouseLeave={() => setActiveCard(1)} // default image ID
+                                        >
+                                            {project.image && (
+                                                <CardMedia
+                                                    component="img"
+                                                    image={project.image || frame}
+                                                    className="fade-image"
+                                                    sx={{
+                                                        ...styles.cardMedia,
+                                                        ...(activeCard === project.id && {
+                                                            height: "200px",
+                                                            maxHeight: "200px",
+                                                            opacity: 1,
+                                                        }),
+                                                    }}
+                                                    ref={(el) => setImageRef(el, index)}
+                                                />
+                                            )}
+                                            <CardContent sx={styles.cardContent}>
+                                                <Button variant="contained" sx={styles.categoryButton}>
+                                                    {project.category}
+                                                </Button>
+                                                <Typography sx={styles.projectTitle}>{project.title}</Typography>
+                                                <Button
+                                                    sx={styles.readMoreButton}
+                                                    endIcon={<Box component="img" src={ReadMore} sx={styles.readMoreIcon} />}
+                                                >
+                                                    Read more
+                                                </Button>
+                                            </CardContent>
+                                        </Card>
+                                    </Grid>
+                                ))}
+                            </Grid>
+                        </Grid>
 
-                    {/* Third part */}
-                    <Grid item xs={12} md={4}>
-                        <Grid container spacing={3}>
-                            {projecttwo.map((project, index) => (
-                                <Grid item xs={12} sm={12} key={project.id}>
-                                    <Card
-                                        sx={styles.card}
-                                        className="portfolio-card"
-                                        onMouseEnter={() => setActiveCard(project.id)}
-                                        onMouseLeave={() => setActiveCard(1)} // default image ID
-                                    >
-                                        {project.image && (
-                                            <CardMedia
-                                                component="img"
-                                                image={project.image || frame}
-                                                className="fade-image"
-                                                sx={{
-                                                    ...styles.cardMedia,
-                                                    ...(activeCard === project.id && {
-                                                        height: "200px",
-                                                        maxHeight: "200px",
-                                                        opacity: 1,
-                                                    }),
-                                                }}
-                                                ref={(el) => setImageRef(el, index)}
-                                            />
-                                        )}
-                                        <CardContent sx={styles.cardContent}>
-                                            <Button variant="contained" sx={styles.categoryButton}>
-                                                {project.category}
-                                            </Button>
-                                            <Typography sx={styles.projectTitle}>{project.title}</Typography>
-                                            <Button
-                                                sx={styles.readMoreButton}
-                                                endIcon={<Box component="img" src={ReadMore} sx={styles.readMoreIcon} />}
-                                            >
-                                                Read more
-                                            </Button>
-                                        </CardContent>
-                                    </Card>
-                                </Grid>
-                            ))}
+                        {/* Third part */}
+                        <Grid item xs={12} md={4}>
+                            <Grid container spacing={3}>
+                                {projecttwo.map((project, index) => (
+                                    <Grid item xs={12} sm={12} key={project.id}>
+                                        <Card
+                                            sx={styles.card}
+                                            className="portfolio-card"
+                                            onMouseEnter={() => setActiveCard(project.id)}
+                                            onMouseLeave={() => setActiveCard(1)} // default image ID
+                                        >
+                                            {project.image && (
+                                                <CardMedia
+                                                    component="img"
+                                                    image={project.image || frame}
+                                                    className="fade-image"
+                                                    sx={{
+                                                        ...styles.cardMedia,
+                                                        ...(activeCard === project.id && {
+                                                            height: "200px",
+                                                            maxHeight: "200px",
+                                                            opacity: 1,
+                                                        }),
+                                                    }}
+                                                    ref={(el) => setImageRef(el, index)}
+                                                />
+                                            )}
+                                            <CardContent sx={styles.cardContent}>
+                                                <Button variant="contained" sx={styles.categoryButton}>
+                                                    {project.category}
+                                                </Button>
+                                                <Typography sx={styles.projectTitle}>{project.title}</Typography>
+                                                <Button
+                                                    sx={styles.readMoreButton}
+                                                    endIcon={<Box component="img" src={ReadMore} sx={styles.readMoreIcon} />}
+                                                >
+                                                    Read more
+                                                </Button>
+                                            </CardContent>
+                                        </Card>
+                                    </Grid>
+                                ))}
+                            </Grid>
                         </Grid>
                     </Grid>
-                </Grid>
+                </Box>
             </Box>
-        </Box>
+        </>
     );
 };
 

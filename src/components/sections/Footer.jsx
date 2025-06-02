@@ -1,25 +1,14 @@
 import React from "react";
-import { Container, Grid, Typography, Box } from "@mui/material";
+import { Grid, Typography, Box } from "@mui/material";
 import "@fontsource/quicksand";
-import { Padding } from "@mui/icons-material";
 
 const styles = {
     footer: {
         width: "100%",
-        maxWidth: "1440px", // ✅ fixed
-        minHeight: { xs: "600px", sm: "300px" },
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        px: 3, 
-        py: 2, 
-        mx: "auto",
-    },
-    section: {
-        color: "#fff",
-        minHeight: { xs: "600px", sm: "200px" },
-        width: "100%",
-        maxWidth: "1640px",
+        maxWidth: "1440px",
+        backgroundColor: "#000000",
+        padding: "50px 0",
+        minHeight: "400px",
     },
     heading: {
         fontFamily: "Inter, sans-serif",
