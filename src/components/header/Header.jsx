@@ -59,8 +59,8 @@ const Navbar = () => {
       label: "Company",
       submenu: [
         { label: "About Us", path: "/About" },
-        { label: "Career", path: "/" },
-        { label: "Intership", path: "/" },
+        { label: "Career", path: "/Career" },
+        { label: "Intership", path: "/Intership" },
       ],
     },
     { label: "Services", path: "/service" },

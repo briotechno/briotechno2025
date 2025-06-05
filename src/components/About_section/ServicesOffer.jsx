@@ -55,7 +55,7 @@ const ServicesOffer = () => {
             opacity: 0,
         },
         gridContainer: {
-            width: "92%",
+            width: "100%",
             maxWidth: "1440px",
         },
         box: {

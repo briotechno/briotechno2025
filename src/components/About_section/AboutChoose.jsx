@@ -11,24 +11,24 @@ gsap.registerPlugin(ScrollTrigger);
 const styles = {
     content: {
         width: "100%",
+        maxwidth: "1440px",
         minHeight: { xs: "600px", sm: "300px" },
         justifyContent: "center",
         alignItems: "center",
     },
     section: {
+        width: "100%",
+        maxWidth: "1440px",
         color: "#fff",
-
-        maxwidth: "1440px",
         padding: { xs: "10px", lg: "50px" },
         minHeight: { xs: "600px", sm: "200px" },
     },
     textContainer: {
-        width:"100%",
         maxWidth: "1440px",
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
-        textAlign: "left",
+        // textAlign: "left",
         padding: "20px 10px",
         marginLeft: { xs: "20px", md: "0px" },
         marginRight: { xs: "20px", md: "0px" }

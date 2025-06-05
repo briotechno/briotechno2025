@@ -1,12 +1,13 @@
 import React from "react";
 import { Grid, Typography, Box } from "@mui/material";
+import { useNavigate } from "react-router-dom"; // import navigate
 import "@fontsource/quicksand";
 
 const styles = {
     footer: {
         width: "100%",
         maxWidth: "1440px",
-        backgroundColor: "#000000",
+        backgroundColor: "#000000",                                                                                                                                     
         padding: "50px 0",
         minHeight: "400px",
     },
@@ -30,58 +31,73 @@ const styles = {
         transition: "color 0.3s ease",
         textAlign: "left",
         whiteSpace: "nowrap",
-    },
-    textHover: {
-        color: "#2F80ED",
+        "&:hover": {
+            color: "#2F80ED",
+        },
     },
 };
 
 const footerData = [
     {
         title: "Company",
-        links: ["About Us", "Team", "Career"],
+        links: [
+            { label: "About Us", path: "/about" },
+            { label: "Team", path: "/" },
+            { label: "Career", path: "/Career" },
+        ],
     },
     {
         title: "Services",
         links: [
-            "Branding",
-            "Web Development", // Ensure this stays in one line
-            "Digital Marketing", // Ensure this stays in one line
-            "Mobile App",
-            "SEO",
-            "User Testing",
+            { label: "Branding", path: "/service" },
+            { label: "Web Development", path: "/service" },
+            { label: "Digital Marketing", path: "/service" },
+            { label: "Mobile App", path: "/service" },
+            { label: "SEO", path: "/service" },
+            { label: "User Testing", path: "/service" },
         ],
     },
     {
         title: "Resources",
-        links: ["Blog", "Case Study", "Testimonials"],
+        links: [
+            { label: "Blog", path: "/blog" },
+            { label: "Case Study", path: "/case-study" },
+            { label: "Testimonials", path: "/testimonials" },
+        ],
     },
     {
         title: "Follow Us",
-        links: ["Instagram", "Figma"],
+        links: [
+            { label: "Instagram", path: "https://instagram.com" },
+            { label: "Figma", path: "https://figma.com" },
+        ],
     },
 ];
 
 const Footer = () => {
+    const navigate = useNavigate();
+
+    const handleClick = (path) => {
+        if (path.startsWith("http")) {
+            window.open(path, "_blank");
+        } else {
+            navigate(path);
+        }
+    };
+
     return (
         <Box sx={styles.footer}>
-            <Grid
-                container
-                spacing={{ xs: 4, sm: 8, md: 16, lg: 32 }}
-                sx={styles.section}
-            >
+            <Grid container spacing={{ xs: 4, sm: 8, md: 16, lg: 32 }}>
                 {footerData.map((section, index) => (
                     <Grid item xs={12} sm={6} md={3} key={index}>
                         <Typography sx={styles.heading}>{section.title}</Typography>
                         {section.links.map((link, i) => (
                             <Typography
                                 key={i}
-                                sx={{
-                                    ...styles.text,
-                                    "&:hover": styles.textHover,
-                                }}
+                                sx={styles.text}
+                                onClick={() => handleClick(link.path)}
                             >
-                                {link}
+                                {link.label}
                             </Typography>
                         ))}
                     </Grid>
