@@ -78,14 +78,14 @@ const styles = {
 };
 
 const formFields = [
-    { label: "First Name", type: "text" },
-    { label: "Last Name", type: "text" },
-    { label: "Email", type: "email" },
-    { label: "Phone Number", type: "number" },
-    { label: "Highest Qualification", type: "text" },
-    { label: "Course Name", type: "text" },
-    { label: "Year of Graduation", type: "number" },
-    { label: "CGPA/PR", type: "number" },
+    { label: "First Name", name: "firstName", type: "text" },
+    { label: "Last Name", name: "lastName", type: "text" },
+    { label: "Email", name: "email", type: "email" },
+    { label: "Phone Number", name: "phoneNumber", type: "number" },
+    { label: "Highest Qualification", name: "qualification", type: "text" },
+    { label: "Course Name", name: "courseName", type: "text" },
+    { label: "Year of Graduation", name: "graduationYear", type: "number" },
+    { label: "CGPA/PR", name: "cgpa", type: "number" },
 ];
 
 const InternshipForm = () => {
@@ -122,6 +122,19 @@ const InternshipForm = () => {
         }
         alert("Form submitted successfully!");
         console.log("Submitted:", formData, file);
+
+        // Clear form
+        setFormData({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phoneNumber: "",
+            qualification: "",
+            courseName: "",
+            graduationYear: "",
+            cgpa: "",
+        });
+        setFile(null);
     };
 
     const handleRemove = () => {
@@ -136,28 +149,19 @@ const InternshipForm = () => {
             </Typography>
 
             <Box component="form" sx={styles.formBox} onSubmit={handleSubmit}>
-                {formFields.map(({ label, type }) => {
-                    const key = label
-                        .toLowerCase()
-                        .replace(/[^a-z0-9]/g, "")
-                        .replace(/number$/, "Number");
-
-                    return (
-                        <label key={label} style={styles.label}>
-                            {label}
-                            <input
-                                type={type}
-                                value={formData[key] || ""}
-                                onChange={(e) =>
-                                    setFormData({ ...formData, [key]: e.target.value })
-                                }
-                                style={styles.input}
-                            />
-                        </label>
-                    );
-                })}
-
-
+                {formFields.map(({ label, name, type }) => (
+                    <label key={name} style={styles.label}>
+                        {label}
+                        <input
+                            type={type}
+                            name={name}
+                            value={formData[name]}
+                            onChange={(e) => setFormData({ ...formData, [name]: e.target.value })}
+                            style={styles.input}
+                        />
+                    </label>
+                ))}
+                
                 <Box>
                     <InputLabel sx={{ color: "#ccc", mb: 1, margin: "0 15px", }}>
                         Upload your resume [ PDF or Document ]

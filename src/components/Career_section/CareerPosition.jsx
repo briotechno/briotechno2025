@@ -5,7 +5,6 @@ import "@fontsource/poppins";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import "../../styles/fonts.css";
 import { useNavigate } from "react-router-dom";
-import { Height } from "@mui/icons-material";
 
 const styles = {
     section: {

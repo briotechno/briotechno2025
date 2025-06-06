@@ -74,7 +74,7 @@ const styles = {
         fontFamily: "inherit",
         outline: "none",
     },
-     inputs: {
+    inputs: {
         width: "100%",
         height: "40px",
         backgroundColor: "#14181F",
@@ -98,21 +98,21 @@ const styles = {
             backgroundColor: "#1565C0",
         }
     }
-     
+
 };
 
 const formFields = [
-    { label: "First Name", type: "text" },
-    { label: "Last Name", type: "text" },
-    { label: "Email", type: "email" },
-    { label: "Phone Number", type: "number" },
-    { label: "Current CTC", type: "number" },
-    { label: "Expected CTC", type: "number" },
-    { label: "Notice period", type: "text" },
+    { label: "First Name", name: "firstName", type: "text" },
+    { label: "Last Name", name: "lastName", type: "text" },
+    { label: "Email", name: "email", type: "email" },
+    { label: "Phone Number", name: "phoneNumber", type: "number" },
+    { label: "Current CTC", name: "currentCTC", type: "number" },
+    { label: "Expected CTC", name: "expectedCTC", type: "number" },
+    { label: "Notice Period", name: "noticePeriod", type: "text" },
 ];
 
 const formlink = [
-    { label: "Submit your Behance or portfolio link", type: "url" },
+    { label: "Portfolio Link", name: "portfolioLink", type: "url" },
 ];
 
 const ApplyNow = () => {
@@ -122,11 +122,12 @@ const ApplyNow = () => {
         lastName: "",
         email: "",
         phoneNumber: "",
-        qualification: "",
-        courseName: "",
-        graduationYear: "",
-        cgpa: "",
+        currentCTC: "",
+        expectedCTC: "",
+        noticePeriod: "",
+        portfolioLink: "",
     });
+
 
     const handleFileChange = (event) => {
         const selectedFile = event.target.files[0];
@@ -135,7 +136,7 @@ const ApplyNow = () => {
         if (selectedFile && allowedTypes.includes(selectedFile.type)) {
             setFile(selectedFile);
         } else {
-            alert("Please upload only PDF or Documents.");
+            alert("Please upload only PDF or Word documents.");
             event.target.value = null;
         }
     };
@@ -149,11 +150,25 @@ const ApplyNow = () => {
         }
         alert("Form submitted successfully!");
         console.log("Submitted:", formData, file);
+
+        // Clear form
+        setFormData({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phoneNumber: "",
+            currentCTC: "",
+            expectedCTC: "",
+            noticePeriod: "",
+            portfolioLink: "",
+        });
+        setFile(null);
     };
 
     const handleRemove = () => {
         setFile(null);
     };
+
 
     return (
         <Box sx={styles.wrapper}>
@@ -164,46 +179,41 @@ const ApplyNow = () => {
                 </Typography>
 
                 <Box component="form" sx={styles.formBox} onSubmit={handleSubmit}>
-                    {formFields.map(({ label, type }) => {
-                        const key = label
-                            .toLowerCase()
-                            .replace(/[^a-z0-9]/g, "")
-                            .replace(/number$/, "Number");
+                    {formFields.map(({ label, name, type }) => (
+                        <label key={name} style={styles.label}>
+                            {label}
+                            <input
+                                type={type}
+                                name={name}
+                                value={formData[name]}
+                                onChange={(e) =>
+                                    setFormData({ ...formData, [name]: e.target.value })
+                                }
+                                style={styles.input}
+                            />
+                        </label>
+                    ))}
 
-                        return (
-                            <label key={label} style={styles.label}>
-                                {label}
-                                <input
-                                    type={type}
-                                    value={formData[key] || ""}
-                                    onChange={(e) =>
-                                        setFormData({ ...formData, [key]: e.target.value })
-                                    }
-                                    style={styles.input}
-                                />
-                            </label>
-                        );
-                    })}
 
                     <Box>
-                        <InputLabel sx={{ color: "#ccc", mb: 1,margin: "0 15px", }}>
+                        <InputLabel sx={{ color: "#ccc", mb: 1, margin: "0 15px", }}>
                             Upload your resume [ PDF or Document ]
                         </InputLabel>
                         <label
-                        htmlFor="resumeUpload"
-                        style={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            flexDirection: "column",
-                            border: "1px dashed #212529",
-                            borderRadius: "10px",
-                            margin: "0 15px",
-                            height: "150px",
-                            cursor: "pointer",
-                            color: "#aaa",
-                        }}
-                    >
+                            htmlFor="resumeUpload"
+                            style={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                flexDirection: "column",
+                                border: "1px dashed #212529",
+                                borderRadius: "10px",
+                                margin: "0 15px",
+                                height: "150px",
+                                cursor: "pointer",
+                                color: "#aaa",
+                            }}
+                        >
                             <UploadIcon fontSize="large" />
                             <Typography>Select a File</Typography>
                             <input
@@ -237,22 +247,20 @@ const ApplyNow = () => {
                             </Box>
                         )}
 
-                        {formlink.map(({ label, type }) => {
-                            const key = label
-                            return (
-                                <label key={label} style={styles.labels}>
-                                    {label}
-                                    <input
-                                        type={type}
-                                        value={formData[key] || ""}
-                                        onChange={(e) =>
-                                            setFormData({ ...formData, [key]: e.target.value })
-                                        }
-                                        style={styles.inputs}
-                                    />
-                                </label>
-                            );
-                        })}
+                        {formlink.map(({ label, name, type }) => (
+                            <label key={name} style={styles.labels}>
+                                {label}
+                                <input
+                                    type={type}
+                                    name={name}
+                                    value={formData[name]}
+                                    onChange={(e) =>
+                                        setFormData({ ...formData, [name]: e.target.value })
+                                    }
+                                    style={styles.inputs}
+                                />
+                            </label>
+                        ))}
                     </Box>
 
                     <Box mt={3} display="flex" justifyContent="center">

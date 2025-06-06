@@ -43,7 +43,7 @@ const footerData = [
         links: [
             { label: "About Us", path: "/about" },
             { label: "Team", path: "/" },
-            { label: "Career", path: "/Career" },
+            { label: "Careers", path: "/Career" },
         ],
     },
     {
