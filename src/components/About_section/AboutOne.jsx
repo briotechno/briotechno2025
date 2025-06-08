@@ -6,6 +6,7 @@ import gsap from "gsap";
 import DynamicButton from "../header/DynamicButton";
 import "@fontsource/quicksand";
 import "../../styles/fonts.css";
+import { useNavigate } from "react-router-dom";
 
 // Scaling animation (shrinks to 50% then back to original)
 const scalingEffect = keyframes`
@@ -16,6 +17,7 @@ const scalingEffect = keyframes`
 
 const AboutOne = () => {
     const theme = useTheme();
+    const navigate = useNavigate();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -205,10 +207,12 @@ const AboutOne = () => {
                     {showExtraContent && (
                         <Box className="extra-content">
                             <Typography sx={styles.subText}>
-                               Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros 
+                                Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros
                             </Typography>
                             <Box sx={{ paddingX: { lg: "45px", sm: "0" }, mt: 2 }}>
-                                <DynamicButton filled={true}>Contact</DynamicButton>
+                                <DynamicButton filled={true} onClick={() => navigate("/Contact")}>
+                                    Contact
+                                </DynamicButton>
                             </Box>
                         </Box>
                     )}

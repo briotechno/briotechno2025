@@ -59,12 +59,12 @@ const Navbar = () => {
       label: "Company",
       submenu: [
         { label: "About Us", path: "/About" },
-        { label: "Career", path: "/" },
-        { label: "Intership", path: "/" },
+        { label: "Career", path: "/Career" },
+        { label: "Intership", path: "/Intership" },
       ],
     },
-    { label: "Services", path: "/service" },
-    { label: "Resources", path: "/resources" },
+    { label: "Services", path: "/Service" },
+    { label: "Portfolio", path: "/Portfolio" },
   ];
 
   return (
@@ -125,7 +125,9 @@ const Navbar = () => {
                 </NavLink>
               ))}
 
-              <DynamicButton filled={false}>Contact</DynamicButton>
+              <DynamicButton filled={false} onClick={() => navigate("/Contact")}>
+                Contact
+              </DynamicButton>
             </Box>
           ) : (
             <>
@@ -188,9 +190,13 @@ const Navbar = () => {
                     );
                   })}
 
-                  <Button sx={styles.menuItem}>
+                  <Button sx={styles.menuItem} onClick={() => {
+                    navigate("/contact");
+                    setDrawerOpen(false);
+                  }}>
                     <DynamicButton filled={false}>Contact</DynamicButton>
                   </Button>
+
                 </Box>
               </Drawer>
             </>

@@ -4,8 +4,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "@fontsource/quicksand";
 import "../../styles/fonts.css";
-import ChooseImg from "../../assets/images/Choose.png";
-import DynamicButton from "../header/DynamicButton";
 
 // Register ScrollTrigger with GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -22,7 +20,6 @@ const styles = {
         width: "100%",
         maxWidth: "1440px",
         color: "#fff",
-        maxwidth: "1440px",
         padding: { xs: "10px", lg: "50px" },
         minHeight: { xs: "600px", sm: "200px" },
     },
