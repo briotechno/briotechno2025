@@ -14,7 +14,6 @@ import {
     Portfolio6,
     Portfolio7,
 } from "../../components/header/Images";
-import { useNavigate } from "react-router-dom";
 
 // Register ScrollTrigger with GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -113,7 +112,6 @@ const images = [
 ];
 
 const PortfolioDetailpageTwo = () => {
-    const navigate = useNavigate();
 
     return (
         <Box sx={styles.section}>
