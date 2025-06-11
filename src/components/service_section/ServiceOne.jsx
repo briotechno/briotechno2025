@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Box, Typography, TextField, keyframes, useMediaQuery, useTheme } from "@mui/material";
-import BlueVector from "../../assets/images/BlueVector.png";
-import PurpleVector from "../../assets/images/PurpleVector.png";
+import { Box, Typography, keyframes, useMediaQuery, useTheme } from "@mui/material";
+import {BlueVector, PurpleVector}from "../header/Images"
 import gsap from "gsap";
 import DynamicButton from "../header/DynamicButton";
 import "@fontsource/quicksand";
@@ -86,7 +85,7 @@ const ServiceOne = () => {
     const styles = {
         content: {
             width: "100%",
-            minHeight: { xs: "600px", sm: "820px" },
+            minHeight: { xs: "600px", sm: "600px", lg: "640px" },
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -104,8 +103,7 @@ const ServiceOne = () => {
         Title: {
             fontFamily: "Quicksand, sans-serif",
             fontWeight: '700',
-            fontSize: { xs: "20px", sm: "40px", md: "60px", lg: "24px" },
-            lineHeight: { xs: "56px", sm: "111px" },
+            fontSize: "24px",
             letterSpacing: "0px",
             color: "#2F80ED",
             paddingX: { lg: "45px", sm: "0" },
@@ -113,7 +111,7 @@ const ServiceOne = () => {
         heading: {
             fontFamily: "Quicksand, sans-serif",
             fontWeight: 700,
-            fontSize: { xs: "20px", sm: "40px", md: "60px", lg: "64px" },
+            fontSize: { xs: "20px", sm: "40px", md: "50px", lg: "64px" },
             lineHeight: { xs: "56px", sm: "112px" },
             letterSpacing: "0px",
             color: "white",
@@ -174,7 +172,7 @@ const ServiceOne = () => {
         },
         vectorImage: {
             position: "absolute",
-            width: isMobile ? "300px" : isSmall ? "100px" : "450px",
+            width: isMobile ? "250px" : isSmall ? "100px" : "350px",
             height: "auto",
             animation: `${scalingEffect} 3s infinite ease-in-out`,
         },
@@ -207,7 +205,7 @@ const ServiceOne = () => {
                             <Typography sx={styles.subText}>
                                 Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros
                             </Typography>
-                            <Box sx={{ paddingX: { lg: "45px", sm: "0" } , mt : 2}}>
+                            <Box sx={{ paddingX: { lg: "45px", sm: "0" }, mt: 2 }}>
                                 <DynamicButton filled={true}>Build my brand</DynamicButton>
                             </Box>
                         </Box>

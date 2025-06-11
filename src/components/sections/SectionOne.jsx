@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box, Typography, TextField, keyframes, useMediaQuery, useTheme } from "@mui/material";
-import BlueVector from "../../assets/images/BlueVector.png";
-import PurpleVector from "../../assets/images/PurpleVector.png";
+import {BlueVector, PurpleVector}from "../header/Images"
 import gsap from "gsap";
 import DynamicButton from "../header/DynamicButton";
 import "@fontsource/quicksand";
@@ -57,7 +56,8 @@ const SectionOne = () => {
     const styles = {
         content: {
             width: "100%",
-            minHeight: { xs: "600px", sm: "800px" },
+            // minHeight: { xs: "600px", sm: "820px" },
+            minHeight: { xs: "600px", sm: "800px", lg: "870px" },
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -103,7 +103,6 @@ const SectionOne = () => {
             marginTop: "24px",
             width: "100%",
             maxWidth: isMobile ? "600px" : "700px",
-            // flexDirection: { xs: "column", sm: "row" },
         },
         inputField: {
             width: { xs: "100%", sm: "550px" },

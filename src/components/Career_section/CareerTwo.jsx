@@ -49,14 +49,19 @@ const styles = {
 };
 
 const CareerTwo = () => {
+    const scrollToBottom = () => {
+        const element = document.getElementById("career-position");
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+        }
+    };
 
     return (
+
         <Box sx={styles.section}>
             <Grid container spacing={4}>
                 <Grid item xs={12} md={12} order={{ xs: 1, md: 2 }}>
-                    <Box
-                        sx={styles.textContainer}
-                    >
+                    <Box sx={styles.textContainer}>
                         <Typography variant="h1" sx={styles.title}>
                             Make an impact at front
                         </Typography>
@@ -65,10 +70,11 @@ const CareerTwo = () => {
                             We'd love to have more talented people on board
                         </Typography>
                         <Box sx={{ paddingX: { lg: "45px", sm: "0" }, mt: 2 }}>
-                            <DynamicButton filled={true}>See all open postions
-                                {<ArrowDropDownIcon />}
+                            <DynamicButton filled={true} onClick={scrollToBottom}>
+                                See all open postions <ArrowDropDownIcon />
                             </DynamicButton>
                         </Box>
+                        {/* This is the scroll target */}
                     </Box>
                 </Grid>
             </Grid>

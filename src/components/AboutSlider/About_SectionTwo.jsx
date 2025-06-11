@@ -13,7 +13,7 @@ const About_SectionTwo = () => {
         box: {
             width: "100%",
             maxWidth: "1440px",
-            height: 544,
+            height: "450px",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",

@@ -1,19 +1,12 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Box, Typography, Grid } from "@mui/material";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Growth from "../../assets/images/Growth.png"
-import Great from "../../assets/images/Great.png"
-import Executive from "../../assets/images/Executive.png"
-import Collaboration from "../../assets/images/Collaboration.png"
-import Culture from "../../assets/images/Culture.png"
-
+import { Growth, Great, Executive, Collaboration, Culture } from "../header/Images"
 
 gsap.registerPlugin(ScrollTrigger);
 
 const CareerWork = () => {
-    const sectionRef = useRef(null);
-
     const boxData = [
         {
             img: Growth,
@@ -47,7 +40,15 @@ const CareerWork = () => {
             width: "100%",
             maxWidth: "1440px",
             position: "relative",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            textAlign: "center",
+            px: { xs: 2, sm: 3 },
+            py: "60px",
+            margin: "0 auto",
         },
+
         textContainer: {
             width: "100%",
             display: "flex",
@@ -60,7 +61,7 @@ const CareerWork = () => {
             color: "#D7E4F5",
             fontWeight: 600,
             lineHeight: "100%",
-            fontSize: { xs: "20px", sm: "20px", md: "32px", lg: "36px" },
+            fontSize: { xs: "30px", sm: "30px", md: "32px", lg: "36px" },
             marginBottom: "35px",
         },
         subTextTwo: {
@@ -121,38 +122,41 @@ const CareerWork = () => {
     };
 
     return (
-        <Box sx={styles.section} ref={sectionRef}>
-            <Grid item xs={12} md={12} order={{ xs: 1, md: 2 }}>
-                <Box
-                    sx={styles.textContainer}
-                >
-                    <Typography variant="h1" sx={styles.title}>
-                        Why work with us
-                    </Typography>
-                </Box>
-            </Grid>
-            <Grid container spacing={3} sx={styles.gridContainer} justifyContent="center">
-                {boxData.map((box, index) => (
-                    <Grid
-                        item
-                        key={index}
-                        xs={12}
-                        sm={6}
-                        md={4}
-                        display="flex"
-                        justifyContent="center"
+        <Box sx={styles.section}>
+            <Box>
+
+                <Grid item xs={12} md={12} order={{ xs: 1, md: 2 }}>
+                    <Box
+                        sx={styles.textContainer}
                     >
-                        <Box
-                            sx={styles.box}
-                            className="offer-box"
+                        <Typography variant="h1" sx={styles.title}>
+                            Why work with us
+                        </Typography>
+                    </Box>
+                </Grid>
+                <Grid container spacing={3} sx={styles.gridContainer} justifyContent="center">
+                    {boxData.map((box, index) => (
+                        <Grid
+                            item
+                            key={index}
+                            xs={12}
+                            sm={6}
+                            md={4}
+                            display="flex"
+                            justifyContent="center"
                         >
-                            <img src={box.img} alt={box.title} style={styles.image} />
-                            <Typography sx={styles.boxHeading}>{box.title}</Typography>
-                            <Typography sx={styles.boxSubheading}>{box.desc}</Typography>
-                        </Box>
-                    </Grid>
-                ))}
-            </Grid>
+                            <Box
+                                sx={styles.box}
+                                className="offer-box"
+                            >
+                                <img src={box.img} alt={box.title} style={styles.image} />
+                                <Typography sx={styles.boxHeading}>{box.title}</Typography>
+                                <Typography sx={styles.boxSubheading}>{box.desc}</Typography>
+                            </Box>
+                        </Grid>
+                    ))}
+                </Grid>
+            </Box>
         </Box>
     );
 };

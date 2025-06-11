@@ -1,5 +1,6 @@
 import "./App.css";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import ScrollToTop from "./components/header/ScrollToTop"
 import HomePage from "./components/home_page";
 import ServicePage from "./components/service_page";
 import AboutPage from "./components/About_page"
@@ -14,6 +15,7 @@ import PortfolioDetailpage from "./components/Portfolio_Detailpage";
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/service" element={<ServicePage />} />

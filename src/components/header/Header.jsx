@@ -72,7 +72,7 @@ const Navbar = () => {
       <AppBar
         sx={{
           ...styles.appBar,
-          backgroundColor: isScrolled ? "#101318" : "transparent",
+          backgroundColor: isScrolled ? "#0F0F0F" : "transparent",
           transform:
             scrollDirection === "down" ? "translateY(-100%)" : "translateY(0)",
           transition:
@@ -86,7 +86,7 @@ const Navbar = () => {
               <Box>
                 <Button
                   onClick={handleMenuOpen}
-                  sx={{ ...styles.navText, display: "flex", alignItems: "center" }}
+                  sx={{ ...styles.navText, display: "flex", alignItems: "center", }}
                   endIcon={<ArrowDropDownIcon />}
                 >
                   Company
@@ -95,6 +95,25 @@ const Navbar = () => {
                   anchorEl={anchorEl}
                   open={Boolean(anchorEl)}
                   onClose={handleMenuClose}
+                  MenuListProps={{
+                    sx: {
+                      width: "152px",
+                      Height: "132px",
+                      backgroundColor: "#000000",
+                      padding: 0,
+                    },
+                  }}
+                  PaperProps={{
+                    sx: {
+                      width: "152px",
+                      Height: "132px",
+                      padding: "8px 0",
+                      // border: "1px solid #0000001A",
+                      background: "#000000",
+                      borderRadius: "8px",
+                      gap: "4px",
+                    },
+                  }}
                 >
                   {navItems[0].submenu.map(({ label, path }, i) => (
                     <MenuItem
@@ -102,6 +121,19 @@ const Navbar = () => {
                       onClick={() => {
                         handleMenuClose();
                         navigate(path);
+                      }}
+                      sx={{
+                        fontSize: "16px",
+                        fontWeight: 400,
+                        cursor: "pointer",
+                        color: "#D7E4F5",
+                        padding: "8px 16px",
+                        lineHeight: "20px",
+                        fontFamily: "'Fira Sans', sans-serif",
+                        "&:hover": {
+                          backgroundColor: "#101318",
+                        },
+
                       }}
                     >
                       {label}
@@ -143,6 +175,7 @@ const Navbar = () => {
                 open={drawerOpen}
                 onClose={() => setDrawerOpen(false)}
                 sx={{
+                  backgroundColor: "#000000",
                   "& .MuiDrawer-paper": {
                     width: isSmallScreen ? "50%" : "100%",
                   },
@@ -237,14 +270,18 @@ const styles = {
   navText: {
     fontFamily: "'ZapfHumnst BT', sans-serif",
     textTransform: "capitalize",
-    fontSize: "18px",
+    fontSize: "16px",
     fontWeight: 400,
-    lineHeight: "36px",
-    letterSpacing: "0.05em",
+    lineHeight: "20px",
+    letterSpacing: "2%",
     cursor: "pointer",
     color: "#FFFFFF",
     "&:hover": {
       color: "#2F80ED",
+    },
+    "&:focus": {
+      outline: "none",
+      boxShadow: "none",
     },
   },
   drawerContent: {

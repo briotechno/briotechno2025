@@ -4,7 +4,6 @@ import darkTheme from "../../utils/theme";
 import Header from "../header/Header";
 import CareerApply from "../CareerApplyPage/CareerApply";
 import CareerApplyRules from "../CareerApplyPage/CareerApplyRules";
-import Responsibilities from "../CareerApplyPage/Responsibilities";
 import Team from "../CareerApplyPage/Team";
 import Footer from "../sections/Footer"
 
@@ -28,7 +27,6 @@ const CareerApplyPagePage = () => {
                 <Header />
                 <CareerApply />
                 <CareerApplyRules />
-                <Responsibilities />
                 <Team />
                 <Footer />
             </Box>

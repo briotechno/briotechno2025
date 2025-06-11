@@ -28,7 +28,6 @@ const styles = {
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
-        // textAlign: "left",
         padding: "20px 10px",
         marginLeft: { xs: "20px", md: "0px" },
         marginRight: { xs: "20px", md: "0px" }

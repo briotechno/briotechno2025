@@ -1,9 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import { Box, Button, Typography, Card, CardContent, CardMedia } from "@mui/material";
 import Grid from '@mui/material/Grid';
-import DynamicButton from "../header/DynamicButton";
 import "@fontsource/quicksand";
-import frame from "../../assets/images/Frame.png";
+import { frame } from "../header/Images"
 import ReadMore from "../../assets/images/ReadMore.png";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -20,20 +19,21 @@ const styles = {
     section: {
         width: "100%",
         maxWidth: "1440px",
+        minHeight: "466px",
         color: "#fff",
         padding: { xs: "10px", lg: "50px" },
-        minHeight: "500px",
     },
     title: {
         fontFamily: "Quicksand, sans-serif",
         color: "#FFFFFF",
         fontWeight: 700,
+        margin: { xs: "10px" },
         fontSize: { xs: "30px", sm: "25px", md: "30px", lg: "40px" },
-        marginBottom: "20px",
     },
-   
+
     card: {
         padding: "10px",
+        margin: { xs: "10px" },
         border: "1px solid #fff",
         borderRadius: "10px",
         backgroundColor: "#101318 !important",
@@ -127,61 +127,18 @@ const styles = {
 const PortfolioSection = () => {
     const sectionRef = useRef(null);
     const titleRef = useRef(null);
-    const descRef = useRef(null);
     const imageRefs = useRef([]);
 
     useEffect(() => {
-        // Animation for title
         gsap.fromTo(
             titleRef.current,
-            { opacity: 0, x: -50 },
+            { opacity: 0, scale: 0.8 },
             {
                 opacity: 1,
-                x: 0,
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top 80%",
-                    once: true,
-                },
-                duration: 0.8,
-                ease: "power2.out",
-            }
-        );
-
-        // Animation for description
-        gsap.fromTo(
-            descRef.current,
-            { opacity: 0, x: -50 },
-            {
-                opacity: 1,
-                x: 0,
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top 80%",
-                    once: true,
-                },
-                duration: 0.8,
-                ease: "power2.out",
-                delay: 0.2,
-            }
-        );
-
-        // Animation for cards
-        gsap.fromTo(
-            ".portfolio-card",
-            {
-                opacity: 0,
-                y: -100,
-                scale: 0.9,
-            },
-            {
-                opacity: 1,
-                y: 0,
                 scale: 1,
-                stagger: 0.15,
                 scrollTrigger: {
                     trigger: sectionRef.current,
-                    start: "top 80%",
+                    start: "top 90%",
                     once: true,
                 },
                 duration: 0.8,
@@ -189,43 +146,67 @@ const PortfolioSection = () => {
             }
         );
 
-        // Existing image hover animation
-        imageRefs.current.forEach((image) => {
-            if (image) {
-                const handleMouseEnter = () => {
-                    gsap.to(image, {
-                        scale: 1.2,
-                        y: -20,
-                        z: 50,
-                        boxShadow: "0 10px 20px rgba(0,0,0,0.3)",
-                        duration: 0.4,
-                        ease: "power3.out",
-                        zIndex: 10,
-                    });
-                };
-
-                const handleMouseLeave = () => {
-                    gsap.to(image, {
-                        scale: 1,
-                        y: 0,
-                        z: 0,
-                        boxShadow: "none",
-                        duration: 0.4,
-                        ease: "power3.in",
-                        zIndex: 2,
-                    });
-                };
-
-                image.addEventListener("mouseenter", handleMouseEnter);
-                image.addEventListener("mouseleave", handleMouseLeave);
-
-                return () => {
-                    image.removeEventListener("mouseenter", handleMouseEnter);
-                    image.removeEventListener("mouseleave", handleMouseLeave);
-                };
+        // Animate each card
+        gsap.fromTo(
+            ".portfolio-card",
+            {
+                opacity: 0,
+                y: 100,
+                scale: 0.9,
+                rotationX: (i) => (i % 2 === 0 ? -45 : 45),
+            },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                rotationX: 0,
+                stagger: 0.15,
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top 80%",
+                    once: true,
+                },
+                duration: 0.8,
+                ease: "back.out(1.4)",
             }
+        );
+
+        // Image hover effects
+        imageRefs.current.forEach((image) => {
+            if (!image) return;
+
+            const handleMouseEnter = () => {
+                gsap.to(image, {
+                    scale: 1.05,
+                    y: -8,
+                    boxShadow: "0 6px 16px rgba(0,0,0,0.15)",
+                    duration: 0.35,
+                    ease: "power2.out",
+                    overwrite: "auto",
+                });
+            };
+
+            const handleMouseLeave = () => {
+                gsap.to(image, {
+                    scale: 1,
+                    y: 0,
+                    boxShadow: "none",
+                    duration: 0.3,
+                    ease: "power2.inOut",
+                    overwrite: "auto",
+                });
+            };
+
+            image.addEventListener("mouseenter", handleMouseEnter);
+            image.addEventListener("mouseleave", handleMouseLeave);
+
+            return () => {
+                image.removeEventListener("mouseenter", handleMouseEnter);
+                image.removeEventListener("mouseleave", handleMouseLeave);
+            };
         });
     }, []);
+
 
     const setImageRef = (el, index) => {
         imageRefs.current[index] = el;

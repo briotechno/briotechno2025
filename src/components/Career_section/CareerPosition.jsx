@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const styles = {
     section: {
         color: "#fff",
-        maxWidth: "1440px",
+        maxWidth: "1240px",
         padding: { xs: "30px 20px", md: "50px" },
         margin: "0 auto",
     },
@@ -36,25 +36,25 @@ const styles = {
     jobButton: {
         backgroundColor: "#2F80ED",
         color: "#000",
-        fontWeight: 600,
+        fontWeight: 500,
         fontFamily: "Poppins, sans-serif",
         textTransform: "none",
-        fontSize: "16px",
-        borderRadius: "12px",
+        fontSize: "20px",
+        borderRadius: "16px",
         width: "100%",
         padding: "16px",
         overflow: "hidden",
-        display: "block",
+        transition: "background-color 0.3s ease",
         "&:hover": {
             backgroundColor: "#1C6DD0",
-            "& .button-content": {
-                justifyContent: "space-between", // spread text and arrow on hover
-                transform: "translateX(-10px)", // shift text left
-            },
-            "& .arrow": {
-                opacity: 1,
-                transform: "translateX(0)", // slide arrow in
-            },
+        },
+        "&:hover .button-content": {
+            justifyContent: "space-between",
+            transform: "translateX(-10px)",
+        },
+        "&:hover .arrow": {
+            opacity: 1,
+            transform: "translateX(0)",
         },
     },
     buttonContent: {
@@ -63,14 +63,14 @@ const styles = {
         justifyContent: "center", // default centered
         gap: "10px",
         width: "100%",
-        transition: "transform 0.3s ease, justify-content 0.3s ease",
+        transition: "transform 0.6s ease, justify-content 0.6s ease",
     },
     arrow: {
         backgroundColor: "#D7E4F5",
         borderRadius: "100%",
         opacity: 0,
         transform: "translateX(40px)", // arrow starts off right, invisible
-        transition: "all 0.3s ease",
+        transition: "all 0.6s ease",
     },
 };
 
@@ -78,14 +78,13 @@ const positions = [
     "Senior React Js Developer",
     "Senior React Js Developer",
     "Senior React Js Developer",
-    "Senior React Js Developer",
-];
+    "Senior React Js Developer",];
 
 const CareerPosition = () => {
     const navigate = useNavigate();
 
     return (
-        <Box sx={styles.section}>
+        <Box id="career-position" sx={styles.section}>
             <Box sx={styles.textContainer}>
                 <Typography sx={styles.title}>Open positions</Typography>
                 <Typography sx={styles.subText}>
