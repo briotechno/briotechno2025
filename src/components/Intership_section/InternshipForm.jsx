@@ -127,9 +127,9 @@ const InternshipForm = () => {
         
         const { firstName, lastName , email , phoneNumber , courseName , qualification , graduationYear , cgpa } = formData;
 
-        const serviceID = 'service_gxssddd';
-        const templateID = 'template_l0yxi0r';
-        const publicKey = 'Bz2fUEsYputFHn4lO';
+        const serviceID = 'service_yvztfr8';
+        const templateID = 'template_f2a768m';
+        const publicKey = 'user_473cP0iJABpz16Uy0Jjpx';
 
         const reader = new FileReader();
 
