@@ -7,11 +7,10 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'robots.txt', 'pwa-192x192.png', 'pwa-512x512.png'],
-      // workbox: {
-      //   globPatterns: ['**/*.{js,css,html,ico,png,svg,webp}'],
-      //   maximumFileSizeToCacheInBytes: 15 * 1024 * 1024,  // Increase file size limit to 15MB
-      // },
+      includeAssets: [
+        'favicon.svg',
+        'robots.txt',
+      ],
       manifest: {
         name: 'My Vite React App',
         short_name: 'ViteApp',
@@ -21,6 +20,23 @@ export default defineConfig({
         display: 'standalone',
         start_url: '/'
       },
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,woff2,woff}'], // Include image types
+        maximumFileSizeToCacheInBytes: 15 * 1024 * 1024, // 15 MB limit
+        runtimeCaching: [
+          {
+            urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp)$/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'image-cache',
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
+              },
+            },
+          },
+        ],
+      }
     }),
   ],
 });

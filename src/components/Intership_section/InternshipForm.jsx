@@ -5,6 +5,10 @@ import CloseIcon from '@mui/icons-material/Close';
 import UploadIcon from "@mui/icons-material/Add";
 import DescriptionIcon from '@mui/icons-material/Description';
 import { IconButton } from "@mui/material";
+import emailjs from '@emailjs/browser';
+
+
+
 
 const styles = {
     section: {
@@ -121,7 +125,19 @@ const InternshipForm = () => {
             return;
         }
         alert("Form submitted successfully!");
-        console.log("Submitted:", formData, file);
+        const { firstName , lastName } = formData;
+        emailjs.send('service_gxssddd', 'template_l0yxi0r', {
+            to_name: `${firstName} ${lastName}`,
+            from_name: 'Briotechno Internship Application',
+            message: `${firstName} ${lastName} , we will connect soon.`,
+            // to_email: "Info@briotechno.com",
+        }, 'Bz2fUEsYputFHn4lO')
+            .then((response) => {
+                console.log('SUCCESS!', response.status, response.text);
+            })
+            .catch((err) => {
+                console.error('FAILED...', err);
+            });
 
         // Clear form
         setFormData({
@@ -161,7 +177,7 @@ const InternshipForm = () => {
                         />
                     </label>
                 ))}
-                
+
                 <Box>
                     <InputLabel sx={{ color: "#ccc", mb: 1, margin: "0 15px", }}>
                         Upload your resume [ PDF or Document ]

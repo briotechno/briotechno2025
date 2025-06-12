@@ -10,10 +10,24 @@ import ApplyNow from "./components/ApplyNow_page";
 import ContactPage from "./components/Contact_page";
 import PortfolioPage from "./components/Portfolio_page"
 import PortfolioDetailpage from "./components/Portfolio_Detailpage";
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null; // This component renders nothing
+}
 
 function App() {
+  
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/service" element={<ServicePage />} />
