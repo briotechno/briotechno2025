@@ -7,10 +7,7 @@ import "@fontsource/quicksand";
 import { Typography, Card, CardContent, CardMedia, Box, useMediaQuery, useTheme } from "@mui/material";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import vector1 from "../../assets/images/Frame1.png";
-import vector2 from "../../assets/images/Frame2.png";
-import vector3 from "../../assets/images/Frame3.png";
-import vector4 from "../../assets/images/Frame4.png";
+// import { vector1, vector2, vector3, vector4 } from "../header/Images"
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
@@ -26,7 +23,7 @@ const SlideBar = () => {
     const styles = {
         container: {
             width: "100%",
-            maxWidth:"1440px",
+            maxWidth: "1440px",
             margin: "auto",
             padding: isMobile ? "0 10px" : "0 20px",
             minHeight: "596px",
@@ -112,10 +109,10 @@ const SlideBar = () => {
     };
 
     const Data = [
-        { title: "Brooklyn Simmon", subtitle: "manam", description: "Sit ut diam bibendum dolor. Ullamcorper pharetra nibh eget vitae pulvinar. Placerat sapien, dolor, aenean vivamus in tincidunt et. Mauris dolor vestibulum et lacus a ante orci.", image: vector1 },
-        { title: "Esther Howard", subtitle: "Offmax", description: "Vitae tellus bibendum nibh integer auctor pretium sed. Sollicitudin tristique euismod elit.", image: vector2 },
-        { title: "Arlene McCoy", subtitle: "bloopixel", description: "Eu eu eget lorem commodo sagittis enim in viverra. Urna egestas ipsum gravida tempor. Libero, consectetur urna in enim magnis. Est.", image: vector3 },
-        { title: "Jane Cooper", subtitle: "unpexel", description: "Amet aliquam, volutpat nisl, duis sed at. Vehicula proin consectetur risus dictumst nec amet consequat at tempus. Ornare dapibus nunc fames nibh morbi viverra eu sed mattis. ", image: vector4 }
+        { title: "Brooklyn Simmon", subtitle: "manam", description: "Sit ut diam bibendum dolor. Ullamcorper pharetra nibh eget vitae pulvinar. Placerat sapien, dolor, aenean vivamus in tincidunt et. Mauris dolor vestibulum et lacus a ante orci.", image: "" },
+        { title: "Esther Howard", subtitle: "Offmax", description: "Vitae tellus bibendum nibh integer auctor pretium sed. Sollicitudin tristique euismod elit.", image: "" },
+        { title: "Arlene McCoy", subtitle: "bloopixel", description: "Eu eu eget lorem commodo sagittis enim in viverra. Urna egestas ipsum gravida tempor. Libero, consectetur urna in enim magnis. Est.", image: "" },
+        { title: "Jane Cooper", subtitle: "unpexel", description: "Amet aliquam, volutpat nisl, duis sed at. Vehicula proin consectetur risus dictumst nec amet consequat at tempus. Ornare dapibus nunc fames nibh morbi viverra eu sed mattis. ", image: "" }
     ];
 
     const settings = {

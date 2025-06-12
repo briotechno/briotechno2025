@@ -1,5 +1,6 @@
 import "./App.css";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import ScrollToTop from "./components/header/ScrollToTop"
 import HomePage from "./components/home_page";
 import ServicePage from "./components/service_page";
 import AboutPage from "./components/About_page"
@@ -10,18 +11,6 @@ import ApplyNow from "./components/ApplyNow_page";
 import ContactPage from "./components/Contact_page";
 import PortfolioPage from "./components/Portfolio_page"
 import PortfolioDetailpage from "./components/Portfolio_Detailpage";
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null; // This component renders nothing
-}
 
 function App() {
   

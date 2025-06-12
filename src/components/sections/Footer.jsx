@@ -1,15 +1,18 @@
 import React from "react";
 import { Grid, Typography, Box } from "@mui/material";
-import { useNavigate } from "react-router-dom"; // import navigate
+import { useNavigate } from "react-router-dom";
 import "@fontsource/quicksand";
 
 const styles = {
     footer: {
         width: "100%",
         maxWidth: "1440px",
-        backgroundColor: "#000000",                                                                                                                                     
-        padding: "50px 0",
-        minHeight: "400px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#000000",
+        minHeight: "431px",
     },
     heading: {
         fontFamily: "Inter, sans-serif",

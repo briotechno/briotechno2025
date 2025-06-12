@@ -4,7 +4,7 @@ import { Box, Button, Typography, Card, CardContent, CardMedia } from "@mui/mate
 import Grid from "@mui/material/Grid";
 import DynamicButton from "../header/DynamicButton";
 import "@fontsource/quicksand";
-import frame from "../../assets/images/Frame.png";
+import {frame} from "../header/Images"
 import ReadMore from "../../assets/images/ReadMore.png";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -38,6 +38,7 @@ const styles = {
         maxWidth: "1440px",
     },
     gridContainer: {
+        width: "100%",
         maxWidth: "1440px",
     },
     title: {
@@ -62,42 +63,52 @@ const styles = {
         width: "140px",
     },
     card: {
-        maxWidth: "1440px",
-        padding: "10px",
-        border: "1px solid #fff",
-        borderRadius: "10px",
-        backgroundColor: "#101318 !important",
+        width: "100%",
+        maxwidth: "412px",
+        maxHeight: "330px",
+        padding: "16px",
+        display: "flex",
+        flexDirection: "column",
+        border: "1px solid #A1AEBF",
+        borderRadius: "4px",
+        backgroundColor: "#101318",
         position: "relative",
         overflow: "hidden",
-        transition: "all 0.3s ease-in-out",
         "&:hover": {
             border: "1px solid #2F80ED",
-            boxShadow: "0 8px 24px rgba(47, 128, 237, 0.2)",
-            "& .fade-image": {
-                opacity: 1,
-                transform: "scale(1.05)",
-                height: "200px",
-                maxHeight: "200px",
-            },
-            "& .project-title": {
-                transform: "scale(1.05)",
-            },
-            "& .read-more-button": {
-                transform: "scale(1.05)",
-            },
-            "& .card-media": {
-                opacity: 1,
-                height: "auto",
-            },
         },
+        // border: "1px solid transparent",
+        // "&:hover": {
+        //     border: "1px solid #2F80ED",
+        //     boxShadow: "0 8px 24px rgba(47, 128, 237, 0.2)",
+        //     "& .fade-image": {
+        //         opacity: 1,
+        //         transform: "scale(1.05)",
+        //         height: "142px",
+        //         maxHeight: "142px",
+        //     },
+        //     "& .project-title": {
+        //         transform: "scale(1.05)",
+        //     },
+        //     "& .read-more-button": {
+        //         transform: "scale(1.05)",
+        //     },
+        //     "& .card-media": {
+        //         opacity: 1,
+        //         height: "auto",
+        //     },
+        // },
     },
     cardContent: {
         width: "100%",
-        maxwidth: "1440px",
+        maxwidth: "365px",
         position: "relative",
+        padding: "20px 0",
         zIndex: 1,
     },
     cardMedia: {
+        objectFit: "cover",
+        borderRadius: "4px",
         position: "relative",
         zIndex: 2,
         transition: "all 0.3s ease-in-out",
@@ -107,23 +118,23 @@ const styles = {
     },
     categoryButton: {
         fontSize: "12px",
-        marginBottom: 1,
+        fontWeight: "600",
+        lineHeight: "16px",
+        letterSpacing: "2%",
+        color: "#1A365D",
         backgroundColor: "#2F80ED",
-        fontWeight: "300",
-        color: "#000",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        "&:hover": {
-            backgroundColor: "#1E5DBE",
-            boxShadow: "none",
-        },
+        borderRadius: "4px",
+        textTransform: "uppercase",
     },
+
     projectTitle: {
         fontFamily: "Quicksand, sans-serif",
-        textAlign: "left",
         fontSize: "24px",
         fontWeight: "700",
+        lineHeight: "32px",
+        letterSpacing: "0px",
+        color: "#D7E4F5",
+        padding: "10px 0",
         transition: "transform 0.3s ease-in-out",
     },
     readMoreButton: {
@@ -150,18 +161,6 @@ const styles = {
         height: "20px",
         transition: "transform 0.3s ease-in-out",
     },
-    // cardMedia: {
-    //     position: "relative",
-    //     zIndex: 2,
-    //     width: "100%",
-    //     height: "0px", // Start hidden
-    //     maxHeight: "0px", // Collapse height
-    //     overflow: "hidden",
-    //     objectFit: "cover",
-    //     opacity: 0,
-    //     transform: "scale(1)",
-    //     transition: "all 0.4s ease-in-out",
-    // },
 };
 
 const PortfolioSection = () => {
@@ -237,7 +236,7 @@ const PortfolioSection = () => {
         <>
             <Box sx={styles.content}>
                 <Box sx={styles.section} ref={sectionRef}>
-                    <Grid container spacing={4}>
+                    <Grid container spacing={7}>
                         {/* Left Section */}
                         <Grid item xs={12} md={4}>
                             <Typography sx={styles.title} ref={titleRef}>
@@ -248,11 +247,10 @@ const PortfolioSection = () => {
                             </Typography>
                             <Box sx={styles.buttonContainer}>
                                 <DynamicButton filled={false}>Show More</DynamicButton>
-                                <DynamicButton filled={true}>Show More</DynamicButton>
                             </Box>
                         </Grid>
                         <Grid item xs={12} md={4}>
-                            <Grid container spacing={3}>
+                            <Grid container spacing={2}>
                                 {projects.map((project, index) => (
                                     <Grid item xs={12} sm={12} key={project.id}>
                                         <Card
@@ -269,8 +267,10 @@ const PortfolioSection = () => {
                                                     sx={{
                                                         ...styles.cardMedia,
                                                         ...(activeCard === project.id && {
-                                                            height: "200px",
-                                                            maxHeight: "200px",
+                                                            // maxwidth: "365px",
+                                                            padding: "none",
+                                                            height: "142px",
+                                                            maxHeight: "142px",
                                                             opacity: 1,
                                                         }),
                                                     }}
@@ -297,7 +297,7 @@ const PortfolioSection = () => {
 
                         {/* Third part */}
                         <Grid item xs={12} md={4}>
-                            <Grid container spacing={3}>
+                            <Grid container spacing={2}>
                                 {projecttwo.map((project, index) => (
                                     <Grid item xs={12} sm={12} key={project.id}>
                                         <Card
@@ -314,8 +314,8 @@ const PortfolioSection = () => {
                                                     sx={{
                                                         ...styles.cardMedia,
                                                         ...(activeCard === project.id && {
-                                                            height: "200px",
-                                                            maxHeight: "200px",
+                                                            height: "142px",
+                                                            maxHeight: "142px",
                                                             opacity: 1,
                                                         }),
                                                     }}

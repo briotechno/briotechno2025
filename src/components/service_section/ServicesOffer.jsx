@@ -2,12 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { Box, Typography, Grid } from "@mui/material";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Branding from "../../assets/images/Branding.png";
-import DigitalMarketing from "../../assets/images/DigitalMarketing.png";
-import MobileApp from "../../assets/images/MobileApp.png";
-import Seo from "../../assets/images/Seo.png";
-import Testing from "../../assets/images/Testing.png";
-import WebDevelopment from "../../assets/images/WebDevelopment.png";
+import { Branding, DigitalMarketing, MobileApp, Seo, Testing, WebDevelopment } from "../header/Images"
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,12 +23,13 @@ const ServicesOffer = () => {
         section: {
             width: "100%",
             maxWidth: "1440px",
-            minHeight: "720px",
+            minHeight: "566px",
         },
         heading: {
             fontFamily: "Quicksand, sans-serif",
             color: "#FFFFFF",
             fontWeight: 700,
+            margin: { xs: "10px" },
             fontSize: { xs: "30px", sm: "25px", md: "30px", lg: "40px" },
             marginBottom: "20px",
             lineHeight: "56px",
@@ -41,9 +37,9 @@ const ServicesOffer = () => {
         },
         gridContainer: {
             maxWidth: "1440px",
+            padding: "10px",
         },
         box: {
-            // width: "10%",
             border: "1px solid #A1AEBF",
             borderRadius: "4px",
             padding: "20px",
@@ -70,7 +66,7 @@ const ServicesOffer = () => {
             lineHeight: "36px",
             color: "#D7E4F5",
         },
-      
+
         boxSubheading: {
             fontFamily: "Quicksand, sans-serif",
             fontWeight: 500,

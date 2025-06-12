@@ -2,12 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { Box, Typography, Grid } from "@mui/material";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Branding from "../../assets/images/Branding.png";
-import DigitalMarketing from "../../assets/images/DigitalMarketing.png";
-import MobileApp from "../../assets/images/MobileApp.png";
-import Seo from "../../assets/images/Seo.png";
-import Testing from "../../assets/images/Testing.png";
-import WebDevelopment from "../../assets/images/WebDevelopment.png";
+import { Branding, DigitalMarketing, MobileApp, Seo, Testing, WebDevelopment } from "../header/Images"
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,7 +47,7 @@ const WeOffer = () => {
         },
         gridContainer: {
             width: "100%",
-            maxWidth:"1440px",
+            maxWidth: "1440px",
             marginTop: "40px",
         },
         box: {

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Box, Typography, Grid } from "@mui/material";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -6,7 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const CareerTeam = () => {
-    const sectionRef = useRef(null);
 
     const boxData = [
         {
@@ -34,7 +33,12 @@ const CareerTeam = () => {
         section: {
             width: "100%",
             maxWidth: "1440px",
-            paddingBottom: "100px",
+            p: { xs: "16px", sm: "24px", md: "32px" },
+            pb: "100px",
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+            alignItems: "center",
         },
         textContainer: {
             width: "100%",
@@ -49,7 +53,7 @@ const CareerTeam = () => {
             color: "#D7E4F5",
             fontWeight: 600,
             lineHeight: "100%",
-            fontSize: { xs: "30px", sm: "32px", md: "42px", lg: "52px" },
+            fontSize: { xs: "30px", sm: "30px", md: "32px", lg: "36px" },
             marginBottom: "20px",
         },
         subTextTwo: {
@@ -72,14 +76,13 @@ const CareerTeam = () => {
             alignSelf: "flex-start",
             paddingLeft: "5%",
         },
-
         gridContainer: {
             width: "100%",
             maxWidth: "1440px",
         },
         box: {
+            m: 2,
             width: "100%",
-            // height:410,
             borderRadius: "16px",
             padding: "20px",
             backgroundColor: "#101318",
@@ -119,43 +122,44 @@ const CareerTeam = () => {
     };
 
     return (
-        <Box sx={styles.section} ref={sectionRef}>
-            <Grid item xs={12} md={12} order={{ xs: 1, md: 2 }}>
-                <Box
-                    sx={styles.textContainer}
-                >
-                    <Typography variant="h1" sx={styles.title}>
-                        How we hire our team
-                    </Typography>
-                    <Typography variant="body1" sx={styles.subTextTwo}>
-                        We like to keep things as simple as possible so we can get to what’s really important - finding out more about you
-                    </Typography>
-                </Box>
-            </Grid>
-            <Grid container spacing={3} sx={styles.gridContainer} justifyContent="center">
-                {boxData.map((box, index) => (
-                    <Grid
-                        item
-                        key={index}
-                        xs={12}
-                        sm={6}
-                        md={3}
-                        lg={3}
-                        display="flex"
-                        justifyContent="center"
+        <Box sx={styles.section}>
+            <Box>
+                <Grid item xs={12} md={12} order={{ xs: 1, md: 2 }}>
+                    <Box
+                        sx={styles.textContainer}
                     >
-                        <Box
-                            sx={styles.box}
-                            className="offer-box"
+                        <Typography variant="h1" sx={styles.title}>
+                            How we hire our team
+                        </Typography>
+                        <Typography variant="body1" sx={styles.subTextTwo}>
+                            We like to keep things as simple as possible so we can get to what’s really important - finding out more about you
+                        </Typography>
+                    </Box>
+                </Grid>
+                <Grid container sx={styles.gridContainer} justifyContent="center">
+                    {boxData.map((box, index) => (
+                        <Grid
+                            item
+                            key={index}
+                            xs={12}
+                            sm={6}
+                            md={3}
+                            lg={3}
+                            display="flex"
+                            justifyContent="center"
                         >
-                            {/* <img src={box.img} alt={box.title} style={styles.image} /> */}
-                            <Typography sx={styles.No}>{box.No}</Typography>
-                            <Typography sx={styles.boxHeading}>{box.title}</Typography>
-                            <Typography sx={styles.boxSubheading}>{box.desc}</Typography>
-                        </Box>
-                    </Grid>
-                ))}
-            </Grid>
+                            <Box
+                                sx={styles.box}
+                                className="offer-box"
+                            >
+                                <Typography sx={styles.No}>{box.No}</Typography>
+                                <Typography sx={styles.boxHeading}>{box.title}</Typography>
+                                <Typography sx={styles.boxSubheading}>{box.desc}</Typography>
+                            </Box>
+                        </Grid>
+                    ))}
+                </Grid>
+            </Box>
         </Box>
     );
 };

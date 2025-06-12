@@ -3,14 +3,7 @@ import { Box, Typography, Grid } from "@mui/material";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import DynamicButton from "../header/DynamicButton";
-import {
-  Portfolio1,
-  Portfolio2,
-  Portfolio3,
-  Portfolio4,
-  Portfolio5,
-  Portfolio6,
-} from "../../components/header/Images";
+import { Portfolio1, Portfolio2, Portfolio3, Portfolio4, Portfolio5, Portfolio6 } from "../header/Images";
 import { useNavigate } from "react-router-dom";
 
 // Register ScrollTrigger with GSAP
@@ -31,6 +24,7 @@ const styles = {
 
   textContainer: {
     width: "100%",
+    padding: "15px 0",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -47,30 +41,47 @@ const styles = {
   subTextTwo: {
     fontWeight: 500,
     textAlign: "center",
+    padding: "0 8px",
     color: "#D7E4F599",
     fontFamily: "Poppins, sans-serif",
     fontSize: { xs: "14px", sm: "16px", md: "18px", lg: "20px" },
   },
   imageGrid: {
-    marginTop: "30px",
+    width: "100%",
+    maxWidth: "1220px",
+    margin: "0 auto",
     padding: {
       lg: "0 35px",
       md: "0 25px",
       xs: "0 15px",
-    }
+    },
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
   },
   imageBox: {
     width: "100%",
     height: "100%",
     borderRadius: "12px",
     overflow: "hidden",
+    transition: "transform 0.3s ease",
+    "&:hover": {
+      transform: "scale(1.02)",
+    },
   },
   img: {
     width: "100%",
     height: "100%",
     objectFit: "cover",
     borderRadius: "12px",
+    cursor: "pointer",
+    transition: "transform 0.3s ease",
+    "&:hover": {
+      transform: "scale(1.05)",
+    },
   },
+
 };
 
 const images = [
@@ -98,7 +109,7 @@ const PortfolioTwo = () => {
               insights and tools to change physician and patient behavior.
             </Typography>
           </Box>
-          <Grid container spacing={3} sx={styles.imageGrid}>
+          <Grid container sx={styles.imageGrid}>
             {images.map(({ src, alt, role }, idx) => (
               <Grid item xs={12} sm={12} md={12} key={idx} sx={styles.imageBox}>
                 <img
@@ -112,9 +123,9 @@ const PortfolioTwo = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", paddingX: { lg: "45px", sm: "0" }, mt: 2 }}>
-        <DynamicButton filled={true} onClick={() => navigate("/")}>
-          Build my brand
+      <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "35px 0 0 0", mt: 2 }}>
+        <DynamicButton filled={true} onClick={() => navigate("PortfolioDetailpage")}>
+          Load more
         </DynamicButton>
       </Box>
     </Box>
