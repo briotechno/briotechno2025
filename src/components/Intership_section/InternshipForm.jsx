@@ -124,33 +124,87 @@ const InternshipForm = () => {
             alert("Please fill all fields and upload your resume.");
             return;
         }
-        alert("Form submitted successfully!");
-        const { firstName , lastName } = formData;
-        emailjs.send('service_gxssddd', 'template_l0yxi0r', {
-            to_name: `${firstName} ${lastName}`,
-            from_name: 'Briotechno Internship Application',
-            message: `${firstName} ${lastName} , we will connect soon.`,
-            // to_email: "Info@briotechno.com",
-        }, 'Bz2fUEsYputFHn4lO')
-            .then((response) => {
-                console.log('SUCCESS!', response.status, response.text);
-            })
-            .catch((err) => {
-                console.error('FAILED...', err);
-            });
+        
+        const { firstName, lastName , email , phoneNumber , courseName , qualification , graduationYear , cgpa } = formData;
+
+        const serviceID = 'service_gxssddd';
+        const templateID = 'template_l0yxi0r';
+        const publicKey = 'Bz2fUEsYputFHn4lO';
+
+        const reader = new FileReader();
+
+        reader.onload = () => {
+            const base64File = reader.result.split(',')[1]; // remove data prefix
+
+            const templateParams = {
+                // to_email: userEmail,
+                to_name: `${firstName} ${lastName}`,
+                message: `Dear HR Team,
+                        I hope this email finds you well.
+
+                        I would like to apply for an internship position at your organization. Please find my details below:
+
+                        - First Name: ${firstName}
+                        - Last Name: ${lastName}
+                        - Email: ${email}
+                        - Phone Number: ${phoneNumber}
+                        - Highest Qualification: ${qualification}
+                        - Course Name: ${courseName}
+                        - Year of Graduation: ${graduationYear}
+                        - CGPA / PR: ${cgpa}
+
+                        I have also attached my resume for your reference.
+
+                        I look forward to the opportunity to contribute and learn at your organization.
+
+                        Thank you for considering my application.
+
+                        Best regards,  
+                        ${firstName} ${lastName} 
+                        ${email}
+                        ${phoneNumber}
+                        `,
+                attachment: base64File, // your attachment
+                fileName: file.name
+            };
+
+            emailjs.send(serviceID, templateID, templateParams, publicKey)
+                .then((response) => {
+                    console.log('SUCCESS!', response.status, response.text);
+                    setFormData({
+                        firstName: "",
+                        lastName: "",
+                        email: "",
+                        phoneNumber: "",
+                        qualification: "",
+                        courseName: "",
+                        graduationYear: "",
+                        cgpa: "",
+                    });
+                    setFile(null);
+                    alert("Form submitted successfully!");
+                }, (err) => {
+                    console.log('FAILED...', err);
+                });
+        };
+
+        reader.readAsDataURL(file); // Read file as base64
+
+        // emailjs.send('service_gxssddd', 'template_l0yxi0r', {
+        //     to_name: `${firstName} ${lastName}`,
+        //     from_name: 'Briotechno Internship Application',
+        //     message: `${firstName} ${lastName} , we will connect soon.`,
+        //     // to_email: "Info@briotechno.com",
+        // }, 'Bz2fUEsYputFHn4lO')
+        //     .then((response) => {
+        //         console.log('SUCCESS!', response.status, response.text);
+        //     })
+        //     .catch((err) => {
+        //         console.error('FAILED...', err);
+        //     });
 
         // Clear form
-        setFormData({
-            firstName: "",
-            lastName: "",
-            email: "",
-            phoneNumber: "",
-            qualification: "",
-            courseName: "",
-            graduationYear: "",
-            cgpa: "",
-        });
-        setFile(null);
+
     };
 
     const handleRemove = () => {
