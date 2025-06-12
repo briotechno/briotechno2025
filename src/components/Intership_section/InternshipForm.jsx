@@ -15,6 +15,7 @@ import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import CircularProgress from "@mui/material/CircularProgress";
 import DynamicButton from "../header/DynamicButton";
+import emailjs from '@emailjs/browser';
 
 const LinearProgressWithLabel = ({ value }) => (
     <Box sx={{ width: '100%' }}>
@@ -215,29 +216,100 @@ const InternshipForm = () => {
         console.log("Submitted:", formData, file);
 
         setQuery('progress');
+        const { firstName, lastName, email, phoneNumber, courseName, qualification, graduationYear, cgpa } = formData;
 
-        setTimeout(() => {
-            setFormData({
-                firstName: "",
-                lastName: "",
-                email: "",
-                phoneNumber: "",
-                qualification: "",
-                courseName: "",
-                graduationYear: "",
-                cgpa: "",
-            });
-            setFile(null);
-            setUploadProgress(0);
-            setErrors({});
-            setQuery('success');
-            setOpenSnackbar(true);
-        }, 2000);
+        const serviceID = 'service_yvztfr8';
+        const templateID = 'template_f2a768m';
+        const publicKey = 'user_473cP0iJABpz16Uy0Jjpx';
+
+        const reader = new FileReader();
+
+        reader.onload = () => {
+            const base64File = reader.result.split(',')[1]; // remove data prefix
+
+            const templateParams = {
+                // to_email: userEmail,
+                to_name: `${firstName} ${lastName}`,
+                message: `Dear HR Team,
+                        I hope this email finds you well.
+
+                        I would like to apply for an internship position at your organization. Please find my details below:
+
+                        - First Name: ${firstName}
+                        - Last Name: ${lastName}
+                        - Email: ${email}
+                        - Phone Number: ${phoneNumber}
+                        - Highest Qualification: ${qualification}
+                        - Course Name: ${courseName}
+                        - Year of Graduation: ${graduationYear}
+                        - CGPA / PR: ${cgpa}
+
+                        I have also attached my resume for your reference.
+
+                        I look forward to the opportunity to contribute and learn at your organization.
+
+                        Thank you for considering my application.
+
+                        Best regards,  
+                        ${firstName} ${lastName} 
+                        ${email}
+                        ${phoneNumber}
+                        `,
+                attachment: base64File, // your attachment
+                fileName: file.name
+            };
+
+            emailjs.send(serviceID, templateID, templateParams, publicKey)
+                .then((response) => {
+                    console.log('SUCCESS!', response.status, response.text);
+                    setTimeout(() => {
+                        setFormData({
+                            firstName: "",
+                            lastName: "",
+                            email: "",
+                            phoneNumber: "",
+                            qualification: "",
+                            courseName: "",
+                            graduationYear: "",
+                            cgpa: "",
+                        });
+                        setFile(null);
+                        setUploadProgress(0);
+                        setErrors({});
+                        setQuery('success');
+                        setOpenSnackbar(true);
+                    }, 2000);
+                    alert("Form submitted successfully!");
+                }, (err) => {
+                    console.log('FAILED...', err);
+                });
+        };
+
+        reader.readAsDataURL(file); // Read file as base64
+
     };
 
     const handleCloseSnackbar = (event, reason) => {
         if (reason === 'clickaway') return;
         setOpenSnackbar(false);
+
+
+
+        // emailjs.send('service_gxssddd', 'template_l0yxi0r', {
+        //     to_name: `${firstName} ${lastName}`,
+        //     from_name: 'Briotechno Internship Application',
+        //     message: `${firstName} ${lastName} , we will connect soon.`,
+        //     // to_email: "Info@briotechno.com",
+        // }, 'Bz2fUEsYputFHn4lO')
+        //     .then((response) => {
+        //         console.log('SUCCESS!', response.status, response.text);
+        //     })
+        //     .catch((err) => {
+        //         console.error('FAILED...', err);
+        //     });
+
+        // Clear form
+
     };
 
     const handleRemove = () => {

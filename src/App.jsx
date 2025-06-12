@@ -13,6 +13,7 @@ import PortfolioPage from "./components/Portfolio_page"
 import PortfolioDetailpage from "./components/Portfolio_Detailpage";
 
 function App() {
+  
   return (
     <BrowserRouter>
       <ScrollToTop />
@@ -31,5 +32,6 @@ function App() {
     </BrowserRouter>
   );
 }
+
 
 export default App;
