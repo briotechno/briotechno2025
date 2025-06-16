@@ -63,18 +63,16 @@ const CareerTwo = () => {
                 <Grid item xs={12} md={12} order={{ xs: 1, md: 2 }}>
                     <Box sx={styles.textContainer}>
                         <Typography variant="h1" sx={styles.title}>
-                            Make an impact at front
+                            Join Our Team Build the Future.
                         </Typography>
                         <Typography variant="body1" sx={styles.subTextTwo}>
-                            Ready to take role where you can make a lasting impact on your team,
-                            We'd love to have more talented people on board
+                            Explore exciting opportunities to learn grow and make an impact Let’s build something great — together.
                         </Typography>
                         <Box sx={{ paddingX: { lg: "45px", sm: "0" }, mt: 2 }}>
                             <DynamicButton filled={true} onClick={scrollToBottom}>
                                 See all open postions <ArrowDropDownIcon />
                             </DynamicButton>
                         </Box>
-                        {/* This is the scroll target */}
                     </Box>
                 </Grid>
             </Grid>

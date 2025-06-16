@@ -425,7 +425,8 @@ const ApplyNow = () => {
 
                     <Box sx={{ paddingX: { lg: "45px", sm: "0" }, mt: 3, display: "flex", flexDirection: "column", alignItems: "center" }}>
                         <Box sx={{ height: 40, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <DynamicButton filled={true} onClick={handleSubmit} disabled={query === 'progress'}>
+                            <DynamicButton filled={true} onClick={handleSubmit} 
+                            disabled={query === 'progress'}>
                                 {query === 'progress' ? (
                                     <Fade
                                         in={true}

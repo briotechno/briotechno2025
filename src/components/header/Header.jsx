@@ -10,6 +10,7 @@ import {
   Menu,
   MenuItem,
 } from "@mui/material";
+import { } from "../header/Images"
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
@@ -60,7 +61,7 @@ const Navbar = () => {
       submenu: [
         { label: "About Us", path: "/About" },
         { label: "Career", path: "/Career" },
-        { label: "Intership", path: "/Intership" },
+        { label: "Internship", path: "/Internship" },
       ],
     },
     { label: "Services", path: "/Service" },
@@ -80,6 +81,12 @@ const Navbar = () => {
         }}
       >
         <Toolbar sx={styles.toolbar}>
+
+          {/* Logo Here */}
+          <img src={""} alt="Logo" className="image"
+            sx={styles.logo}
+            onClick={() => navigate("/")}
+          />
           {isMediumScreen ? (
             <Box sx={styles.navItems}>
               {/* Dropdown for Company */}
@@ -255,7 +262,14 @@ const styles = {
     gap: "20px",
     display: "flex",
     alignItems: "center",
-    justifyContent: "flex-end",
+    // justifyContent: "flex-end"
+    justifyContent: "space-between",
+  },
+  logo: {
+    fontFamily: "'Quicksand', sans-serif",
+    fontWeight: 700,
+    cursor: "pointer",
+    color: "#FFFFFF",
   },
   navContainer: {
     display: "flex",

@@ -11,22 +11,22 @@ const CareerTeam = () => {
         {
             No: "01",
             title: "Application and recruiter screen",
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+            desc: "Once you apply, our recruitment team reviews your profile to understand your skills, experience, and alignment with the role. If there’s a match, we’ll reach out for a quick conversation.",
         },
         {
             No: "02",
             title: "First round interview",
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+            desc: "This is your chance to tell your story. We’ll dive deeper into your background, goals, and how you approach challenges. while you get to know us better too.",
         },
         {
             No: "03",
             title: "Task or challenge",
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+            desc: "Show us how you think! You’ll receive a role-specific task or challenge designed to assess your practical skills, creativity, and problem-solving approach.",
         },
         {
             No: "04",
             title: "Final interview",
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+            desc: "Meet with senior team members for a final conversation. We’ll align on expectations, team fit, and next steps — setting the stage for a successful journey ahead.",
         },
     ];
     const styles = {

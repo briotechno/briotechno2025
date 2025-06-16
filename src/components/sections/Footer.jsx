@@ -2,6 +2,7 @@ import React from "react";
 import { Grid, Typography, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import "@fontsource/quicksand";
+import { Padding } from "@mui/icons-material";
 
 const styles = {
     footer: {
@@ -21,7 +22,7 @@ const styles = {
         lineHeight: "22px",
         letterSpacing: "2%",
         color: "white",
-        marginBottom: "20px",
+        margin: "10px 0",
         textAlign: "left",
     },
     text: {

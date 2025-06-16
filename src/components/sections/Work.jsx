@@ -4,7 +4,7 @@ import { Box, Button, Typography, Card, CardContent, CardMedia } from "@mui/mate
 import Grid from "@mui/material/Grid";
 import DynamicButton from "../header/DynamicButton";
 import "@fontsource/quicksand";
-import {frame} from "../header/Images"
+import { frame } from "../header/Images"
 import ReadMore from "../../assets/images/ReadMore.png";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -243,7 +243,9 @@ const PortfolioSection = () => {
                                 Some pieces of our work
                             </Typography>
                             <Typography variant="body1" sx={styles.description} ref={descRef}>
-                                Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros consequat magna semper orci a tincidunt.
+                                We turn bold ideas into impactful digital experiences. Our portfolio reflects a deep commitment to quality, innovation, and user-centered design. From branding and websites to mobile apps and digital marketing, every project we take on is crafted with precision, creativity, and purpose.
+                                <br />
+                                We’ve partnered with startups, growing businesses, and global brands to build smart, scalable solutions that drive real results.
                             </Typography>
                             <Box sx={styles.buttonContainer}>
                                 <DynamicButton filled={false}>Show More</DynamicButton>

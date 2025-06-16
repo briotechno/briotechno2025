@@ -11,27 +11,27 @@ const CareerWork = () => {
         {
             img: Growth,
             title: "Rapid Growth",
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+            desc: "Work on exciting, high-impact projects that challenge you to grow fast. We believe in promoting from within and providing opportunities to step up, take ownership, and accelerate your career.",
         },
         {
             img: Collaboration,
             title: "Team Collaboration ",
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+            desc: "We foster a culture of open communication, cross-functional teamwork, and shared success. Everyone’s voice matters, and we grow better together.",
         },
         {
             img: Culture,
             title: "Vibrant Culture",
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+            desc: "We work hard, but we know how to have fun too. From team outings and virtual game nights to regular knowledge-sharing sessions, our culture is creative, inclusive, and full of energy.",
         },
         {
             img: Executive,
             title: "Executive Mentors",
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+            desc: "Learn from experienced leaders who are invested in your personal and professional development. Get guidance, feedback, and insights that shape you into a stronger, more confident professional.",
         },
         {
             img: Great,
             title: "Great Perks",
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+            desc: "Enjoy flexible work hours, remote-friendly options, competitive compensation, wellness programs, and more because happy teams build better products.",
         },
     ];
     const styles = {
