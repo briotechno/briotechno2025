@@ -16,14 +16,14 @@ const styles = {
         padding: { xs: "20px", sm: "30px", md: "50px" },
     },
     title: {
-        padding: "0 20px",
+        padding: "0px 10px",
         fontFamily: "Quicksand, sans-serif",
         color: "#fff",
         fontWeight: 700,
         fontSize: { xs: "24px", sm: "28px", md: "32px", lg: "40px" },
     },
     subTextTwo: {
-        padding: "0 20px",
+        padding: "20px 10px",
         textAlign: "justify",
         fontFamily: "Quicksand, sans-serif",
         fontSize: { xs: "14px", sm: "16px", md: "18px" },
@@ -44,7 +44,7 @@ const ServiceChoose = () => {
                 </Grid>
                 <Grid item xs={12} md={12}>
                     <Typography sx={styles.subTextTwo}>
-                        Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit.Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit. Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit. Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit.
+                        At Briotechno, we follow a clear and collaborative process to bring your ideas to life. It all starts with the discovery phase, where we understand your vision, goals, and audience to define a strategic roadmap. From there, our design team crafts intuitive and engaging UI/UX experiences tailored to your brand. Once the designs are approved, our developers bring them to life using the latest technologies to ensure performance, security, and scalability. Every project goes through rigorous testing and quality assurance to guarantee a flawless user experience. After thorough validation, we launch your product smoothly and ensure everything is running perfectly. Even after launch, we stay connected — offering ongoing support, maintenance, and optimization to help you grow and adapt as your needs evolve.
                     </Typography>
                 </Grid>
             </Grid>

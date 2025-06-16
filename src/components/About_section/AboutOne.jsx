@@ -87,7 +87,7 @@ const AboutOne = () => {
     const styles = {
         content: {
             width: "100%",
-            minHeight: { xs: "600px", sm: "600px", lg: "640px" },
+            minHeight: { xs: "600px", sm: "600px", lg: "700px" },
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -113,8 +113,7 @@ const AboutOne = () => {
         heading: {
             fontFamily: "Quicksand, sans-serif",
             fontWeight: 700,
-            fontSize: { xs: "20px", sm: "40px", md: "50px", lg: "64px" },
-            lineHeight: { xs: "56px", sm: "112px" },
+            fontSize: { xs: "32px", sm: "40px", md: "50px", lg: "64px" },
             letterSpacing: "0px",
             color: "white",
             paddingX: { lg: "45px", sm: "0" },
@@ -132,7 +131,6 @@ const AboutOne = () => {
             lineHeight: "24px",
             letterSpacing: "2%",
             color: "#FFFFFF99",
-            textAlign: "justify",
             paddingX: { lg: "45px", sm: "0" },
             margin: "5px 0"
         },
@@ -194,7 +192,7 @@ const AboutOne = () => {
 
                     {showHeading && (
                         <Typography className="text-heading" sx={styles.heading}>
-                            {"Lorem Ipsum".split("").map((char, index) => (
+                            {"Innovating the Future One Pixel at a Time".split("").map((char, index) => (
                                 <span key={index} style={char === " " ? { marginRight: "8px" } : {}}>
                                     {char}
                                 </span>
@@ -205,7 +203,7 @@ const AboutOne = () => {
                     {showExtraContent && (
                         <Box className="extra-content">
                             <Typography sx={styles.subText}>
-                                Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros
+                                We’re a passionate team of designers, developers, and digital thinkers committed to building smart, scalable, and user-focused solutions. From startups to enterprises, we help businesses turn bold ideas into real-world impact through creativity, technology, and strategic thinking.
                             </Typography>
                             <Box sx={{ paddingX: { lg: "45px", sm: "0" }, mt: 2 }}>
                                 <DynamicButton filled={true} onClick={() => navigate("/Contact")}>

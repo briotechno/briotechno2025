@@ -22,7 +22,7 @@ const styles = {
     }
 };
 
-const AboutPage = () => {
+const CareerPage = () => {
     return (
         <ThemeProvider theme={darkTheme}>
             <Box sx={styles.pageContainer}>
@@ -38,4 +38,4 @@ const AboutPage = () => {
     );
 };
 
-export default AboutPage;
+export default CareerPage;

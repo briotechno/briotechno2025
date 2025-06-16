@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box, Typography, TextField, keyframes, useMediaQuery, useTheme } from "@mui/material";
-import {BlueVector, PurpleVector}from "../header/Images"
+import { BlueVector, PurpleVector } from "../header/Images"
 import gsap from "gsap";
 import DynamicButton from "../header/DynamicButton";
 import "@fontsource/quicksand";
@@ -57,7 +57,7 @@ const SectionOne = () => {
         content: {
             width: "100%",
             // minHeight: { xs: "600px", sm: "820px" },
-            minHeight: { xs: "600px", sm: "800px", lg: "870px" },
+            minHeight: { xs: "650px", sm: "800px", lg: "870px" },
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -102,7 +102,6 @@ const SectionOne = () => {
             position: "relative",
             marginTop: "24px",
             width: "100%",
-            maxWidth: isMobile ? "600px" : "700px",
         },
         inputField: {
             width: { xs: "100%", sm: "550px" },
@@ -168,7 +167,8 @@ const SectionOne = () => {
                 </Typography>
                 {showExtraContent && (
                     <Box className="extra-content">
-                        <Typography sx={styles.subText}>Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros</Typography>
+                        <Typography sx={styles.subText}>We specialize in crafting intelligent, user-centric digital solutions that empower businesses to thrive in a connected world. From sleek web and mobile applications to robust backend systems, our mission is to transform bold ideas into scalable, future-ready technologies. By blending innovation, strategy, and seamless execution, we help startups and enterprises build smarter, faster, and more impactful digital products
+                        </Typography>
                         <Box sx={styles.form}>
                             <TextField placeholder="Email" variant="outlined" fullWidth sx={styles.inputField} />
                             <DynamicButton filled={true}>ATTRACT</DynamicButton>

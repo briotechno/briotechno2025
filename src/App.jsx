@@ -24,7 +24,7 @@ function App() {
         <Route path="/Career" element={<CareerPage />} />
         <Route path="/careers/:role" element={<CareerApplyPagePage />} />
         <Route path="/ApplyNow" element={<ApplyNow />} />
-        <Route path="/Intership" element={<IntershipPage />} />
+        <Route path="/Internship" element={<IntershipPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/Portfolio" element={<PortfolioPage />} />
         <Route path="/Portfolio/:role" element={<PortfolioDetailpage />} />

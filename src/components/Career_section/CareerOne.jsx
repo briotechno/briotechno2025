@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box, Typography, TextField, keyframes, useMediaQuery, useTheme } from "@mui/material";
-import {BlueVector, PurpleVector}from "../header/Images"
+import { BlueVector, PurpleVector } from "../header/Images"
 import gsap from "gsap";
 import DynamicButton from "../header/DynamicButton";
 import "@fontsource/quicksand";
@@ -87,7 +87,7 @@ const CareerOne = () => {
     const styles = {
         content: {
             width: "100%",
-            minHeight: { xs: "600px", sm: "600px", lg: "640px" },
+            minHeight: { xs: "600px", sm: "600px", lg: "700px" },
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -111,10 +111,9 @@ const CareerOne = () => {
             paddingX: { lg: "45px", sm: "0" },
         },
         heading: {
-            fontFamily: "Quicksand, sans-serif",
+           fontFamily: "Quicksand, sans-serif",
             fontWeight: 700,
-     fontSize: { xs: "20px", sm: "40px", md: "50px", lg: "64px" },
-            lineHeight: { xs: "56px", sm: "112px" },
+            fontSize: { xs: "32px", sm: "40px", md: "50px", lg: "64px" },
             letterSpacing: "0px",
             color: "white",
             paddingX: { lg: "45px", sm: "0" },
@@ -194,7 +193,7 @@ const CareerOne = () => {
 
                     {showHeading && (
                         <Typography className="text-heading" sx={styles.heading}>
-                            {"Lorem Ipsum".split("").map((char, index) => (
+                            {"Work With Purpose Grow With Us".split("").map((char, index) => (
                                 <span key={index} style={char === " " ? { marginRight: "8px" } : {}}>
                                     {char}
                                 </span>
@@ -205,7 +204,8 @@ const CareerOne = () => {
                     {showExtraContent && (
                         <Box className="extra-content">
                             <Typography sx={styles.subText}>
-                                Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros                             </Typography>
+                                We’re a passionate team of creators, thinkers, and doers — building digital solutions that shape tomorrow. If you’re driven by innovation, love solving real-world problems, and want to grow in a collaborative and fast-paced environment, you’re in the right place.
+                            </Typography>
                             <Box sx={{ paddingX: { lg: "45px", sm: "0" }, mt: 2 }}>
                                 <DynamicButton filled={true} onClick={() => navigate("/Contact")}>
                                     Contact

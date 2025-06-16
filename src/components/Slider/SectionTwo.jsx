@@ -56,9 +56,7 @@ const SectionTwo = () => {
                     Trusted by 50+ Clients around the world
                 </Typography>
                 <Typography sx={styles.subTextTwo}>
-                    Vulputate molestie molestie amet leo blandit accumsan. Sapien sed amet tellus purus sit odio eget.
-                    Diam morbi faucibus vitae neque id in. Nullam sed et dapibus nunc, porta enim orci urna, sit.
-                    Lectus ac.
+                   Our team combines deep technical expertise with a strong focus on user experience to build solutions that are not only robust and scalable but also aligned with your business goals. Whether you're launching a new product, optimizing operations, or entering new markets, we provide the technology foundation you need to move faster, work smarter, and stay ahead of the curve
                 </Typography>
             </Box>
             <Box sx={styles.sliderBox}>

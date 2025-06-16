@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box, Typography, TextField, keyframes, useMediaQuery, useTheme } from "@mui/material";
-import {BlueVector, PurpleVector}from "../header/Images"
+import { BlueVector, PurpleVector } from "../header/Images"
 import gsap from "gsap";
 import DynamicButton from "../header/DynamicButton";
 import "@fontsource/quicksand";
@@ -87,7 +87,7 @@ const ContactOne = () => {
     const styles = {
         content: {
             width: "100%",
-            minHeight: { xs: "600px", sm: "600px", lg: "640px" },
+            minHeight: { xs: "600px", sm: "600px", lg: "700px" },
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -113,8 +113,7 @@ const ContactOne = () => {
         heading: {
             fontFamily: "Quicksand, sans-serif",
             fontWeight: 700,
-     fontSize: { xs: "20px", sm: "40px", md: "50px", lg: "64px" },
-            lineHeight: { xs: "56px", sm: "112px" },
+            fontSize: { xs: "32px", sm: "40px", md: "50px", lg: "64px" },
             letterSpacing: "0px",
             color: "white",
             paddingX: { lg: "45px", sm: "0" },
@@ -132,7 +131,6 @@ const ContactOne = () => {
             lineHeight: "24px",
             letterSpacing: "2%",
             color: "#FFFFFF99",
-            textAlign: "justify",
             paddingX: { lg: "45px", sm: "0" },
             margin: "5px 0"
         },
@@ -194,8 +192,8 @@ const ContactOne = () => {
 
                     {showHeading && (
                         <Typography className="text-heading" sx={styles.heading}>
-                            {"Lorem Ipsum".split("").map((char, index) => (
-                                <span key={index} style={char === " " ? { marginRight: "8px" } : {}}>
+                            {"Let’s Build Something Great Together".split("").map((char, index) => (
+                                <span key={index} style={char === " " ? { marginRight: "0" } : {}}>
                                     {char}
                                 </span>
                             ))}
@@ -205,7 +203,7 @@ const ContactOne = () => {
                     {showExtraContent && (
                         <Box className="extra-content">
                             <Typography sx={styles.subText}>
-                                Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros
+                                Have a project in mind, a question, or just want to say hello? We’d love to hear from you. Whether you're a startup, business, or enterprise looking for digital solutions, our team is ready to collaborate and turn your ideas into reality. Reach out to us — and let’s start the conversation that could shape your next big thing.
                             </Typography>
                             <Box sx={{ paddingX: { lg: "45px", sm: "0" }, mt: 2 }}>
                                 <DynamicButton filled={true} onClick={() => navigate("/")}>

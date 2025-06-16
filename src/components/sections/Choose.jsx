@@ -155,8 +155,7 @@ const Choose = () => {
                             Why choose us
                         </Typography>
                         <Typography variant="body1" sx={styles.subTextTwo}>
-                            Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at.
-                            Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit.
+                            We don’t just build digital products — we build partnerships that last. Our approach blends strategy, creativity, and technical excellence to deliver solutions that are innovative, scalable, and truly aligned with your business goals. With a focus on quality, transparency, and long-term value, we’re here to help you succeed in a digital-first world
                         </Typography>
                         <Box sx={styles.buttonContainer}>
                             <DynamicButton filled={false}>Let's Connect</DynamicButton>

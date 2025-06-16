@@ -122,7 +122,7 @@ const ServicesOffer = () => {
     return (
         <Box sx={styles.section} ref={sectionRef}>
             <Typography variant="h2" sx={styles.heading} ref={headingRef}>
-                Services
+               We Offer
             </Typography>
 
             <Grid container spacing={4} sx={styles.gridContainer}>

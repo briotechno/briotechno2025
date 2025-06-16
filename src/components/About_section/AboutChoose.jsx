@@ -9,45 +9,28 @@ import "../../styles/fonts.css";
 gsap.registerPlugin(ScrollTrigger);
 
 const styles = {
-    content: {
-        width: "100%",
-        maxwidth: "1440px",
-        minHeight: { xs: "600px", sm: "300px" },
-        justifyContent: "center",
-        alignItems: "center",
-    },
     section: {
         width: "100%",
         maxWidth: "1440px",
         color: "#fff",
-        padding: { xs: "10px", lg: "50px" },
-        minHeight: { xs: "600px", sm: "200px" },
-    },
-    textContainer: {
-        maxWidth: "1440px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        padding: "20px 10px",
-        marginLeft: { xs: "20px", md: "0px" },
-        marginRight: { xs: "20px", md: "0px" }
+        padding: { xs: "20px", sm: "30px", md: "50px" },
+        Margin:"15px 0",
     },
     title: {
+        padding: "0px 10px",
         fontFamily: "Quicksand, sans-serif",
         color: "#fff",
         fontWeight: 700,
-        fontSize: { xs: "30px", sm: "25px", md: "30px", lg: "40px" },
-        marginBottom: "20px",
+        fontSize: { xs: "24px", sm: "28px", md: "32px", lg: "40px" },
     },
     subTextTwo: {
-        width: "100%",
+        padding: "20px 10px",
         textAlign: "justify",
         fontFamily: "Quicksand, sans-serif",
-        paddingBottom: "10px",
-        fontSize: { xs: "14px", sm: "16px", md: "18px", lg: "18px" },
+        fontSize: { xs: "14px", sm: "16px", md: "18px" },
         color: "#8A96A6",
         fontWeight: 600,
-        lineHeight: "24px",
+        lineHeight: "28px",
     },
 };
 
@@ -55,24 +38,18 @@ const AboutChoose = () => {
 
     return (
         <Box sx={styles.section}>
-            <Grid
-                container
-                spacing={4}
-            >
-                <Grid item xs={12} md={12} order={{ xs: 1, md: 2 }}>
-                    <Box
-                        sx={styles.textContainer}
-                    >
-                        <Typography variant="h1" sx={styles.title}>
-                            Company
-                        </Typography>
-                        <Typography variant="body1" sx={styles.subTextTwo}>
-                            Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit.Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit. Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit. Commodo diam vulputate dui proin quis enim nibh. Non integer ac libero facilisis hendrerit a at. Nisi sem ut sed sed faucibus at eu elit. Morbi aliquam porttitor mattis consequat neque, tellus blandit.
-                        </Typography>
-                    </Box>
+            <Grid container spacing={4} alignItems="flex-start">
+                <Grid item xs={12} md={12}>
+                    <Typography sx={styles.title}>Company</Typography>
+                </Grid>
+                <Grid item xs={12} md={12}>
+                    <Typography sx={styles.subTextTwo}>
+                        Briotechno is a digital solutions company founded in 2017 and based in Mehsana, Gujarat. We specialize in custom web and mobile application development, delivering scalable and high-performing products tailored to each client's goals. With a global team of experienced developers, we've successfully completed over 80 projects across various industries. Our expertise spans UI/UX design, software development, eCommerce, CMS, and more, using modern technologies like React Native, PHP, and Flutter. We are committed to transparency, innovation, and building meaningful digital experiences. Every project is approached with precision and care, as if it were a mission-critical launch. At Briotechno, we value long-term relationships and aim to be a trusted technology partner. We serve startups, enterprises, and everything in between, helping them turn bold ideas into reality. Our focus on quality, collaboration, and client success is what sets us apart in the digital space.
+                    </Typography>
                 </Grid>
             </Grid>
         </Box>
+
     );
 };
 

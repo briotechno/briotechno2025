@@ -105,8 +105,7 @@ const PortfolioTwo = () => {
               Mobile & Web Applications
             </Typography>
             <Typography variant="body1" sx={styles.subTextTwo}>
-              We help create solutions that optimize processes, improve accessibility to data, and increase successful outcomes by providing the necessary
-              insights and tools to change physician and patient behavior.
+              We design and develop fast, scalable, and user-friendly web and mobile applications tailored to your business goals. From MVPs to full-scale platforms, our solutions combine sleek UI/UX with robust backend systems to deliver seamless digital experiences across all devices.
             </Typography>
           </Box>
           <Grid container sx={styles.imageGrid}>

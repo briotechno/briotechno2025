@@ -16,7 +16,7 @@ const Idea = () => {
         subcontent: {
             width: "100%",
             maxWidth: "1440px",
-            height: "365px",
+            height: { lg: "365px", xs: "400px" },
             backgroundImage: "linear-gradient(90deg, #9DE8EE 0%, #2F80ED 49%, #9F8CED 100%)",
             display: "flex",
             flexDirection: "column",
@@ -38,6 +38,8 @@ const Idea = () => {
             fontFamily: "Quicksand, sans-serif",
             fontSize: "16px",
             fontWeight: 400,
+            lineHeight: "24px",
+            letterSpacing: "2%",
             textAlign: "center",
             marginBottom: "20px",
         },
@@ -82,7 +84,7 @@ const Idea = () => {
             <Box sx={styles.subcontent}>
                 <Typography sx={styles.text}>Let's discuss the idea</Typography>
                 <Typography sx={styles.subtext}>
-                    Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit.
+                    Have a project in mind or just exploring possibilities? We’d love to hear from you. Whether you’re starting from scratch, refining an existing product, or looking to scale, our team is here to turn your vision into reality. Let’s collaborate to build something impactful, innovative, and future-ready.
                 </Typography>
                 <Box sx={styles.form}>
                     <TextField
