@@ -28,10 +28,12 @@ const uploadDocument = (templateParams, templateID, file, callBack = () => { }) 
         },
         (err) => {
             console.log('emailjs >>3 >> 7 >> err ', err);
+            callBack(false)
         },
         () => {
             getDownloadURL(uploadTask.snapshot.ref).then((url) => {
                 templateParams.download_link = url;
+                templateParams.email = "info@briotechno.com";
                 console.log("templateParams >> ", {
                     serviceID, templateID, templateParams, publicKey
                 })

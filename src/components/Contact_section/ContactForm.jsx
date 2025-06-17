@@ -204,14 +204,14 @@ const ContactForm = () => {
                 setErrors(newErrors);
                 return;
             }
-            console.log("____file >> ", file);
+
             const { firstName, lastName, message, phoneNumber } = formData;
             const templateParams = {
                 name: `${firstName} ${lastName}`,
                 message: message,
                 phoneNumber: phoneNumber,
-                email: "info@briotechno.com",
             };
+            
             uploadDocument(templateParams, "template_qf47m83", file, (response) => {
                 if (!response) {
                     return setQuery('idle');
