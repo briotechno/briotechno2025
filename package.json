@@ -19,6 +19,7 @@
     "@mui/material": "^6.4.8",
     "emailjs": "^4.0.3",
     "emailjs-com": "^3.2.0",
+    "firebase": "^11.9.1",
     "framer-motion": "^12.4.12",
     "gsap": "^3.12.7",
     "react": "^19.0.0",
