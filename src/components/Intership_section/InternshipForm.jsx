@@ -224,8 +224,8 @@ const InternshipForm = () => {
             education: qualification,
             course_name: courseName,
             phone_number: phoneNumber,
-            email: "info@briotechno.com",
         };
+        
         uploadDocument(templateParams, "template_031y1ql", file, (response) => {
             if (!response) {
                 return setQuery('idle');
@@ -319,24 +319,6 @@ const InternshipForm = () => {
     const handleCloseSnackbar = (event, reason) => {
         if (reason === 'clickaway') return;
         setOpenSnackbar(false);
-
-
-
-        // emailjs.send('service_gxssddd', 'template_l0yxi0r', {
-        //     to_name: `${firstName} ${lastName}`,
-        //     from_name: 'Briotechno Internship Application',
-        //     message: `${firstName} ${lastName} , we will connect soon.`,
-        //     // to_email: "Info@briotechno.com",
-        // }, 'Bz2fUEsYputFHn4lO')
-        //     .then((response) => {
-        //         console.log('SUCCESS!', response.status, response.text);
-        //     })
-        //     .catch((err) => {
-        //         console.error('FAILED...', err);
-        //     });
-
-        // Clear form
-
     };
 
     const handleRemove = () => {
