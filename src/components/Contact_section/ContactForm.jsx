@@ -16,6 +16,12 @@ import Alert from '@mui/material/Alert';
 import CircularProgress from "@mui/material/CircularProgress";
 import DynamicButton from "../header/DynamicButton";
 
+import uploadDocument from "../../firebase";
+
+
+
+
+
 const LinearProgressWithLabel = ({ value }) => (
     <Box sx={{ width: '100%' }}>
         <LinearProgress
@@ -129,6 +135,7 @@ const ContactForm = () => {
 
     const handleFileChange = (event) => {
         const selectedFile = event.target.files[0];
+        console.log("____progress >> 1 ", selectedFile)
         const allowedTypes = [
             'application/pdf',
             'application/msword',
@@ -140,8 +147,10 @@ const ContactForm = () => {
             setUploadProgress(0);
 
             let progress = 0;
+            console.log("____progress >> 1 ", progress)
             const interval = setInterval(() => {
                 progress += 10;
+                console.log("____progress >> 2 ", progress)
                 setUploadProgress(progress);
                 if (progress >= 100) {
                     clearInterval(interval);
@@ -150,12 +159,14 @@ const ContactForm = () => {
                         setIsUploading(false);
                         setErrors(prev => ({ ...prev, file: undefined }));
                     }, 500);
+                    console.log("____progress >> 3 ", progress)
                 }
             }, 150);
         } else {
             alert("Please upload only PDF or Word documents.");
             event.target.value = null;
         }
+        event.target.value = null;
     };
 
     const handleInputChange = (e) => {
@@ -167,47 +178,61 @@ const ContactForm = () => {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        try {
+            e.preventDefault();
+            if (query === 'success') {
+                setQuery('idle');
+                return;
+            }
+            const newErrors = {};
 
-        if (query === 'success') {
-            setQuery('idle');
-            return;
+            Object.entries(formData).forEach(([key, value]) => {
+                if (!value.trim()) newErrors[key] = "This field is required";
+            });
+
+            if (!/^\d{10}$/.test(formData.phoneNumber)) {
+                newErrors.phoneNumber = "Enter a valid 10-digit phone number";
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(formData.email)) {
+                newErrors.email = "Enter a valid email address";
+            }
+
+            if (!file) newErrors["file"] = "Resume is required";
+            if (Object.keys(newErrors).length > 0) {
+                setErrors(newErrors);
+                return;
+            }
+            console.log("____file >> ", file);
+            const { firstName, lastName, message, phoneNumber } = formData;
+            const templateParams = {
+                name: `${firstName} ${lastName}`,
+                message: message,
+                phoneNumber: phoneNumber,
+                email: "info@briotechno.com",
+            };
+            uploadDocument(templateParams, "template_qf47m83", file, (response) => {
+                if (!response) {
+                    return setQuery('idle');
+                }
+                setTimeout(() => {
+                    setFormData({ firstName: "", lastName: "", email: "", phoneNumber: "", message: "" });
+                    setFile(null);
+                    setUploadProgress(0);
+                    setErrors({});
+                    setQuery('success');
+                    setOpenSnackbar(true);
+                }, 2000);
+            })
+
+
+
+
+            setQuery('progress');
+        } catch (error) {
+            console.log('emailjs !', error);
         }
-
-        const newErrors = {};
-
-        Object.entries(formData).forEach(([key, value]) => {
-            if (!value.trim()) newErrors[key] = "This field is required";
-        });
-
-        if (!/^\d{10}$/.test(formData.phoneNumber)) {
-            newErrors.phoneNumber = "Enter a valid 10-digit phone number";
-        }
-
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(formData.email)) {
-            newErrors.email = "Enter a valid email address";
-        }
-
-        if (!file) newErrors["file"] = "Resume is required";
-
-        if (Object.keys(newErrors).length > 0) {
-            setErrors(newErrors);
-            return;
-        }
-
-        console.log("Submitted:", formData, file);
-
-        setQuery('progress');
-
-        setTimeout(() => {
-            setFormData({ firstName: "", lastName: "", email: "", phoneNumber: "", message: "" });
-            setFile(null);
-            setUploadProgress(0);
-            setErrors({});
-            setQuery('success');
-            setOpenSnackbar(true);
-        }, 2000);
     };
 
     const handleCloseSnackbar = (event, reason) => {
