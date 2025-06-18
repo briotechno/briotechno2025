@@ -93,7 +93,7 @@ const CareerApply = () => {
     const styles = {
         content: {
             width: "100%",
-            minHeight: { xs: "600px", sm: "600px", lg: "640px" },
+            minHeight: { xs: "600px", sm: "600px", lg: "700px" },
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -112,17 +112,14 @@ const CareerApply = () => {
             fontFamily: "Quicksand, sans-serif",
             fontWeight: '700',
             fontSize: "24px",
-                        // lineHeight: { xs: "56px", sm: "111px" },
-
             letterSpacing: "0px",
             color: "#2F80ED",
             paddingX: { lg: "45px", sm: "0" },
         },
         heading: {
-            fontFamily: "Quicksand, sans-serif",
+           fontFamily: "Quicksand, sans-serif",
             fontWeight: 700,
-            fontSize: { xs: "26px", sm: "36px", md: "48px", lg: "64px" },
-            lineHeight: { xs: "56px", sm: "112px", lg: "80px" },
+            fontSize: { xs: "32px", sm: "40px", md: "50px", lg: "64px" },
             letterSpacing: "0px",
             color: "white",
             paddingX: { lg: "45px", sm: "0" },

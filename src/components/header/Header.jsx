@@ -9,25 +9,29 @@ import {
   Button,
   Menu,
   MenuItem,
+  Typography,
 } from "@mui/material";
-import { } from "../header/Images"
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import DynamicButton from "./DynamicButton";
 import { useTheme } from "@mui/material/styles";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { companyLogo } from "../header/Images";
+import DynamicButton from "./DynamicButton";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollDirection, setScrollDirection] = useState("up");
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
+  const [openSubMenu, setOpenSubMenu] = useState(null);
 
   const theme = useTheme();
   const isMediumScreen = useMediaQuery(theme.breakpoints.up("md"));
   const isSmallScreen = useMediaQuery(theme.breakpoints.up("sm"));
+
   const navigate = useNavigate();
+  const location = useLocation();
 
   const lastScrollY = useRef(0);
   const isScrolledRef = useRef(false);
@@ -68,6 +72,8 @@ const Navbar = () => {
     { label: "Portfolio", path: "/Portfolio" },
   ];
 
+  const isActive = (path) => location.pathname === path;
+
   return (
     <Box sx={styles.navContainer}>
       <AppBar
@@ -81,33 +87,38 @@ const Navbar = () => {
         }}
       >
         <Toolbar sx={styles.toolbar}>
-
-          {/* Logo Here */}
-          <img src={""} alt="Logo" className="image"
-            sx={styles.logo}
+          <Box
+            component="img"
+            src={companyLogo}
+            alt="Logo"
+            sx={{ height: 40, cursor: "pointer" }}
             onClick={() => navigate("/")}
           />
+
           {isMediumScreen ? (
             <Box sx={styles.navItems}>
-              {/* Dropdown for Company */}
               <Box>
                 <Button
                   onClick={handleMenuOpen}
-                  sx={{ ...styles.navText, display: "flex", alignItems: "center", }}
                   endIcon={<ArrowDropDownIcon />}
+                  aria-controls={anchorEl ? "company-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={Boolean(anchorEl)}
+                  sx={{ ...styles.navText, display: "flex", alignItems: "center" }}
                 >
                   Company
                 </Button>
                 <Menu
+                  id="company-menu"
                   anchorEl={anchorEl}
                   open={Boolean(anchorEl)}
                   onClose={handleMenuClose}
                   MenuListProps={{
                     sx: {
+                      padding: 0,
                       width: "152px",
                       Height: "132px",
                       backgroundColor: "#000000",
-                      padding: 0,
                     },
                   }}
                   PaperProps={{
@@ -135,12 +146,8 @@ const Navbar = () => {
                         cursor: "pointer",
                         color: "#D7E4F5",
                         padding: "8px 16px",
-                        lineHeight: "20px",
                         fontFamily: "'Fira Sans', sans-serif",
-                        "&:hover": {
-                          backgroundColor: "#101318",
-                        },
-
+                        "&:hover": { backgroundColor: "#101318" },
                       }}
                     >
                       {label}
@@ -149,16 +156,15 @@ const Navbar = () => {
                 </Menu>
               </Box>
 
-              {/* Other nav items */}
               {navItems.slice(1).map(({ label, path }, index) => (
                 <NavLink
                   key={index}
                   to={path}
-                  style={({ isActive }) => ({
+                  style={{
                     ...styles.navText,
-                    fontWeight: isActive ? "bold" : 400,
-                    color: isActive ? "#2F80ED" : "#FFFFFF",
-                  })}
+                    fontWeight: isActive(path) ? "bold" : 400,
+                    color: isActive(path) ? "#2F80ED" : "#FFFFFF",
+                  }}
                 >
                   {label}
                 </NavLink>
@@ -170,73 +176,132 @@ const Navbar = () => {
             </Box>
           ) : (
             <>
-              <IconButton
-                size="large"
-                onClick={() => setDrawerOpen(true)}
-                sx={{ color: "#FFF" }}
-              >
+              <IconButton onClick={() => setDrawerOpen(true)} sx={{
+                color: "#fff", 
+                "&:focus": {
+                  outline: "none",
+                  boxShadow: "none",
+                },
+              }}>
                 <MenuIcon />
               </IconButton>
+
               <Drawer
                 anchor="left"
                 open={drawerOpen}
                 onClose={() => setDrawerOpen(false)}
                 sx={{
-                  backgroundColor: "#000000",
                   "& .MuiDrawer-paper": {
+                    backgroundColor: "#000",
                     width: isSmallScreen ? "50%" : "100%",
                   },
                 }}
               >
-                <Box sx={styles.drawerContent}>
-                  <IconButton
-                    onClick={() => setDrawerOpen(false)}
-                    sx={styles.closeIcon}
-                  >
-                    <CloseIcon />
-                  </IconButton>
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 0.8, p: 2 }}>
+                  <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    <Box
+                      component="img"
+                      src={companyLogo}
+                      alt="Logo"
+                      sx={{ height: 40, cursor: "pointer" }}
+                      onClick={() => {
+                        navigate("/");
+                        setDrawerOpen(false);
+                      }}
+                    />
+                    <IconButton sx={{ color: "#fff" }} onClick={() => setDrawerOpen(false)}>
+                      <CloseIcon />
+                    </IconButton>
+                  </Box>
 
-                  {/* Drawer nav items */}
-                  {navItems.map((item, index) => {
-                    if (item.submenu) {
-                      return item.submenu.map((subItem, subIndex) => (
+                  {navItems.map((item, i) => (
+                    <Box key={i}>
+                      {item.submenu ? (
+                        <>
+                          <Box
+                            onClick={() =>
+                              setOpenSubMenu(openSubMenu === item.label ? null : item.label)
+                            }
+                            sx={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              alignItems: "center",
+                              cursor: "pointer",
+                              mt: 1,
+                            }}
+                          >
+                            <Typography
+                              sx={{
+                                color: "#fff",
+                                fontWeight: "bold",
+                                fontSize: "18px",
+                                padding: "5px 0 0 0",
+                                "&:hover": {
+                                  color: "#2F80ED",
+                                },
+                              }}
+                            >
+                              {item.label}
+                            </Typography>
+                            <ArrowDropDownIcon
+                              sx={{
+                                color: "#fff",
+                                transform:
+                                  openSubMenu === item.label ? "rotate(180deg)" : "rotate(0)",
+                                transition: "transform 0.3s ease",
+                              }}
+                            />
+                          </Box>
+
+                          {openSubMenu === item.label &&
+                            item.submenu.map((sub, j) => (
+                              <NavLink
+                                key={j}
+                                to={sub.path}
+                                style={{
+                                  color: "#D7E4F5",
+                                  textDecoration: "none",
+                                  display: "block",
+                                  marginLeft: 24,
+                                  padding: "4px 0",
+                                  fontSize: "16px",
+                                }}
+                                onClick={() => {
+                                  setDrawerOpen(false);
+                                  setOpenSubMenu(null);
+                                }}
+                              >
+                                {sub.label}
+                              </NavLink>
+                            ))}
+                        </>
+                      ) : (
                         <NavLink
-                          key={`${index}-${subIndex}`}
-                          to={subItem.path}
-                          style={({ isActive }) => ({
-                            ...styles.navText,
-                            fontWeight: isActive ? "bold" : 400,
-                            color: isActive ? "#2F80ED" : "#FFFFFF",
-                          })}
+                          to={item.path}
+                          style={{
+                            color: isActive(item.path) ? "#2F80ED" : "#D7E4F5",
+                            textDecoration: "none",
+                            display: "block",
+                            marginTop: 12,
+                            fontWeight: "bold",
+                          }}
                           onClick={() => setDrawerOpen(false)}
                         >
-                          {subItem.label}
+                          {item.label}
                         </NavLink>
-                      ));
-                    }
-                    return (
-                      <NavLink
-                        key={index}
-                        to={item.path}
-                        style={({ isActive }) => ({
-                          ...styles.navText,
-                          fontWeight: isActive ? "bold" : 400,
-                          color: isActive ? "#2F80ED" : "#FFFFFF",
-                        })}
-                        onClick={() => setDrawerOpen(false)}
-                      >
-                        {item.label}
-                      </NavLink>
-                    );
-                  })}
+                      )}
+                    </Box>
+                  ))}
 
-                  <Button sx={styles.menuItem} onClick={() => {
-                    navigate("/contact");
-                    setDrawerOpen(false);
-                  }}>
-                    <DynamicButton filled={false}>Contact</DynamicButton>
-                  </Button>
-
+                  <DynamicButton
+                    filled={false}
+                    onClick={() => {
+                      navigate("/Contact");
+                      setDrawerOpen(false);
+                    }}
+                  >
+                    Contact
+                  </DynamicButton>
                 </Box>
               </Drawer>
             </>
@@ -262,14 +327,7 @@ const styles = {
     gap: "20px",
     display: "flex",
     alignItems: "center",
-    // justifyContent: "flex-end"
     justifyContent: "space-between",
-  },
-  logo: {
-    fontFamily: "'Quicksand', sans-serif",
-    fontWeight: 700,
-    cursor: "pointer",
-    color: "#FFFFFF",
   },
   navContainer: {
     display: "flex",
@@ -296,28 +354,6 @@ const styles = {
     "&:focus": {
       outline: "none",
       boxShadow: "none",
-    },
-  },
-  drawerContent: {
-    display: "flex",
-    flexDirection: "column",
-    height: "100vh",
-    padding: "20px",
-  },
-  closeIcon: {
-    alignSelf: "flex-end",
-    color: "#FFF",
-  },
-  menuItem: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    fontSize: "18px",
-    fontWeight: "bold",
-    padding: "15px 0",
-    color: "#FFF",
-    "&:hover": {
-      color: "#2F80ED",
     },
   },
 };

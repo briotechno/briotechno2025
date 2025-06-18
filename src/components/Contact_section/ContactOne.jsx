@@ -206,7 +206,7 @@ const ContactOne = () => {
                                 Have a project in mind, a question, or just want to say hello? We’d love to hear from you. Whether you're a startup, business, or enterprise looking for digital solutions, our team is ready to collaborate and turn your ideas into reality. Reach out to us — and let’s start the conversation that could shape your next big thing.
                             </Typography>
                             <Box sx={{ paddingX: { lg: "45px", sm: "0" }, mt: 2 }}>
-                                <DynamicButton filled={true} onClick={() => navigate("/")}>
+                               <DynamicButton filled={true} onClick={() => navigate("/contact")}>
                                     Build my brand
                                 </DynamicButton>
                             </Box>
