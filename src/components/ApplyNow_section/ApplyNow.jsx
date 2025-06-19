@@ -36,7 +36,6 @@ const LinearProgressWithLabel = ({ value }) => (
 const styles = {
     section: {
         width: "100%",
-        maxWidth: "1440px",
         color: "#fff",
         padding: "100px 0",
         display: "flex",
@@ -101,9 +100,8 @@ const styles = {
         outline: "none",
     },
     inputs: {
-        width: "100%",
-        padding: "0 10px",
         height: "40px",
+        padding: "0 10px",
         backgroundColor: "#14181F",
         border: "1px solid #212529",
         borderRadius: "10px",
@@ -405,7 +403,7 @@ const ApplyNow = () => {
                             <label key={name} style={styles.labels}>
                                 {label}
                                 <input
-                                    type={type} // ✅ use `type` instead of `url`
+                                    type={type}
                                     name={name}
                                     value={formData[name]}
                                     onChange={handleInputChange}
@@ -425,8 +423,8 @@ const ApplyNow = () => {
 
                     <Box sx={{ paddingX: { lg: "45px", sm: "0" }, mt: 3, display: "flex", flexDirection: "column", alignItems: "center" }}>
                         <Box sx={{ height: 40, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <DynamicButton filled={true} onClick={handleSubmit} 
-                            disabled={query === 'progress'}>
+                            <DynamicButton filled={true} onClick={handleSubmit}
+                                disabled={query === 'progress'}>
                                 {query === 'progress' ? (
                                     <Fade
                                         in={true}

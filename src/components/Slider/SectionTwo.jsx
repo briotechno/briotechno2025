@@ -21,7 +21,7 @@ const SectionTwo = () => {
         subContent: {
             minHeight: "112px",
             display: "flex",
-            flexDirection: isLarge ? "column" : "row",
+            flexDirection: isMobile ? "column" : "row",
             alignItems: "center",
             justifyContent: "center",
             textAlign: "center",

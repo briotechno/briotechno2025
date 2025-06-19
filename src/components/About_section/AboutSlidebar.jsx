@@ -20,10 +20,9 @@ const AboutSlidebar = () => {
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
     const styles = {
-        container: {
+         container: {
             width: "100%",
             maxWidth: "1440px",
-            margin: "auto",
             padding: isMobile ? "0 10px" : "0 20px",
             minHeight: "596px",
             display: "flex",
@@ -36,13 +35,14 @@ const AboutSlidebar = () => {
             justifyContent: "space-between",
             marginBottom: "20px",
         },
-        heading: {
+       heading: {
             fontFamily: "Inter, sans-serif",
             fontWeight: 700,
             fontSize: "24px",
             color: "#D7E4F5",
             textAlign: "left",
-            opacity: 0, // Initial state for animation
+            padding: isMobile ? "0 10px" : "0 20px",
+            opacity: 0,
             transform: "translateY(20px)",
         },
         arrowContainer: {
@@ -121,7 +121,7 @@ const AboutSlidebar = () => {
         { title: "Jane Cooper", subtitle: "unpexel", description: "Amet aliquam, volutpat nisl, duis sed at. Vehicula proin consectetur risus dictumst nec amet consequat at tempus. Ornare dapibus nunc fames nibh morbi viverra eu sed mattis. ", }
     ];
 
-    const settings = {
+   const settings = {
         dots: true,
         infinite: true,
         slidesToShow: 4,

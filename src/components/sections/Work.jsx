@@ -30,14 +30,9 @@ const styles = {
         justifyContent: "center",
         backgroundColor: "#101318",
     },
-
     section: {
         color: "#fff",
-        padding: "60px",
-        width: "100%",
-        maxWidth: "1440px",
-    },
-    gridContainer: {
+        padding: "30px 60px",
         width: "100%",
         maxWidth: "1440px",
     },
@@ -126,7 +121,6 @@ const styles = {
         borderRadius: "4px",
         textTransform: "uppercase",
     },
-
     projectTitle: {
         fontFamily: "Quicksand, sans-serif",
         fontSize: "24px",
@@ -238,7 +232,7 @@ const PortfolioSection = () => {
                 <Box sx={styles.section} ref={sectionRef}>
                     <Grid container spacing={7}>
                         {/* Left Section */}
-                        <Grid item xs={12} md={4}>
+                        <Grid item xs={12} md={4} lg={4}>
                             <Typography sx={styles.title} ref={titleRef}>
                                 Some pieces of our work
                             </Typography>
@@ -251,7 +245,7 @@ const PortfolioSection = () => {
                                 <DynamicButton filled={false}>Show More</DynamicButton>
                             </Box>
                         </Grid>
-                        <Grid item xs={11} md={4}>
+                        <Grid item xs={12} md={4} lg={4}>
                             <Grid container spacing={2}>
                                 {projects.map((project, index) => (
                                     <Grid item xs={12} sm={12} key={project.id}>
@@ -298,7 +292,7 @@ const PortfolioSection = () => {
                         </Grid>
 
                         {/* Third part */}
-                        <Grid item xs={11} md={4}>
+                        <Grid item xs={12} md={4} lg={4}>
                             <Grid container spacing={2}>
                                 {projecttwo.map((project, index) => (
                                     <Grid item xs={12} sm={12} key={project.id}>

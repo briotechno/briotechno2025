@@ -15,7 +15,7 @@ const Idea = () => {
         },
         subcontent: {
             width: "100%",
-            maxWidth: "1440px",
+            maxWidth: "1240px",
             height: { lg: "365px", xs: "400px" },
             backgroundImage: "linear-gradient(90deg, #9DE8EE 0%, #2F80ED 49%, #9F8CED 100%)",
             display: "flex",
@@ -32,10 +32,13 @@ const Idea = () => {
             lineHeight: "56px",
             textAlign: "center",
             marginBottom: "10px",
+            fontFamily: "Agrandir, sans-serif",
+
         },
         subtext: {
+            maxWidth: "800px",
             color: "#00000099",
-            fontFamily: "Quicksand, sans-serif",
+            fontFamily: "Agrandir, sans-serif",
             fontSize: "16px",
             fontWeight: 400,
             lineHeight: "24px",
@@ -89,7 +92,7 @@ const Idea = () => {
                 <Box sx={styles.form}>
                     <TextField
                         variant="standard"
-                        placeholder="Email"
+                        placeholder="Your email"
                         fullWidth
                         InputProps={{ disableUnderline: true }}
                         sx={styles.input}

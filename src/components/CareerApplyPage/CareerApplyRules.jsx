@@ -132,8 +132,8 @@ const CareerApplyRules = () => {
                         <Typography sx={styles.notes} paragraph>
                             If you are passionate about YouTube and have a proven track record of success, we would love to hear from
                             you. Please apply with your resume and a cover letter highlighting your experience and qualifications at{" "}
-                            <a href="mailto:hr@EXAMPLE.com" style={{ color: "#D7E4F5", textDecoration: "underline" }}>
-                                hr@EXAMPLE.com
+                            <a href="mailto:info@briotechno.com" style={{ color: "#D7E4F5", textDecoration: "underline" }}>
+                              info@briotechno.com
                             </a>.
                         </Typography>
                         <Typography sx={styles.footnotes}>

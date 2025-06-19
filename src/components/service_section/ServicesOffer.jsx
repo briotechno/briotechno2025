@@ -20,25 +20,24 @@ const ServicesOffer = () => {
     ];
 
     const styles = {
-     section: {
+        section: {
             width: "100%",
-            minHeight: "720px",
+            maxWidth: "1440px",
+            minHeight: "566px",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             position: "relative",
             zIndex: 1,
             overflow: "hidden",
-            padding: "50px 0",
+            padding: "20px 0",
         },
         heading: {
-            fontFamily: "Quicksand, sans-serif",
-            color: "#FFFFFF",
+            padding: "0px 10px",
+            fontSize: "32px",
             fontWeight: 700,
-            margin: { xs: "10px" },
-            fontSize: { xs: "30px", sm: "25px", md: "30px", lg: "40px" },
-            marginBottom: "20px",
-            lineHeight: "56px",
+            color: "#FFFFFF",
+            fontFamily: "Quicksand, sans-serif",
             opacity: 0,
         },
         gridContainer: {
@@ -126,14 +125,23 @@ const ServicesOffer = () => {
 
     return (
         <Box sx={styles.section} ref={sectionRef}>
-            <Typography variant="h2" sx={styles.heading} ref={headingRef}>
-                We Offer
-            </Typography>
+            <Typography sx={styles.heading} ref={headingRef}>We Offer</Typography>
 
-            <Grid container spacing={4} sx={styles.gridContainer}>
+            <Grid container spacing={3} sx={styles.gridContainer} justifyContent="center">
                 {boxData.map((box, index) => (
-                    <Grid item xs={12} sm={6} md={4} key={index}>
-                        <Box sx={styles.box} className="offer-box">
+                    <Grid
+                        item
+                        key={index}
+                        xs={12}
+                        sm={6}
+                        md={4}
+                        display="flex"
+                        justifyContent="center"
+                    >
+                        <Box
+                            sx={styles.box}
+                            className="offer-box"
+                        >
                             <img src={box.img} alt={box.title} style={styles.image} />
                             <Typography sx={styles.boxHeading}>{box.title}</Typography>
                             <Typography sx={styles.boxSubheading}>{box.desc}</Typography>
@@ -141,7 +149,6 @@ const ServicesOffer = () => {
                     </Grid>
                 ))}
             </Grid>
-
         </Box>
     );
 };

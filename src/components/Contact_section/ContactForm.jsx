@@ -227,7 +227,8 @@ const ContactForm = () => {
             })
 
 
-
+  // Document requirement
+        // if (!file) newErrors["file"] = "Document requirement";
 
             setQuery('progress');
         } catch (error) {
