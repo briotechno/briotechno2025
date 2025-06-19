@@ -5,7 +5,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "@fontsource/quicksand";
 import "../../styles/fonts.css";
 import DynamicButton from "../header/DynamicButton";
-import { Portfolio1, Portfolio2, Portfolio3, Portfolio4, Portfolio5, Portfolio6, Portfolio7 } from "../header/Images";
+import {
+    Portfolio1,
+    Portfolio2,
+    Portfolio3,
+    Portfolio4,
+    Portfolio5,
+    Portfolio6,
+    Portfolio7,
+} from "../../components/header/Images";
 
 // Register ScrollTrigger with GSAP
 gsap.registerPlugin(ScrollTrigger);

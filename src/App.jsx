@@ -14,6 +14,7 @@ import PortfolioDetailpage from "./components/Portfolio_Detailpage";
 // import SlideBar from "./components/sections/Slidebar";
 
 function App() {
+  
   return (
     <BrowserRouter>
       <ScrollToTop />
@@ -34,5 +35,6 @@ function App() {
     </BrowserRouter>
   );
 }
+
 
 export default App;
