@@ -26,7 +26,7 @@ const WeOffer = () => {
             padding: "50px 0",
         },
         heading: {
-            fontFamily: "Inter, sans-serif",
+            fontFamily: "Quicksand, sans-serif",
             fontWeight: 400,
             fontSize: "40px",
             lineHeight: "56px",
@@ -35,7 +35,7 @@ const WeOffer = () => {
             opacity: 0,
         },
         subheading: {
-            fontFamily: "Agrandir, sans-serif",
+            fontFamily: "Quicksand, sans-serif",
             fontWeight: 400,
             fontSize: "16px",
             lineHeight: "24px",

@@ -23,7 +23,6 @@ const SlideBar = () => {
         container: {
             width: "100%",
             maxWidth: "1440px",
-            margin: "auto",
             padding: isMobile ? "0 10px" : "0 20px",
             minHeight: "596px",
             display: "flex",
@@ -42,7 +41,8 @@ const SlideBar = () => {
             fontSize: "24px",
             color: "#D7E4F5",
             textAlign: "left",
-            opacity: 0, // Initial state for animation
+            padding: isMobile ? "0 10px" : "0 20px",
+            opacity: 0,
             transform: "translateY(20px)",
         },
         arrowContainer: {
@@ -193,7 +193,7 @@ const SlideBar = () => {
             </Box>
             <Slider ref={sliderRef} {...settings} style={{ padding: "0 10px" }}>
                 {Data.map((project, index) => (
-                    <Box key={index} sx={{ padding: "10px" }} className="slider-item">
+                    <Box key={index} className="slider-item">
                         <Card sx={styles.card}>
                             <CardContent>
                                 <Box sx={{

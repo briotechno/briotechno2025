@@ -189,7 +189,8 @@ const ContactForm = () => {
             newErrors.email = "Enter a valid email address";
         }
 
-        if (!file) newErrors["file"] = "Resume is required";
+        // Document requirement
+        // if (!file) newErrors["file"] = "Document requirement";
 
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);

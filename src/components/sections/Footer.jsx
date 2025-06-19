@@ -17,10 +17,9 @@ const Footer = () => {
     };
 
     return (
-        <Box sx={{ pt: 6, pb: 3, }}>
+        <Box sx={{ pt: 6, pb: 3, maxWidth: "1440px", }}>
             <Box
                 sx={{
-                    maxWidth: "1440px",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
@@ -33,7 +32,7 @@ const Footer = () => {
             >
                 <Grid container spacing={4} >
                     {/* Logo + Description */}
-                    <Grid item xs={12} sm={4} md={3}>
+                    <Grid item xs={12} sm={12} md={3}>
                         <Box
                             component="img"
                             src={companyLogo}
@@ -52,7 +51,7 @@ const Footer = () => {
                         flexDirection: "column",
                         alignItems: "center",
                     }}>
-                        <Typography sx={{ fontWeight: 700, mb: 2 }}>Company</Typography>
+                        <Typography sx={{ fontSize: "16px", lineHeight: "20px", letterSpacing: "2%", fontWeight: 700, mb: 2, fontFamily: "Agrandir, sans-serif", color: "#D7E4F5" }}>Company</Typography>
                         {[
                             { label: "About Us", path: "/About" },
                             { label: "Career", path: "/Career" },
@@ -80,24 +79,24 @@ const Footer = () => {
                         flexDirection: "column",
                         alignItems: "center",
                     }}>
-                        <Typography sx={{ fontWeight: 700, mb: 2 }}>Resources</Typography>
+                        <Typography sx={{ fontSize: "16px", lineHeight: "20px", letterSpacing: "2%", fontWeight: 700, mb: 2, fontFamily: "Agrandir, sans-serif", color: "#D7E4F5" }}>Resources</Typography>
                         {[
                             { label: "Portfolio", path: "/portfolio" },
                             { label: "Testimonials", path: "/" },
                         ].map(({ label, path }, i) => (
-                                <Typography
-                                    key={i}
-                                    onClick={() => handleClick(path)}
-                                    sx={{
-                                        mb: 1,
-                                        color: "#6c757d",
-                                        cursor: "pointer",
-                                        "&:hover": { color: "#2F80ED" },
-                                    }}
-                                >
-                                    {label}
-                                </Typography>
-                            ))}
+                            <Typography
+                                key={i}
+                                onClick={() => handleClick(path)}
+                                sx={{
+                                    mb: 1,
+                                    color: "#6c757d",
+                                    cursor: "pointer",
+                                    "&:hover": { color: "#2F80ED" },
+                                }}
+                            >
+                                {label}
+                            </Typography>
+                        ))}
 
                     </Grid>
 
@@ -107,10 +106,8 @@ const Footer = () => {
                         flexDirection: "column",
                         alignItems: "center",
                     }}>
-                        <Typography sx={{ fontWeight: 700, mb: 2 }}>Follow us</Typography>
-                        <Box sx={{
-                            display: "flex", gap: 2,
-                        }}>
+                        <Typography sx={{ fontSize: "16px", lineHeight: "20px", letterSpacing: "2%", fontWeight: 700, mb: 2, fontFamily: "Agrandir, sans-serif", color: "#D7E4F5" }}>Follow us</Typography>
+                        <Box>
                             <IconButton
                                 onClick={() => handleClick("https://github.com/briotechno")}
                                 sx={{

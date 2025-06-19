@@ -13,7 +13,7 @@ const About_SectionTwo = () => {
         box: {
             width: "100%",
             maxWidth: "1440px",
-            height: "540px",
+            height: "450px",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -21,7 +21,7 @@ const About_SectionTwo = () => {
         subContent: {
             minHeight: "112px",
             display: "flex",
-            flexDirection: isLarge ? "column" : "row",
+            flexDirection: isMobile ? "column" : "row",
             alignItems: "center",
             justifyContent: "center",
             textAlign: "center",

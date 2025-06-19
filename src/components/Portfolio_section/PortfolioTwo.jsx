@@ -122,11 +122,11 @@ const PortfolioTwo = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "35px 0 0 0", mt: 2 }}>
+      {/* <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "35px 0 0 0", mt: 2 }}>
         <DynamicButton filled={true} onClick={() => navigate("PortfolioDetailpage")}>
           Load more
         </DynamicButton>
-      </Box>
+      </Box> */}
     </Box>
   );
 };

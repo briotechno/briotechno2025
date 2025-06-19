@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box, Typography, TextField, keyframes, useMediaQuery, useTheme } from "@mui/material";
-import {BlueVector, PurpleVector}from "../header/Images"
+import { BlueVector, PurpleVector } from "../header/Images"
 import gsap from "gsap";
 import DynamicButton from "../header/DynamicButton";
 import "@fontsource/quicksand";
@@ -114,6 +114,7 @@ const AboutOne = () => {
             fontFamily: "Quicksand, sans-serif",
             fontWeight: 700,
             fontSize: { xs: "32px", sm: "40px", md: "50px", lg: "64px" },
+            lineHeight: { lg: "80px", },
             letterSpacing: "0px",
             color: "white",
             paddingX: { lg: "45px", sm: "0" },

@@ -21,19 +21,18 @@ const styles = {
         maxWidth: "1440px",
         minHeight: "466px",
         color: "#fff",
-        padding: { xs: "10px", lg: "50px" },
     },
     title: {
-        fontFamily: "Quicksand, sans-serif",
-        color: "#FFFFFF",
+        padding: "0px 10px",
+        fontSize: "32px",
         fontWeight: 700,
-        margin: { xs: "10px" },
-        fontSize: { xs: "30px", sm: "25px", md: "30px", lg: "40px" },
+        color: "#FFFFFF",
+        fontFamily: "Quicksand, sans-serif",
     },
 
     card: {
         padding: "10px",
-        margin: { xs: "10px" },
+        margin: "10px",
         border: "1px solid #fff",
         borderRadius: "10px",
         backgroundColor: "#101318 !important",
@@ -221,9 +220,9 @@ const PortfolioSection = () => {
                     </Typography>
                 </Grid>
                 <Grid item xs={12} md={12}>
-                    <Grid container spacing={4}>
+                    <Grid container spacing={3} justifyContent="center">
                         {projects.map((project, index) => (
-                            <Grid item xs={12} sm={4} key={project.id}>
+                            <Grid item xs={12} sm={6} md={4} lg={4} key={project.id}>
                                 <Card sx={styles.card} className="portfolio-card">
                                     {project.image && (
                                         <CardMedia

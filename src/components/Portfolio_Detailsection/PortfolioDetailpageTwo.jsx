@@ -11,12 +11,10 @@ import { Portfolio1, Portfolio2, Portfolio3, Portfolio4, Portfolio5, Portfolio6,
 gsap.registerPlugin(ScrollTrigger);
 
 const styles = {
-
     section: {
         width: "100%",
+        maxWidth: "1440px",
         color: "#fff",
-        padding: 0,
-        margin: 0,
         minHeight: { xs: "600px", sm: "300px" },
     },
     textContainer: {
@@ -131,8 +129,6 @@ const PortfolioDetailpageTwo = () => {
                         <Typography variant="body1" sx={styles.subTextTwo}>
                             truHypothesys enables banks to assess risks in retail loan pools and helps NBFCs unlock funds by connecting with large investors through a streamlined platform.
                         </Typography>
-
-
                     </Box>
 
                     <Box sx={{
