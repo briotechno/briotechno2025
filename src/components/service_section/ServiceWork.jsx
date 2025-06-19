@@ -11,8 +11,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
     { id: 1, title: "Creative landing page", image: frame, },
-    { id: 2, title: "Creative landing page", image: frame, },
-    { id: 3, title: "Creative landing page", image: frame, },
+    { id: 2, title: "Creative Branding", image: frame, },
+    { id: 3, title: "Automation Advanced Level", image: frame, },
 ];
 
 const styles = {

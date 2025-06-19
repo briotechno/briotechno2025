@@ -5,6 +5,7 @@ import gsap from "gsap";
 import DynamicButton from "../header/DynamicButton";
 import "@fontsource/quicksand";
 import "../../styles/fonts.css";
+import { useNavigate } from "react-router-dom";
 
 // Scaling animation (shrinks to 50% then back to original)
 const scalingEffect = keyframes`
@@ -15,6 +16,8 @@ const scalingEffect = keyframes`
 
 const ServiceOne = () => {
     const theme = useTheme();
+    const navigate = useNavigate();
+
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -207,7 +210,9 @@ const ServiceOne = () => {
                                 Whether you're launching a startup, scaling a product, or transforming an enterprise, our expert team is here to build smart, scalable, and user-friendly solutions tailored to your goals.
                             </Typography>
                             <Box sx={{ paddingX: { lg: "45px", sm: "0" }, mt: 2 }}>
-                                <DynamicButton filled={true}>Build my brand</DynamicButton>
+                                <DynamicButton filled={true} onClick={() => navigate("/contact")}>
+                                    Build my brand
+                                </DynamicButton>
                             </Box>
                         </Box>
                     )}

@@ -7,7 +7,6 @@ import "@fontsource/quicksand";
 import { Typography, Card, CardContent, CardMedia, Box, useMediaQuery, useTheme } from "@mui/material";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-// import { vector1, vector2, vector3, vector4 } from "../header/Images"
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
@@ -91,28 +90,35 @@ const AboutSlidebar = () => {
             flexDirection: "column",
             alignItems: "flex-start",
         },
-        title: {
-            fontWeight: 600,
-            fontFamily: "Quicksand, sans-serif",
+         title: {
+            fontSize: "16px",
+            fontWeight: 700,
+            lineHeight: "20px",
+            color: "#D7E4F5",
+            fontFamily: "Agrandir, sans-serif",
         },
         subtitle: {
-            fontFamily: "Quicksand, sans-serif",
-            color: "textSecondary",
+            fontSize: "16px",
+            fontWeight: 700,
+            lineHeight: "20px",
+            fontFamily: "Agrandir, sans-serif",
+            color: "#8A96A6",
         },
         description: {
             textAlign: "left",
             fontSize: "16px",
             marginTop: 1,
             fontWeight: 700,
-            fontFamily: "Quicksand, sans-serif",
+            color: "#D7E4F5",
+            fontFamily: "Agrandir, sans-serif",
         },
     };
 
     const Data = [
-         { title: "Brooklyn Simmon", subtitle: "manam", description: "Sit ut diam bibendum dolor. Ullamcorper pharetra nibh eget vitae pulvinar. Placerat sapien, dolor, aenean vivamus in tincidunt et. Mauris dolor vestibulum et lacus a ante orci.", image: "" },
-        { title: "Esther Howard", subtitle: "Offmax", description: "Vitae tellus bibendum nibh integer auctor pretium sed. Sollicitudin tristique euismod elit.", image: "" },
-        { title: "Arlene McCoy", subtitle: "bloopixel", description: "Eu eu eget lorem commodo sagittis enim in viverra. Urna egestas ipsum gravida tempor. Libero, consectetur urna in enim magnis. Est.", image: "" },
-        { title: "Jane Cooper", subtitle: "unpexel", description: "Amet aliquam, volutpat nisl, duis sed at. Vehicula proin consectetur risus dictumst nec amet consequat at tempus. Ornare dapibus nunc fames nibh morbi viverra eu sed mattis. ", image: "" }
+        { title: "Brooklyn Simmon", subtitle: "manam", description: "Sit ut diam bibendum dolor. Ullamcorper pharetra nibh eget vitae pulvinar. Placerat sapien, dolor, aenean vivamus in tincidunt et. Mauris dolor vestibulum et lacus a ante orci." },
+        { title: "Esther Howard", subtitle: "Offmax", description: "Vitae tellus bibendum nibh integer auctor pretium sed. Sollicitudin tristique euismod elit." },
+        { title: "Arlene McCoy", subtitle: "bloopixel", description: "Eu eu eget lorem commodo sagittis enim in viverra. Urna egestas ipsum gravida tempor. Libero, consectetur urna in enim magnis. Est." },
+        { title: "Jane Cooper", subtitle: "unpexel", description: "Amet aliquam, volutpat nisl, duis sed at. Vehicula proin consectetur risus dictumst nec amet consequat at tempus. Ornare dapibus nunc fames nibh morbi viverra eu sed mattis. ", }
     ];
 
     const settings = {
@@ -195,12 +201,12 @@ const AboutSlidebar = () => {
                                     alignItems: "center",
                                     gap: 2
                                 }}>
-                                    <CardMedia
+                                    {/* <CardMedia
                                         component="img"
                                         image={project.image}
                                         alt={project.title}
                                         sx={styles.media}
-                                    />
+                                    /> */}
                                     <Box sx={styles.textBox}>
                                         <Typography sx={styles.title}>{project.title}</Typography>
                                         <Typography sx={styles.subtitle}>{project.subtitle}</Typography>

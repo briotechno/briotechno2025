@@ -1,6 +1,7 @@
 // Home Page
 import BlueVector from "../../assets/images/BlueVector.png"
 import PurpleVector from "../../assets/images/PurpleVector.png"
+import companyLogo from "../../assets/images/companyLogo.png"
 
 // Portfolio page
 import Portfolio1 from '../../assets/images/Portfolio1.png';
@@ -52,7 +53,7 @@ import Culture from "../../assets/images/Culture.png"
 
 export {
     // Home Page
-    BlueVector, PurpleVector,
+    BlueVector, PurpleVector,companyLogo,
 
     // Portfolio page
     Portfolio1, Portfolio2, Portfolio3, Portfolio4, Portfolio5, Portfolio6, Portfolio7,

@@ -3,7 +3,7 @@ import React from 'react';
 
 const Location = () => {
   return (
-    <Box sx={{ width: '1440px', height: '520px', padding: '20px 0' }}>
+    <Box sx={{ width: '100%', maxWidth: "1440px", maxHeight: '520px', padding: '20px 0' }}>
       <Box
         sx={{
           position: 'relative',

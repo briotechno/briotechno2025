@@ -36,7 +36,7 @@ const styles = {
         fontWeight: 600,
         lineHeight: "100%",
         fontSize: { xs: "30px", sm: "32px", md: "42px", lg: "52px" },
-        marginBottom: "20px",
+        margin: "10px 0",
     },
     subTextTwo: {
         maxWidth: "650px",

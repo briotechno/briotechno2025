@@ -14,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
     { title: "Creative landing page", category: "Website", image: frame, id: 1 },
     { title: "Creative Branding", category: "Branding", image: frame, id: 2 },
-    { title: "Automation. Advanced Level", category: "Development", image: frame, id: 3 },
+    { title: "Automation Advanced Level", category: "Development", image: frame, id: 3 },
 ];
 const projecttwo = [
     { title: "Why We Collect User's Data", category: "Digital Marketing", image: frame, id: 4 },
@@ -251,7 +251,7 @@ const PortfolioSection = () => {
                                 <DynamicButton filled={false}>Show More</DynamicButton>
                             </Box>
                         </Grid>
-                        <Grid item xs={12} md={4}>
+                        <Grid item xs={11} md={4}>
                             <Grid container spacing={2}>
                                 {projects.map((project, index) => (
                                     <Grid item xs={12} sm={12} key={project.id}>
@@ -298,7 +298,7 @@ const PortfolioSection = () => {
                         </Grid>
 
                         {/* Third part */}
-                        <Grid item xs={12} md={4}>
+                        <Grid item xs={11} md={4}>
                             <Grid container spacing={2}>
                                 {projecttwo.map((project, index) => (
                                     <Grid item xs={12} sm={12} key={project.id}>

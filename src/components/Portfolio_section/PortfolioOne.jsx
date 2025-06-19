@@ -206,7 +206,7 @@ const PortfolioOne = () => {
                                 We bring ideas to life through thoughtful design, clean development, and user-centric solutions. From innovative startups to established brands, our portfolio showcases a range of projects crafted with precision, creativity, and purpose.
                             </Typography>
                             <Box sx={{ paddingX: { lg: "45px", sm: "0" }, mt: 2 }}>
-                                <DynamicButton filled={true} onClick={() => navigate("/")}>
+                               <DynamicButton filled={true} onClick={() => navigate("/contact")}>
                                     Build my brand
                                 </DynamicButton>
                             </Box>
