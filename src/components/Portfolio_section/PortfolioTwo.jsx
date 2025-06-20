@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Grid, Button, Grid } from "@mui/material";
+import { Box, Typography, Grid, Button } from "@mui/material";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Portfolio1, Portfolio2, Portfolio4, Portfolio5, Portfolio6, Portfolio7, Portfolio8, Portfolio9, Portfolio10 } from "../header/Images";
