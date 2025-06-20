@@ -1,8 +1,8 @@
 import React from "react";
-import { Box, Typography, Grid, Button } from "@mui/material";
+import { Box, Typography, Grid, Button, Grid } from "@mui/material";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Portfolio1, Portfolio2, Portfolio3, Portfolio4, Portfolio5, Portfolio6, Portfolio7, Portfolio8, Portfolio9, Portfolio10 } from "../header/Images";
+import { Portfolio1, Portfolio2, Portfolio4, Portfolio5, Portfolio6, Portfolio7, Portfolio8, Portfolio9, Portfolio10 } from "../header/Images";
 import InsertLinkIcon from '@mui/icons-material/InsertLink';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -10,7 +10,6 @@ gsap.registerPlugin(ScrollTrigger);
 const images = [
   { src: Portfolio1, alt: "portfolio-1", role: "Vuetra", link: "https://vuetra.com/" },
   { src: Portfolio2, alt: "portfolio-2", role: "Gharpedia", link: "https://gharpedia.com/" },
-  { src: Portfolio3, alt: "portfolio-3", role: "Techequity", link: "https://techequity.g20empower.com/" },
   { src: Portfolio4, alt: "portfolio-4", role: "Ghargharbazaar", link: "https://ghargharbazaar.com/" },
   { src: Portfolio5, alt: "portfolio-5", role: "Salesroom", link: "https://salesroom.vercel.app/" },
   { src: Portfolio6, alt: "portfolio-6", role: "Deckmount", link: "https://www.deckmount.in/" },
@@ -49,7 +48,7 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    padding: { xs: "0 15px", lg: "0 35px" },
+    padding: { xs: "0 15px", lg: "0 1px" },
     // padding: "0 35px",
     position: "relative",
     borderRadius: "12px",
@@ -97,7 +96,7 @@ const PortfolioTwo = () => {
 
   return (
     <Box sx={styles.container}>
-      <Grid container spacing={4}>
+      <Grid container spacing={2}>
         <Grid item xs={12} md={12} order={{ xs: 1, md: 2 }}>
           <Box sx={styles.header}>
             <Typography variant="h1" sx={styles.title}>
@@ -107,9 +106,9 @@ const PortfolioTwo = () => {
               We design and develop fast, scalable, and user-friendly web and mobile applications tailored to your business goals.
             </Typography>
           </Box>
-          <Grid container spacing={3} justifyContent="center">
+          <Grid container spacing={2} justifyContent="center">
             {images.map(({ src, alt, role, link }, idx) => (
-              <Grid item xs={12} sm={12} md={12} key={idx}>
+              <Grid item xs={12} sm={6} md={6} key={idx}>
                 <Box sx={styles.imageGrid}>
                   <Box component="img" src={src} alt={alt} sx={styles.img} />
                   <Box className="overlay" sx={styles.overlay}>
@@ -125,7 +124,7 @@ const PortfolioTwo = () => {
 
                   </Box>
                 </Box>
-              </Grid>
+             </Grid>
             ))}
           </Grid>
         </Grid>

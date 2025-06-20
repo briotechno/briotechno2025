@@ -1,10 +1,9 @@
 import * as React from "react";
-import { Typography, Box, useTheme, Grid } from "@mui/material";
+import { Typography, Box, Grid } from "@mui/material";
 import About_LeftRight from "./About_LeftRight";
 import About_RightLeft from "./About_RightLeft";
 
 const About_SectionTwo = () => {
-    const theme = useTheme();
 
     const styles = {
         box: {

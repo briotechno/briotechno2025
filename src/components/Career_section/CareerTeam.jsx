@@ -60,7 +60,7 @@ const CareerTeam = () => {
             fontWeight: 500,
             fontSize: "18px",
             textAlign: "center",
-            color: "#D7E4F599",
+            color: "#D7E4F5",
             fontFamily: "Poppins, sans-serif",
         },
         gridContainer: {

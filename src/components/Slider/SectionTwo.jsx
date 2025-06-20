@@ -1,10 +1,9 @@
 import * as React from "react";
-import { Typography, Box, useTheme, Grid } from "@mui/material";
+import { Typography, Box, Grid } from "@mui/material";
 import LeftRight from "./LeftRight";
 import RightLeft from "./RightLeft";
 
 const SectionTwo = () => {
-    const theme = useTheme();
 
     const styles = {
         box: {
@@ -41,12 +40,12 @@ const SectionTwo = () => {
     return (
         <Box sx={styles.box}>
             <Grid container spacing={2} sx={styles.subContent}>
-                <Grid item xs={12} md={6}>
+                <Grid xs={12} md={6}>
                     <Typography sx={styles.subTextOne}>
                         Trusted by 50+ Clients around the world
                     </Typography>
                 </Grid>
-                <Grid item xs={12} md={6}>
+                <Grid xs={12} md={6}>
                     <Typography sx={styles.subTextTwo}>
                         Our team combines deep technical expertise with a strong focus on user experience to build solutions that are not only robust and scalable but also aligned with your business goals. Whether you're launching a new product, optimizing operations, or entering new markets, we provide the technology foundation you need to move faster, work smarter, and stay ahead of the curve
                     </Typography>
