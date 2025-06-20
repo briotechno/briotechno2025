@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
-import { Box, Button, Typography, Card, CardContent, CardMedia, Grid } from "@mui/material";
+import { Box, Button, Typography, Card, CardContent, CardMedia } from "@mui/material";
+import Grid from '@mui/material/Grid';
 import "@fontsource/quicksand";
 import { frame, ReadMore } from "../header/Images"
 import { gsap } from "gsap";
