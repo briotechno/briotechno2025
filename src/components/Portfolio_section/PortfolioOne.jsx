@@ -110,8 +110,8 @@ const PortfolioOne = () => {
             color: "#2F80ED",
             paddingX: { lg: "45px", sm: "0" },
         },
-        heading: {
-            fontFamily: "Quicksand, sans-serif",
+         heading: {
+           fontFamily: "Quicksand, sans-serif",
             fontWeight: 700,
             fontSize: { xs: "32px", sm: "40px", md: "50px", lg: "64px" },
             letterSpacing: "0px",
@@ -193,7 +193,7 @@ const PortfolioOne = () => {
                     {showHeading && (
                         <Typography className="text-heading" sx={styles.heading}>
                             {"Our Work Your Vision Realized".split("").map((char, index) => (
-                                <span key={index} style={char === " " ? { marginRight: "8px" } : {}}>
+                                <span key={index} style={char === " " ? { marginRight: "0px" } : {}}>
                                     {char}
                                 </span>
                             ))}

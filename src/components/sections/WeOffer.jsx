@@ -29,21 +29,16 @@ const WeOffer = () => {
             fontFamily: "Quicksand, sans-serif",
             fontWeight: 400,
             fontSize: "40px",
-            lineHeight: "56px",
             textAlign: "center",
             color: "#D7E4F5",
-            opacity: 0,
         },
         subheading: {
             fontFamily: "Quicksand, sans-serif",
             fontWeight: 400,
             fontSize: "16px",
-            lineHeight: "24px",
             textAlign: "center",
             color: "#E7E7E799",
             maxWidth: "700px",
-            marginTop: "12px",
-            opacity: 0,
         },
         gridContainer: {
             width: "100%",
@@ -166,7 +161,7 @@ const WeOffer = () => {
     return (
         <Box sx={styles.section} ref={sectionRef}>
             <Typography sx={styles.heading} ref={headingRef}>We Offer</Typography>
-            <Typography sx={styles.subheading} className="subheading">
+            <Typography sx={styles.subheading}>
                 At the core of our services is a commitment to building intelligent, scalable, and user-friendly digital solutions. We partner with startups, scale-ups, and enterprises to deliver
             </Typography>
 

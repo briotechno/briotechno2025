@@ -182,7 +182,7 @@ const CareerApply = () => {
                 {showHeading && (
                     <Typography className="text-heading" sx={styles.heading}>
                         {formattedRole?.split("").map((char, index) => (
-                            <span key={index} style={char === " " ? { marginRight: "8px" } : {}}>
+                            <span key={index} style={char === " " ? { marginRight: "0px" } : {}}>
                                 {char}
                             </span>
                         ))}

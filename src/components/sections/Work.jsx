@@ -1,11 +1,9 @@
 import React from 'react';
 import { useRef, useEffect } from "react";
-import { Box, Button, Typography, Card, CardContent, CardMedia } from "@mui/material";
-import Grid from "@mui/material/Grid";
+import { Box, Button, Typography, Card, CardContent, CardMedia, Grid } from "@mui/material";
 import DynamicButton from "../header/DynamicButton";
 import "@fontsource/quicksand";
-import { frame } from "../header/Images"
-import ReadMore from "../../assets/images/ReadMore.png";
+import { frame, ReadMore } from "../header/Images"
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -31,24 +29,24 @@ const styles = {
         backgroundColor: "#101318",
     },
     section: {
-        color: "#fff",
-        padding: "30px 60px",
         width: "100%",
         maxWidth: "1440px",
+        padding: "30px",
     },
     title: {
         fontFamily: "Quicksand, sans-serif",
-        textAlign: "left",
         fontSize: "40px",
-        fontWeight: "700",
-        opacity: 0,
+        fontWeight: 700,
+        lineHeight: "56px",
+        color: "#D7E4F5"
     },
     description: {
         fontFamily: "Quicksand, sans-serif",
-        marginTop: 2,
-        textAlign: "left",
-        fontSize: "18px",
-        opacity: 0,
+        fontSize: "16px",
+        fontWeight: 500,
+        lineHeight: "24px",
+        letterSpacing: "2%",
+        color: "#8A96A6"
     },
     buttonContainer: {
         display: "flex",
@@ -58,9 +56,6 @@ const styles = {
         width: "140px",
     },
     card: {
-        width: "100%",
-        maxwidth: "412px",
-        maxHeight: "330px",
         padding: "16px",
         display: "flex",
         flexDirection: "column",
@@ -72,27 +67,6 @@ const styles = {
         "&:hover": {
             border: "1px solid #2F80ED",
         },
-        // border: "1px solid transparent",
-        // "&:hover": {
-        //     border: "1px solid #2F80ED",
-        //     boxShadow: "0 8px 24px rgba(47, 128, 237, 0.2)",
-        //     "& .fade-image": {
-        //         opacity: 1,
-        //         transform: "scale(1.05)",
-        //         height: "142px",
-        //         maxHeight: "142px",
-        //     },
-        //     "& .project-title": {
-        //         transform: "scale(1.05)",
-        //     },
-        //     "& .read-more-button": {
-        //         transform: "scale(1.05)",
-        //     },
-        //     "& .card-media": {
-        //         opacity: 1,
-        //         height: "auto",
-        //     },
-        // },
     },
     cardContent: {
         width: "100%",
@@ -230,7 +204,7 @@ const PortfolioSection = () => {
         <>
             <Box sx={styles.content}>
                 <Box sx={styles.section} ref={sectionRef}>
-                    <Grid container spacing={7}>
+                    <Grid container spacing={2}>
                         {/* Left Section */}
                         <Grid item xs={12} md={4} lg={4}>
                             <Typography sx={styles.title} ref={titleRef}>

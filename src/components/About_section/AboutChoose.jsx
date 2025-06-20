@@ -38,7 +38,7 @@ const AboutChoose = () => {
 
     return (
         <Box sx={styles.section}>
-            <Grid container spacing={4} alignItems="flex-start">
+            <Grid container alignItems="flex-start">
                 <Grid item xs={12} md={12}>
                     <Typography sx={styles.title}>Company</Typography>
                 </Grid>

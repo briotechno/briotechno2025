@@ -1,9 +1,7 @@
 import React, { useRef, useEffect } from "react";
-import { Box, Button, Typography, Card, CardContent, CardMedia } from "@mui/material";
-import Grid from '@mui/material/Grid';
+import { Box, Button, Typography, Card, CardContent, CardMedia, Grid } from "@mui/material";
 import "@fontsource/quicksand";
-import { frame } from "../header/Images"
-import ReadMore from "../../assets/images/ReadMore.png";
+import { frame, ReadMore } from "../header/Images"
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 

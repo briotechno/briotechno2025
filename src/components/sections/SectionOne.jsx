@@ -148,7 +148,7 @@ const SectionOne = () => {
             <Box sx={{ display: "flex", flexDirection: "column", position: "relative", zIndex: 1, paddingX: "10px", maxWidth: "700px" }}>
                 <Typography className="text-heading" sx={styles.heading}>
                     {"Building Digital".split("").map((char, index) => (
-                        <span key={index} style={char === " " ? { marginRight: "8px" } : {}}>
+                        <span key={index} style={char === " " ? { marginRight: "0px" } : {}}>
                             {char}
                         </span>
                     ))}
@@ -159,7 +159,7 @@ const SectionOne = () => {
                         </span>
                     ))}
                     <br />
-                    {"Smarter Future.".split("").map((char, index) => (
+                    {"Smarter Future".split("").map((char, index) => (
                         <span key={index + 200} style={char === " " ? { marginRight: "8px" } : {}}>
                             {char}
                         </span>

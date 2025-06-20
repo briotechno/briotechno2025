@@ -34,7 +34,6 @@ const styles = {
         fontFamily: "Poppins, sans-serif",
         color: "#D7E4F5",
         fontWeight: 600,
-        lineHeight: "100%",
         fontSize: { xs: "30px", sm: "32px", md: "42px", lg: "52px" },
         margin: "10px 0",
     },
@@ -44,7 +43,7 @@ const styles = {
         textAlign: "center",
         color: "#D7E4F599",
         fontFamily: "Poppins, sans-serif",
-        fontSize: { xs: "14px", sm: "16px", md: "18px", lg: "18px" },
+        fontSize: "18px",
     },
 };
 
@@ -63,7 +62,7 @@ const CareerTwo = () => {
                 <Grid item xs={12} md={12} order={{ xs: 1, md: 2 }}>
                     <Box sx={styles.textContainer}>
                         <Typography variant="h1" sx={styles.title}>
-                            Join Our Team Build the Future.
+                            Join Our Team Build the Future
                         </Typography>
                         <Typography variant="body1" sx={styles.subTextTwo}>
                             Explore exciting opportunities to learn grow and make an impact Let’s build something great — together.

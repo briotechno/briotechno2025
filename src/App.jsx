@@ -11,7 +11,6 @@ import ApplyNow from "./components/ApplyNow_page";
 import ContactPage from "./components/Contact_page";
 import PortfolioPage from "./components/Portfolio_page"
 import PortfolioDetailpage from "./components/Portfolio_Detailpage";
-// import SlideBar from "./components/sections/Slidebar";
 
 function App() {
   
@@ -29,8 +28,6 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/Portfolio" element={<PortfolioPage />} />
         <Route path="/Portfolio/:role" element={<PortfolioDetailpage />} />
-        {/* <Route path="/testimonials" element={<SlideBar />} /> */}
-
       </Routes>
     </BrowserRouter>
   );

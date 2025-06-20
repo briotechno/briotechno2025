@@ -193,7 +193,7 @@ const PortfolioDetailpageOne = () => {
                     {showHeading && (
                         <Typography className="text-heading" sx={styles.heading}>
                             {"Our Work Your Vision Realized".split("").map((char, index) => (
-                                <span key={index} style={char === " " ? { marginRight: "8px" } : {}}>
+                                <span key={index} style={char === " " ? { marginRight: "0px" } : {}}>
                                     {char}
                                 </span>
                             ))}
