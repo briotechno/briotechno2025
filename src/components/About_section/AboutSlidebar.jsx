@@ -20,10 +20,9 @@ const AboutSlidebar = () => {
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
     const styles = {
-         container: {
+        container: {
             width: "100%",
             maxWidth: "1440px",
-            padding: isMobile ? "0 10px" : "0 20px",
             minHeight: "596px",
             display: "flex",
             flexDirection: "column",
@@ -35,13 +34,13 @@ const AboutSlidebar = () => {
             justifyContent: "space-between",
             marginBottom: "20px",
         },
-       heading: {
+        heading: {
             fontFamily: "Inter, sans-serif",
             fontWeight: 700,
             fontSize: "24px",
             color: "#D7E4F5",
             textAlign: "left",
-            padding: isMobile ? "0 10px" : "0 20px",
+            padding: isMobile ? "0 20px" : "0 20px",
             opacity: 0,
             transform: "translateY(20px)",
         },
@@ -49,7 +48,7 @@ const AboutSlidebar = () => {
             display: "flex",
             alignItems: "center",
             gap: "10px",
-            paddingRight: "40px",
+            paddingRight: "20px",
             "@media (max-width: 1024px)": {
                 paddingRight: "20px",
             },
@@ -90,7 +89,7 @@ const AboutSlidebar = () => {
             flexDirection: "column",
             alignItems: "flex-start",
         },
-         title: {
+        title: {
             fontSize: "16px",
             fontWeight: 700,
             lineHeight: "20px",
@@ -121,7 +120,7 @@ const AboutSlidebar = () => {
         { title: "Jane Cooper", subtitle: "unpexel", description: "Amet aliquam, volutpat nisl, duis sed at. Vehicula proin consectetur risus dictumst nec amet consequat at tempus. Ornare dapibus nunc fames nibh morbi viverra eu sed mattis. ", }
     ];
 
-   const settings = {
+    const settings = {
         dots: true,
         infinite: true,
         slidesToShow: 4,
@@ -130,7 +129,7 @@ const AboutSlidebar = () => {
         swipeToSlide: true,
         responsive: [
             { breakpoint: 1200, settings: { slidesToShow: 3 } },
-            { breakpoint: 1024, settings: { slidesToShow: 2.5 } },
+            { breakpoint: 1024, settings: { slidesToShow: 3 } },
             { breakpoint: 768, settings: { slidesToShow: 2 } },
             { breakpoint: 600, settings: { slidesToShow: 1.5 } },
             { breakpoint: 425, settings: { slidesToShow: 1 } },
@@ -193,7 +192,7 @@ const AboutSlidebar = () => {
             </Box>
             <Slider ref={sliderRef} {...settings} style={{ padding: "0 10px" }}>
                 {Data.map((project, index) => (
-                    <Box key={index} sx={{ padding: "10px" }} className="slider-item">
+                    <Box key={index} className="slider-item">
                         <Card sx={styles.card}>
                             <CardContent>
                                 <Box sx={{

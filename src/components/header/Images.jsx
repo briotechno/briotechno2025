@@ -11,6 +11,9 @@ import Portfolio4 from '../../assets/images/Portfolio4.png';
 import Portfolio5 from '../../assets/images/Portfolio5.png';
 import Portfolio6 from '../../assets/images/Portfolio6.png';
 import Portfolio7 from '../../assets/images/Portfolio7.png';
+import Portfolio8 from '../../assets/images/Portfolio8.png';
+import Portfolio9 from '../../assets/images/Portfolio9.png';
+import Portfolio10 from '../../assets/images/Portfolio10.png';
 
 // LefttoRight slider
 import Slider1 from "../../assets/images/Slider_1/ltr1.png";
@@ -37,6 +40,7 @@ import Testing from "../../assets/images/Testing.png";
 import WebDevelopment from "../../assets/images/WebDevelopment.png";
 
 import frame from "../../assets/images/Frame.png";
+import ReadMore from "../../assets/images/ReadMore.png";
 
 // Vector 
 import vector1 from "../../assets/images/Frame1.png";
@@ -53,10 +57,10 @@ import Culture from "../../assets/images/Culture.png"
 
 export {
     // Home Page
-    BlueVector, PurpleVector,companyLogo,
+    BlueVector, PurpleVector, companyLogo,
 
     // Portfolio page
-    Portfolio1, Portfolio2, Portfolio3, Portfolio4, Portfolio5, Portfolio6, Portfolio7,
+    Portfolio1, Portfolio2, Portfolio3, Portfolio4, Portfolio5, Portfolio6, Portfolio7, Portfolio8, Portfolio9,Portfolio10,
 
     // LeftRight
     Slider1, Slider2, Slider3, Slider4, Slider5, Slider6,
@@ -65,7 +69,7 @@ export {
     Slider2_1, Slider2_2, Slider2_3, Slider2_4, Slider2_5, Slider2_6,
 
     // Home page Offer 
-    Branding, DigitalMarketing, MobileApp, Seo, Testing, WebDevelopment, frame,
+    Branding, DigitalMarketing, MobileApp, Seo, Testing, WebDevelopment, frame,ReadMore,
 
     // Vector page
     vector1, vector2, vector3, vector4,

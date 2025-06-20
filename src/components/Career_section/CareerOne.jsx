@@ -194,7 +194,7 @@ const CareerOne = () => {
                     {showHeading && (
                         <Typography className="text-heading" sx={styles.heading}>
                             {"Work With Purpose Grow With Us".split("").map((char, index) => (
-                                <span key={index} style={char === " " ? { marginRight: "8px" } : {}}>
+                                <span key={index} style={char === " " ? { marginRight: "0px" } : {}}>
                                     {char}
                                 </span>
                             ))}

@@ -6,6 +6,7 @@ import "@fontsource/quicksand";
 import "../../styles/fonts.css";
 import ChooseImg from "../../assets/images/Choose.png";
 import DynamicButton from "../header/DynamicButton";
+import { useNavigate } from "react-router-dom";
 
 // Register ScrollTrigger with GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -68,6 +69,7 @@ const Choose = () => {
     const imgRef = useRef(null);
     const textRef = useRef(null);
     const sectionRef = useRef(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         // Image animation - moves from left to right
@@ -157,8 +159,10 @@ const Choose = () => {
                         <Typography variant="body1" sx={styles.subTextTwo}>
                             We don’t just build digital products — we build partnerships that last. Our approach blends strategy, creativity, and technical excellence to deliver solutions that are innovative, scalable, and truly aligned with your business goals. With a focus on quality, transparency, and long-term value, we’re here to help you succeed in a digital-first world
                         </Typography>
-                        <Box sx={styles.buttonContainer}>
-                            <DynamicButton filled={false}>Let's Connect</DynamicButton>
+                        <Box>
+                            <DynamicButton filled={false} onClick={() => navigate("/Contact")}>
+                                Let's Connect
+                            </DynamicButton>
                         </Box>
                     </Box>
                 </Grid>

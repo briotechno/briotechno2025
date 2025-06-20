@@ -33,7 +33,7 @@ const ServicesOffer = () => {
             padding: "20px 0",
         },
         heading: {
-            padding: "0px 10px",
+            padding: "10px 10px",
             fontSize: "32px",
             fontWeight: 700,
             color: "#FFFFFF",

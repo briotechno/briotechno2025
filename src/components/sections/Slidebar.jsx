@@ -20,10 +20,9 @@ const SlideBar = () => {
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
     const styles = {
-        container: {
+         container: {
             width: "100%",
             maxWidth: "1440px",
-            padding: isMobile ? "0 10px" : "0 20px",
             minHeight: "596px",
             display: "flex",
             flexDirection: "column",
@@ -41,7 +40,7 @@ const SlideBar = () => {
             fontSize: "24px",
             color: "#D7E4F5",
             textAlign: "left",
-            padding: isMobile ? "0 10px" : "0 20px",
+            padding: isMobile ? "0 20px" : "0 20px",
             opacity: 0,
             transform: "translateY(20px)",
         },
@@ -49,7 +48,7 @@ const SlideBar = () => {
             display: "flex",
             alignItems: "center",
             gap: "10px",
-            paddingRight: "40px",
+            paddingRight: "20px",
             "@media (max-width: 1024px)": {
                 paddingRight: "20px",
             },
@@ -130,7 +129,7 @@ const SlideBar = () => {
         swipeToSlide: true,
         responsive: [
             { breakpoint: 1200, settings: { slidesToShow: 3 } },
-            { breakpoint: 1024, settings: { slidesToShow: 2.5 } },
+            { breakpoint: 1024, settings: { slidesToShow: 3 } },
             { breakpoint: 768, settings: { slidesToShow: 2 } },
             { breakpoint: 600, settings: { slidesToShow: 1.5 } },
             { breakpoint: 425, settings: { slidesToShow: 1 } },
