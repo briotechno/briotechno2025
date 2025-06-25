@@ -114,7 +114,6 @@ const CareerOne = () => {
            fontFamily: "Quicksand, sans-serif",
             fontWeight: 700,
             fontSize: { xs: "32px", sm: "40px", md: "50px", lg: "64px" },
-            letterSpacing: "0px",
             color: "white",
             paddingX: { lg: "45px", sm: "0" },
         },
@@ -131,7 +130,6 @@ const CareerOne = () => {
             lineHeight: "24px",
             letterSpacing: "2%",
             color: "#FFFFFF99",
-            textAlign: "justify",
             paddingX: { lg: "45px", sm: "0" },
             margin: "5px 0"
         },

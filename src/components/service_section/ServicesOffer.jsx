@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography, Grid2 } from "@mui/material";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Branding, DigitalMarketing, MobileApp, Seo, Testing, WebDevelopment } from "../header/Images"
@@ -30,10 +30,10 @@ const ServicesOffer = () => {
             position: "relative",
             zIndex: 1,
             overflow: "hidden",
-            padding: "20px 0",
+            padding: "10px 0",
         },
         heading: {
-            padding: "10px 10px",
+            padding: "10px",
             fontSize: "32px",
             fontWeight: 700,
             color: "#FFFFFF",
@@ -41,15 +41,19 @@ const ServicesOffer = () => {
             opacity: 0,
         },
         gridContainer: {
+            width: "100%",
             maxWidth: "1440px",
-            padding: "10px",
         },
         box: {
+            height: "auto",
             border: "1px solid #A1AEBF",
             borderRadius: "4px",
-            padding: "20px",
+            padding: "25px",
+            margin: "10px",
+            textAlign: "left",
             display: "flex",
             flexDirection: "column",
+            alignItems: "flex-start",
             gap: "12px",
             transition: "border 0.3s ease-in-out, transform 0.3s ease-in-out",
             "&:hover": {
@@ -58,7 +62,7 @@ const ServicesOffer = () => {
                 borderImageSlice: 1,
                 transform: "scale(1.05)",
             },
-            perspective: "1000px",
+            perspective: "1000px", // Adds 3D perspective
         },
         image: {
             width: "48px",
@@ -127,14 +131,9 @@ const ServicesOffer = () => {
         <Box sx={styles.section} ref={sectionRef}>
             <Typography sx={styles.heading} ref={headingRef}>We Offer</Typography>
 
-            <Grid container spacing={3} sx={styles.gridContainer} justifyContent="center">
+            <Grid2 container sx={styles.gridContainer} justifyContent="center">
                 {boxData.map((box, index) => (
-                    <Grid
-                        item
-                        key={index}
-                        xs={12}
-                        sm={6}
-                        md={4}
+                    <Grid2 key={index} size={{ xs: 12, sm: 6, md: 4, lg: 4 }}
                         display="flex"
                         justifyContent="center"
                     >
@@ -146,9 +145,9 @@ const ServicesOffer = () => {
                             <Typography sx={styles.boxHeading}>{box.title}</Typography>
                             <Typography sx={styles.boxSubheading}>{box.desc}</Typography>
                         </Box>
-                    </Grid>
+                    </Grid2>
                 ))}
-            </Grid>
+            </Grid2>
         </Box>
     );
 };

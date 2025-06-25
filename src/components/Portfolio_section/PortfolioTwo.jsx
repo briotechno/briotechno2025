@@ -1,5 +1,9 @@
 import React from "react";
+<<<<<<< Updated upstream
 import { Box, Typography, Grid, Button, Grid } from "@mui/material";
+=======
+import { Box, Typography, Button, Grid2 } from "@mui/material";
+>>>>>>> Stashed changes
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Portfolio1, Portfolio2, Portfolio4, Portfolio5, Portfolio6, Portfolio7, Portfolio8, Portfolio9, Portfolio10 } from "../header/Images";
@@ -17,7 +21,6 @@ const images = [
   { src: Portfolio8, alt: "portfolio-8", role: "Creekdemo", link: "http://creekdemo.s3-website.ap-south-1.amazonaws.com/" },
   { src: Portfolio9, alt: "portfolio-9", role: "Wariior", link: "https://wariior-town.vercel.app/" },
   { src: Portfolio10, alt: "portfolio-10", role: "Potato-studio", link: "https://potato-studio.vercel.app/" },
-
 ];
 const styles = {
   container: {
@@ -49,7 +52,6 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     padding: { xs: "0 15px", lg: "0 1px" },
-    // padding: "0 35px",
     position: "relative",
     borderRadius: "12px",
     overflow: "hidden",
@@ -96,8 +98,8 @@ const PortfolioTwo = () => {
 
   return (
     <Box sx={styles.container}>
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={12} order={{ xs: 1, md: 2 }}>
+      <Grid2 container spacing={2}>
+        <Grid2 size={{ xs: 12, md: 12 }}>
           <Box sx={styles.header}>
             <Typography variant="h1" sx={styles.title}>
               Mobile & Web Applications
@@ -106,9 +108,9 @@ const PortfolioTwo = () => {
               We design and develop fast, scalable, and user-friendly web and mobile applications tailored to your business goals.
             </Typography>
           </Box>
-          <Grid container spacing={2} justifyContent="center">
+          <Grid2 container spacing={2} justifyContent="center">
             {images.map(({ src, alt, role, link }, idx) => (
-              <Grid item xs={12} sm={6} md={6} key={idx}>
+              <Grid2 size={{ xs: 12, sm: 6, md: 6 }} key={idx}>
                 <Box sx={styles.imageGrid}>
                   <Box component="img" src={src} alt={alt} sx={styles.img} />
                   <Box className="overlay" sx={styles.overlay}>
@@ -121,14 +123,13 @@ const PortfolioTwo = () => {
                         <InsertLinkIcon sx={{ ml: 1 }} />
                       </Button>
                     </a>
-
                   </Box>
                 </Box>
-             </Grid>
+              </Grid2>
             ))}
-          </Grid>
-        </Grid>
-      </Grid>
+          </Grid2>
+        </Grid2>
+      </Grid2>
     </Box>
   );
 };

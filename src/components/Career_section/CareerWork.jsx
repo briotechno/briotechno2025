@@ -1,9 +1,8 @@
 import React from "react";
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography, Grid2 } from "@mui/material";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Growth, Great, Executive, Collaboration, Culture } from "../header/Images"
-import { HorizontalRule } from "@mui/icons-material";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -72,6 +71,7 @@ const CareerWork = () => {
             width: "100%",
             borderRadius: "16px",
             padding: "20px",
+            cursor: "pointer",
             display: "flex",
             justifyContent: "center",
             flexDirection: "column",
@@ -108,28 +108,17 @@ const CareerWork = () => {
     return (
         <Box sx={styles.section}>
             <Box>
-                <Grid item xs={12} md={12} order={{ xs: 1, md: 2 }}>
-                    <Box
-                        sx={styles.textContainer}
-                    >
+                <Grid2 size={{ xs: 12, md: 12 }}>
+                    <Box sx={styles.textContainer}>
                         <Typography variant="h1" sx={styles.title}>
                             Why work with us
                         </Typography>
-
                     </Box>
-                </Grid>
-                <Grid container sx={styles.gridContainer} justifyContent="center">
+                </Grid2>
+                <Grid2 container sx={styles.gridContainer} justifyContent="center">
                     {boxData.map((box, index) => (
-                        <Grid
-                            item
-                            key={index}
-                            xs={12}
-                            sm={6}
-                            md={4}
-                            lg={4}
-                            display="flex"
-                            justifyContent="center"
-                        >
+                        <Grid2 key={index} size={{ xs: 12, sm: 6, md: 4, lg: 4 }} display="flex"
+                            justifyContent="center">
                             <Box
                                 sx={styles.box}
                                 className="offer-box"
@@ -138,9 +127,9 @@ const CareerWork = () => {
                                 <Typography sx={styles.boxheading}>{box.title}</Typography>
                                 <Typography sx={styles.boxSubheading}>{box.desc}</Typography>
                             </Box>
-                        </Grid>
+                        </Grid2>
                     ))}
-                </Grid>
+                </Grid2>
             </Box>
         </Box>
     );

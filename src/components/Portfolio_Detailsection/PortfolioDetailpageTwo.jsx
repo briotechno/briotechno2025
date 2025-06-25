@@ -1,19 +1,11 @@
 import React from "react";
-import { Box, Grid, Typography,  } from "@mui/material";
+import { Box, Grid2, Typography, } from "@mui/material";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "@fontsource/quicksand";
 import "../../styles/fonts.css";
 import DynamicButton from "../header/DynamicButton";
-import {
-    Portfolio1,
-    Portfolio2,
-    Portfolio3,
-    Portfolio4,
-    Portfolio5,
-    Portfolio6,
-    Portfolio7,
-} from "../../components/header/Images";
+import { Portfolio1, Portfolio2, Portfolio4, Portfolio5, Portfolio6, Portfolio7, Portfolio8, Portfolio9, Portfolio10 } from "../../components/header/Images";
 
 // Register ScrollTrigger with GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -102,20 +94,23 @@ const styles = {
 const images = [
     { src: Portfolio1, alt: "portfolio-1" },
     { src: Portfolio2, alt: "portfolio-2" },
-    { src: Portfolio3, alt: "portfolio-3" },
     { src: Portfolio4, alt: "portfolio-4" },
     { src: Portfolio5, alt: "portfolio-5" },
     { src: Portfolio6, alt: "portfolio-6" },
+    { src: Portfolio7, alt: "portfolio-7" },
+    { src: Portfolio8, alt: "portfolio-8" },
+    { src: Portfolio9, alt: "portfolio-9" },
+    { src: Portfolio10, alt: "portfolio-10" },
 ];
 const imagesTwo = [
-    { src: Portfolio7, alt: "portfolio-7" },
+    { src: Portfolio1, alt: "Portfolio-1" },
 ];
 const PortfolioDetailpageTwo = () => {
 
     return (
         <Box sx={styles.section}>
-            <Grid container spacing={4}>
-                <Grid item xs={12} md={12} order={{ xs: 1, md: 2 }}>
+            <Grid2 container spacing={4}>
+                <Grid2 size={{ xs: 12, md: 12 }}>
                     <Box sx={styles.textContainer}>
                         <Typography variant="h1" sx={styles.title}>
                             Project Name
@@ -189,30 +184,30 @@ const PortfolioDetailpageTwo = () => {
                         </Box>
                     </Box>
 
-                    <Grid container sx={styles.imageGrid}>
+                    <Grid2 container sx={styles.imageGrid}>
                         {images.map(({ src, alt }, idx) => (
-                            <Grid item xs={12} sm={12} md={12} key={idx} sx={styles.imageBox}>
+                            <Grid2 size={{ xs: 12, sm: 12, md: 12 }} key={idx} sx={styles.imageBox}>
                                 <img
                                     src={src}
                                     alt={alt}
                                     style={styles.img}
                                 />
-                            </Grid>
+                            </Grid2>
                         ))}
-                    </Grid>
-                    <Grid container sx={styles.image}>
+                    </Grid2>
+                    <Grid2 container sx={styles.image}>
                         {imagesTwo.map(({ src, alt }, idx) => (
-                            <Grid item xs={12} sm={12} md={12} key={idx}>
+                            <Grid2 size={{ xs: 12, sm: 12, md: 12 }} key={idx}>
                                 <img
                                     src={src}
                                     alt={alt}
                                     style={styles.img}
                                 />
-                            </Grid>
+                            </Grid2>
                         ))}
-                    </Grid>
-                </Grid>
-            </Grid>
+                    </Grid2>
+                </Grid2>
+            </Grid2>
         </Box >
     );
 };

@@ -41,6 +41,7 @@ import WebDevelopment from "../../assets/images/WebDevelopment.png";
 
 import frame from "../../assets/images/Frame.png";
 import ReadMore from "../../assets/images/ReadMore.png";
+import ChooseImg from "../../assets/images/Choose.png";
 
 // Vector 
 import vector1 from "../../assets/images/Frame1.png";
@@ -60,7 +61,7 @@ export {
     BlueVector, PurpleVector, companyLogo,
 
     // Portfolio page
-    Portfolio1, Portfolio2, Portfolio3, Portfolio4, Portfolio5, Portfolio6, Portfolio7, Portfolio8, Portfolio9,Portfolio10,
+    Portfolio1, Portfolio2, Portfolio3, Portfolio4, Portfolio5, Portfolio6, Portfolio7, Portfolio8, Portfolio9, Portfolio10,
 
     // LeftRight
     Slider1, Slider2, Slider3, Slider4, Slider5, Slider6,
@@ -69,7 +70,7 @@ export {
     Slider2_1, Slider2_2, Slider2_3, Slider2_4, Slider2_5, Slider2_6,
 
     // Home page Offer 
-    Branding, DigitalMarketing, MobileApp, Seo, Testing, WebDevelopment, frame,ReadMore,
+    Branding, DigitalMarketing, MobileApp, Seo, Testing, WebDevelopment, frame, ReadMore, ChooseImg,
 
     // Vector page
     vector1, vector2, vector3, vector4,

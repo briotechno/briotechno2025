@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-    Box,
-    Typography,
-    InputLabel,
-    IconButton,
-    LinearProgress,
-    Fade,
-} from "@mui/material";
+import { Box, Typography, InputLabel, IconButton, LinearProgress, Fade } from "@mui/material";
 import "@fontsource/quicksand";
 import CloseIcon from '@mui/icons-material/Close';
 import UploadIcon from "@mui/icons-material/Add";
@@ -217,7 +210,7 @@ const InternshipForm = () => {
         console.log("Submitted:", formData, file);
 
         setQuery('progress');
-        const { firstName, lastName,  phoneNumber, courseName, qualification, } = formData;
+        const { firstName, lastName, phoneNumber, courseName, qualification, } = formData;
 
         const templateParams = {
             name: `${firstName} ${lastName}`,
@@ -225,7 +218,7 @@ const InternshipForm = () => {
             course_name: courseName,
             phone_number: phoneNumber,
         };
-        
+
         uploadDocument(templateParams, "template_031y1ql", file, (response) => {
             if (!response) {
                 return setQuery('idle');

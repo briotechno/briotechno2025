@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid, Typography} from "@mui/material";
+import { Box, Grid2, Typography } from "@mui/material";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "@fontsource/quicksand";
@@ -11,16 +11,14 @@ const styles = {
     section: {
         width: "100%",
         maxWidth: "1440px",
+        padding: { lg: "30px", xs: "15px" },
         color: "#fff",
-        padding: { xs: "20px", sm: "40px" },
         minHeight: { xs: "600px", sm: "400px" },
         boxSizing: "border-box",
-        margin: "0 auto",
     },
     textContainer: {
         width: "100%",
-        maxWidth: "1200px",
-        margin: "0 auto",
+        maxWidth: "1440px",
     },
     title: {
         fontFamily: "Poppins, sans-serif",
@@ -75,8 +73,8 @@ const requirements = [
 const CareerApplyRules = () => {
     return (
         <Box sx={styles.section}>
-            <Grid container spacing={4}>
-                <Grid item xs={12}>
+            <Grid2 container spacing={4}>
+                <Grid2 size={{ xs: 12 }}>
                     <Box sx={styles.textContainer}>
                         <Typography variant="h2" sx={styles.title}>About the Company</Typography>
                         <Typography variant="body1" sx={styles.subTextTwo}>
@@ -85,9 +83,9 @@ const CareerApplyRules = () => {
                             growth hacking to increase the visibility and engagement of our client’s channels.
                         </Typography>
                     </Box>
-                </Grid>
+                </Grid2>
 
-                <Grid item xs={12}>
+                <Grid2 size={{ xs: 12 }}>
                     <Box sx={styles.textContainer}>
                         <Typography variant="h2" sx={styles.title}>About the Role</Typography>
                         <Typography variant="body1" sx={styles.subTextTwo}>
@@ -96,9 +94,9 @@ const CareerApplyRules = () => {
                             strategies, and creating engaging content.
                         </Typography>
                     </Box>
-                </Grid>
+                </Grid2>
 
-                <Grid item xs={12}>
+                <Grid2 size={{ xs: 12 }}>
                     <Box sx={styles.textContainer}>
                         <Typography sx={styles.title}>Responsibilities</Typography>
                         <ul>
@@ -111,9 +109,9 @@ const CareerApplyRules = () => {
                             ))}
                         </ul>
                     </Box>
-                </Grid>
+                </Grid2>
 
-                <Grid item xs={12}>
+                <Grid2 size={{ xs: 12 }}>
                     <Box sx={styles.textContainer}>
                         <Typography sx={styles.title}>Requirements</Typography>
                         <ul>
@@ -126,22 +124,22 @@ const CareerApplyRules = () => {
                             ))}
                         </ul>
                     </Box>
-                </Grid>
-                <Grid item xs={12}>
+                </Grid2>
+                <Grid2 size={{ xs: 12 }}>
                     <Box sx={styles.textContainer}>
                         <Typography sx={styles.notes} paragraph>
                             If you are passionate about YouTube and have a proven track record of success, we would love to hear from
                             you. Please apply with your resume and a cover letter highlighting your experience and qualifications at{" "}
                             <a href="mailto:info@briotechno.com" style={{ color: "#D7E4F5", textDecoration: "underline" }}>
-                              info@briotechno.com
+                                info@briotechno.com
                             </a>.
                         </Typography>
                         <Typography sx={styles.footnotes}>
                             We are an equal opportunity employer and welcome all qualified candidates to apply.
                         </Typography>
                     </Box>
-                </Grid>
-            </Grid>
+                </Grid2>
+            </Grid2>
         </Box>
     );
 };

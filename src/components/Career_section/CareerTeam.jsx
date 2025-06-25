@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Grid2, Typography } from "@mui/material";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -72,6 +72,7 @@ const CareerTeam = () => {
             width: "100%",
             borderRadius: "16px",
             padding: "20px",
+            cursor: "pointer",
             backgroundColor: "#101318",
             border: "1px solid transparent",
             transition: "transform 0.3s ease, border 0.3s ease",
@@ -85,7 +86,6 @@ const CareerTeam = () => {
             height: "50px",
         },
         No: {
-            // fontFamily: "Poppins",
             fontWeight: 500,
             fontSize: "40px",
             lineHeight: "100%",
@@ -104,14 +104,13 @@ const CareerTeam = () => {
             fontWeight: 400,
             fontSize: "16px",
             color: "#D7E4F599",
-            // lineHeight: "1.6",
         },
     };
 
     return (
         <Box sx={styles.section}>
             <Box>
-                <Grid item xs={12} md={12} order={{ xs: 1, md: 2 }}>
+                <Grid2 size={{ xs: 12, md: 12 }}>
                     <Box
                         sx={styles.textContainer}
                     >
@@ -122,19 +121,11 @@ const CareerTeam = () => {
                             We like to keep things as simple as possible so we can get to what’s really important - finding out more about you
                         </Typography>
                     </Box>
-                </Grid>
-                <Grid container sx={styles.gridContainer} justifyContent="center">
+                </Grid2>
+                <Grid2 container sx={styles.gridContainer} justifyContent="center">
                     {boxData.map((box, index) => (
-                        <Grid
-                            item
-                            key={index}
-                            xs={12}
-                            sm={6}
-                            md={3}
-                            lg={3}
-                            display="flex"
-                            justifyContent="center"
-                        >
+                        <Grid2 key={index} size={{ xs: 12, sm: 6, md: 3, lg: 3 }} display="flex"
+                            justifyContent="center">
                             <Box
                                 sx={styles.box}
                                 className="offer-box"
@@ -143,9 +134,9 @@ const CareerTeam = () => {
                                 <Typography sx={styles.boxHeading}>{box.title}</Typography>
                                 <Typography sx={styles.boxSubheading}>{box.desc}</Typography>
                             </Box>
-                        </Grid>
+                        </Grid2>
                     ))}
-                </Grid>
+                </Grid2>
             </Box>
         </Box>
     );

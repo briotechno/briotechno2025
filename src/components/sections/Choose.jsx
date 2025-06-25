@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography, Grid2 } from "@mui/material";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "@fontsource/quicksand";
 import "../../styles/fonts.css";
-import ChooseImg from "../../assets/images/Choose.png";
+import { ChooseImg } from "../header/Images";
 import DynamicButton from "../header/DynamicButton";
 import { useNavigate } from "react-router-dom";
 
@@ -19,15 +19,13 @@ const styles = {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        padding: "40px 20px",
+        padding: { xs: "20px" }
     },
     imgbox: {
         width: "100%",
         height: "auto",
         display: "flex",
         justifyContent: { xs: "flex-start", md: "center" },
-        marginLeft: { xs: "20px", md: "0px" },
-        marginRight: { xs: "20px", md: "0px" }
     },
     img: {
         width: "100%",
@@ -122,17 +120,8 @@ const Choose = () => {
 
     return (
         <Box ref={sectionRef} sx={styles.content}>
-            <Grid
-                container
-                spacing={6}
-                alignItems="center"
-                justifyContent="center"
-            >
-                <Grid
-                    item
-                    xs={12}
-                    md={6}
-                    order={{ xs: 2, md: 1 }}
+            <Grid2 container spacing={2} alignItems="center" justifyContent="center" >
+                <Grid2 size={{ xs: 12, sm: 6, md: 6, lg: 6 }}
                     sx={{
                         display: "flex",
                         justifyContent: { xs: "flex-start", md: "center" },
@@ -147,8 +136,8 @@ const Choose = () => {
                             style={styles.img}
                         />
                     </Box>
-                </Grid>
-                <Grid item xs={12} md={6} order={{ xs: 1, md: 2 }}>
+                </Grid2>
+                <Grid2 size={{ xs: 12, sm: 6, md: 6, lg: 6 }} order={{ xs: 1, md: 2 }}>
                     <Box
                         ref={textRef}
                         sx={styles.textContainer}
@@ -165,8 +154,8 @@ const Choose = () => {
                             </DynamicButton>
                         </Box>
                     </Box>
-                </Grid>
-            </Grid>
+                </Grid2>
+            </Grid2>
         </Box>
     );
 };
