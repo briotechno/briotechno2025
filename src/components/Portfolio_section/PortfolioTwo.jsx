@@ -1,9 +1,5 @@
 import React from "react";
-<<<<<<< Updated upstream
-import { Box, Typography, Grid, Button, Grid } from "@mui/material";
-=======
 import { Box, Typography, Button, Grid2 } from "@mui/material";
->>>>>>> Stashed changes
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Portfolio1, Portfolio2, Portfolio4, Portfolio5, Portfolio6, Portfolio7, Portfolio8, Portfolio9, Portfolio10 } from "../header/Images";
