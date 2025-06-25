@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid, Typography, IconButton } from "@mui/material";
+import { Box, Typography, IconButton, Grid2 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { GitHub, Twitter, LinkedIn, Instagram } from "@mui/icons-material";
 import { companyLogo } from "../header/Images";
@@ -30,9 +30,9 @@ const Footer = () => {
                     px: 3,
                 }}
             >
-                <Grid container spacing={4} >
+                <Grid2 container spacing={4} >
                     {/* Logo + Description */}
-                    <Grid item xs={12} sm={12} md={3}>
+                    <Grid2 size={{ xs: 12, sm: 12, md: 3 }}>
                         <Box
                             component="img"
                             src={companyLogo}
@@ -43,14 +43,15 @@ const Footer = () => {
                         <Typography sx={{ color: "#6c757d", fontSize: "15px" }}>
                             Briotechno is a renowned web app and mobile app development company and the best IT Software Solutions provider based in Mehsana, Gujarat, India, established in 2017.
                         </Typography>
-                    </Grid>
+                    </Grid2>
 
                     {/* Useful Links */}
-                    <Grid item xs={12} sm={4} md={3} sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                    }}>
+                    <Grid2 size={{ xs: 12, sm: 4, md: 3 }}
+                        sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                        }}>
                         <Typography sx={{ fontSize: "16px", lineHeight: "20px", letterSpacing: "2%", fontWeight: 700, mb: 2, fontFamily: "Agrandir, sans-serif", color: "#D7E4F5" }}>Company</Typography>
                         {[
                             { label: "About Us", path: "/About" },
@@ -71,14 +72,15 @@ const Footer = () => {
                             </Typography>
                         ))}
 
-                    </Grid>
+                    </Grid2>
 
                     {/* Resources */}
-                    <Grid item xs={12} sm={4} md={3} sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                    }}>
+                    <Grid2 size={{ xs: 12, sm: 4, md: 3 }}
+                        sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                        }}>
                         <Typography sx={{ fontSize: "16px", lineHeight: "20px", letterSpacing: "2%", fontWeight: 700, mb: 2, fontFamily: "Agrandir, sans-serif", color: "#D7E4F5" }}>Resources</Typography>
                         {[
                             { label: "Portfolio", path: "/portfolio" },
@@ -98,14 +100,15 @@ const Footer = () => {
                             </Typography>
                         ))}
 
-                    </Grid>
+                    </Grid2>
 
                     {/* Social Icons */}
-                    <Grid item xs={12} sm={4} md={3} sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                    }}>
+                    <Grid2 size={{ xs: 12, sm: 4, md: 3 }}
+                        sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                        }}>
                         <Typography sx={{ fontSize: "16px", lineHeight: "20px", letterSpacing: "2%", fontWeight: 700, mb: 2, fontFamily: "Agrandir, sans-serif", color: "#D7E4F5" }}>Follow us</Typography>
                         <Box>
                             <IconButton
@@ -148,8 +151,8 @@ const Footer = () => {
                                 <Instagram />
                             </IconButton> */}
                         </Box>
-                    </Grid>
-                </Grid>
+                    </Grid2>
+                </Grid2>
 
                 {/* Copyright */}
                 <Box sx={{
@@ -159,7 +162,6 @@ const Footer = () => {
                     <Typography sx={{ color: "#6c757d", fontSize: "14px" }}>
                         © {new Date().getFullYear()} Briotechno. All Rights Reserved.
                     </Typography>
-
                 </Box>
             </Box>
         </Box>

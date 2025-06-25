@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Grid, Button } from "@mui/material";
+import { Box, Typography, Button, Grid2 } from "@mui/material";
 import "@fontsource/quicksand";
 import "@fontsource/poppins";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -10,8 +10,7 @@ const styles = {
     section: {
         color: "#fff",
         maxWidth: "1240px",
-        padding: { xs: "30px 20px", md: "50px" },
-        margin: "0 auto",
+        padding: { xs: "30px 20px", md: "50px"},
     },
     textContainer: {
         display: "flex",
@@ -92,9 +91,9 @@ const CareerPosition = () => {
                 </Typography>
             </Box>
 
-            <Grid container spacing={3}>
+            <Grid2 container spacing={3}>
                 {positions.map((role, index) => (
-                    <Grid item xs={12} sm={6} md={6} lg={6} key={index}>
+                    <Grid2 size={{ xs: 12, sm: 6, md: 6, lg: 6 }} key={index}>
                         <Button variant="contained" sx={styles.jobButton}
                             onClick={() => navigate(`/careers/${role.toLowerCase().replace(/\s+/g, "-")}`)}
                         >
@@ -103,9 +102,9 @@ const CareerPosition = () => {
                                 <ArrowForwardIcon className="arrow" sx={styles.arrow} />
                             </Box>
                         </Button>
-                    </Grid>
+                    </Grid2>
                 ))}
-            </Grid>
+            </Grid2>
         </Box>
     );
 };

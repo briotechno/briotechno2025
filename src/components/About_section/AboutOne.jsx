@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Typography, TextField, keyframes, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Typography, keyframes, useMediaQuery, useTheme } from "@mui/material";
 import { BlueVector, PurpleVector } from "../header/Images"
 import gsap from "gsap";
 import DynamicButton from "../header/DynamicButton";

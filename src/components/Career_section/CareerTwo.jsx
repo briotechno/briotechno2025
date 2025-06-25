@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography, Grid2 } from "@mui/material";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import DynamicButton from "../header/DynamicButton";
@@ -58,8 +58,8 @@ const CareerTwo = () => {
     return (
 
         <Box sx={styles.section}>
-            <Grid container spacing={4}>
-                <Grid item xs={12} md={12} order={{ xs: 1, md: 2 }}>
+            <Grid2 container spacing={4}>
+                <Grid2 size={{ xs: 12, md: 12 }}>
                     <Box sx={styles.textContainer}>
                         <Typography variant="h1" sx={styles.title}>
                             Join Our Team Build the Future
@@ -73,8 +73,8 @@ const CareerTwo = () => {
                             </DynamicButton>
                         </Box>
                     </Box>
-                </Grid>
-            </Grid>
+                </Grid2>
+            </Grid2>
         </Box>
     );
 };

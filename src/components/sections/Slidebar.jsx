@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "@fontsource/quicksand";
-import { Typography, Card, CardContent, CardMedia, Box, useMediaQuery, useTheme } from "@mui/material";
+import { Typography, Card, CardContent, Box, useMediaQuery, useTheme } from "@mui/material";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';

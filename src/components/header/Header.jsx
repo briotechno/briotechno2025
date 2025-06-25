@@ -1,16 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import {
-  AppBar,
-  Toolbar,
-  Box,
-  IconButton,
-  Drawer,
-  useMediaQuery,
-  Button,
-  Menu,
-  MenuItem,
-  Typography,
-} from "@mui/material";
+import { AppBar, Toolbar, Box, IconButton, Drawer, useMediaQuery, Button, Menu, MenuItem, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
@@ -177,7 +166,7 @@ const Navbar = () => {
           ) : (
             <>
               <IconButton onClick={() => setDrawerOpen(true)} sx={{
-                color: "#fff", 
+                color: "#fff",
                 "&:focus": {
                   outline: "none",
                   boxShadow: "none",

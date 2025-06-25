@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRef, useEffect } from "react";
-import { Box, Button, Typography, Card, CardContent, CardMedia, Grid } from "@mui/material";
+import { Box, Button, Typography, Card, CardContent, CardMedia, Grid2 } from "@mui/material";
 import DynamicButton from "../header/DynamicButton";
 import "@fontsource/quicksand";
 import { frame, ReadMore } from "../header/Images"
@@ -204,9 +204,9 @@ const PortfolioSection = () => {
         <>
             <Box sx={styles.content}>
                 <Box sx={styles.section} ref={sectionRef}>
-                    <Grid container spacing={2}>
+                    <Grid2 container spacing={2}>
                         {/* Left Section */}
-                        <Grid item xs={12} md={4} lg={4}>
+                        <Grid2 size={{ xs: 12, md: 4, lg: 4 }}>
                             <Typography sx={styles.title} ref={titleRef}>
                                 Some pieces of our work
                             </Typography>
@@ -218,11 +218,12 @@ const PortfolioSection = () => {
                             <Box sx={styles.buttonContainer}>
                                 <DynamicButton filled={false}>Show More</DynamicButton>
                             </Box>
-                        </Grid>
-                        <Grid item xs={12} md={4} lg={4}>
-                            <Grid container spacing={2}>
+                        </Grid2>
+
+                        <Grid2 size={{ xs: 12, md: 4, lg: 4 }}>
+                            <Grid2 container spacing={2}>
                                 {projects.map((project, index) => (
-                                    <Grid item xs={12} sm={12} key={project.id}>
+                                    <Grid2 size={{ xs: 12, sm: 12 }} key={project.id}>
                                         <Card
                                             sx={styles.card}
                                             className="portfolio-card"
@@ -260,16 +261,16 @@ const PortfolioSection = () => {
                                                 </Button>
                                             </CardContent>
                                         </Card>
-                                    </Grid>
+                                    </Grid2>
                                 ))}
-                            </Grid>
-                        </Grid>
+                            </Grid2>
+                        </Grid2>
 
                         {/* Third part */}
-                        <Grid item xs={12} md={4} lg={4}>
-                            <Grid container spacing={2}>
+                        <Grid2 size={{ xs: 12, md: 4, lg: 4 }}>
+                            <Grid2 container spacing={2}>
                                 {projecttwo.map((project, index) => (
-                                    <Grid item xs={12} sm={12} key={project.id}>
+                                    <Grid2 size={{ xs: 12, sm: 12 }} key={project.id}>
                                         <Card
                                             sx={styles.card}
                                             className="portfolio-card"
@@ -305,11 +306,11 @@ const PortfolioSection = () => {
                                                 </Button>
                                             </CardContent>
                                         </Card>
-                                    </Grid>
+                                    </Grid2>
                                 ))}
-                            </Grid>
-                        </Grid>
-                    </Grid>
+                            </Grid2>
+                        </Grid2>
+                    </Grid2>
                 </Box>
             </Box>
         </>

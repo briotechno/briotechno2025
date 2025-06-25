@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-    Box,
-    Typography,
-    InputLabel,
-    IconButton,
-    LinearProgress,
-    Fade,
-} from "@mui/material";
+import { Box, Typography, InputLabel, IconButton, LinearProgress, Fade } from "@mui/material";
 import "@fontsource/quicksand";
 import CloseIcon from '@mui/icons-material/Close';
 import UploadIcon from "@mui/icons-material/Add";
@@ -17,10 +10,6 @@ import CircularProgress from "@mui/material/CircularProgress";
 import DynamicButton from "../header/DynamicButton";
 
 import uploadDocument from "../../firebase";
-
-
-
-
 
 const LinearProgressWithLabel = ({ value }) => (
     <Box sx={{ width: '100%' }}>
@@ -44,7 +33,7 @@ const styles = {
         width: "100%",
         maxWidth: "1440px",
         color: "#fff",
-        padding: "100px 0",
+        padding: "20px 0",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -211,7 +200,7 @@ const ContactForm = () => {
                 message: message,
                 phoneNumber: phoneNumber,
             };
-            
+
             uploadDocument(templateParams, "template_qf47m83", file, (response) => {
                 if (!response) {
                     return setQuery('idle');
@@ -227,8 +216,8 @@ const ContactForm = () => {
             })
 
 
-  // Document requirement
-        // if (!file) newErrors["file"] = "Document requirement";
+            // Document requirement
+            // if (!file) newErrors["file"] = "Document requirement";
 
             setQuery('progress');
         } catch (error) {

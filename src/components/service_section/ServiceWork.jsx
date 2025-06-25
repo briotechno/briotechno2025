@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { Box, Button, Typography, Card, CardContent, CardMedia } from "@mui/material";
-import Grid from '@mui/material/Grid';
+import { Box, Button, Typography, Card, CardContent, CardMedia, Grid2 } from "@mui/material";
 import "@fontsource/quicksand";
 import { frame, ReadMore } from "../header/Images"
 import { gsap } from "gsap";
@@ -212,16 +211,16 @@ const PortfolioSection = () => {
 
     return (
         <Box sx={styles.section} ref={sectionRef}>
-            <Grid container spacing={4}>
-                <Grid item xs={12} md={4}>
+            <Grid2 container spacing={4}>
+                <Grid2 size={{ xs: 12, md: 4, }}>
                     <Typography variant="h1" sx={styles.title} ref={titleRef}>
                         Branding Works
                     </Typography>
-                </Grid>
-                <Grid item xs={12} md={12}>
-                    <Grid container spacing={3} justifyContent="center">
+                </Grid2>
+                <Grid2 size={{ xs: 12, md: 12, }}>
+                    <Grid2 container spacing={3} justifyContent="center">
                         {projects.map((project, index) => (
-                            <Grid item xs={12} sm={6} md={4} lg={4} key={project.id}>
+                            <Grid2 size={{ xs: 12, sm: 6, md: 4, lg: 4 }} key={project.id}>
                                 <Card sx={styles.card} className="portfolio-card">
                                     {project.image && (
                                         <CardMedia
@@ -241,11 +240,11 @@ const PortfolioSection = () => {
                                         </Button>
                                     </CardContent>
                                 </Card>
-                            </Grid>
+                            </Grid2>
                         ))}
-                    </Grid>
-                </Grid>
-            </Grid>
+                    </Grid2>
+                </Grid2>
+            </Grid2>
         </Box>
     );
 };

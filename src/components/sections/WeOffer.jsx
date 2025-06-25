@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography, Grid2, Grid } from "@mui/material";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Branding, DigitalMarketing, MobileApp, Seo, Testing, WebDevelopment } from "../header/Images"
@@ -23,7 +23,7 @@ const WeOffer = () => {
             zIndex: 1,
             overflow: "hidden",
             backgroundColor: "#101318",
-            padding: "50px 0",
+            padding: "20px 0",
         },
         heading: {
             fontFamily: "Quicksand, sans-serif",
@@ -53,6 +53,7 @@ const WeOffer = () => {
             border: "1px solid #A1AEBF",
             borderRadius: "4px",
             padding: "25px",
+            margin: "10px",
             textAlign: "left",
             display: "flex",
             flexDirection: "column",
@@ -168,17 +169,10 @@ const WeOffer = () => {
                 At the core of our services is a commitment to building intelligent, scalable, and user-friendly digital solutions. We partner with startups, scale-ups, and enterprises to deliver
             </Typography>
 
-            <Grid container spacing={3} sx={styles.gridContainer} justifyContent="center">
+            <Grid2 container sx={styles.gridContainer} justifyContent="center">
                 {boxData.map((box, index) => (
-                    <Grid
-                        item
-                        key={index}
-                        xs={12}
-                        sm={6}
-                        md={4}
-                        display="flex"
-                        justifyContent="center"
-                    >
+                    <Grid2 key={index} size={{ xs: 12, sm: 6, md: 4, lg: 4 }} display="flex"
+                        justifyContent="center">
                         <Box
                             sx={styles.box}
                             className="offer-box"
@@ -187,9 +181,9 @@ const WeOffer = () => {
                             <Typography sx={styles.boxHeading}>{box.title}</Typography>
                             <Typography sx={styles.boxSubheading}>{box.desc}</Typography>
                         </Box>
-                    </Grid>
+                    </Grid2>
                 ))}
-            </Grid>
+            </Grid2>
         </Box>
     );
 };
